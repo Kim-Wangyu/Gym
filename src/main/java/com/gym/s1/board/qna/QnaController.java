@@ -46,7 +46,7 @@ public class QnaController {
 	public ModelAndView detail(BoardDTO boardDTO) throws Exception{
 		ModelAndView mv = new ModelAndView();
 		boardDTO = qnaService.detail(boardDTO);
-		mv.addObject("detail",boardDTO);
+		mv.addObject("dto",boardDTO);
 		mv.setViewName("qna/detail");
 		return mv;
 	}
@@ -59,21 +59,17 @@ public class QnaController {
 	}
 	
 	@RequestMapping(value="update",method=RequestMethod.GET)
-	public String update(BoardDTO boardDTO,ModelAndView mv) throws Exception{
-		
-		boardDTO =  qnaService.detail(boardDTO);
-		mv.addObject("update",boardDTO);
-		
-		return "qna/update";
-		
+	public ModelAndView update(QnaDTO qnaDTO, ModelAndView mv) throws Exception{
+
+		BoardDTO boardDTO=  qnaService.detail(qnaDTO);
+		mv.addObject("dto",boardDTO);
+		mv.setViewName("qna/update");
+		return mv;
 	}
 	@RequestMapping(value="update",method=RequestMethod.POST)
-	public String update(BoardDTO boardDTO) throws Exception{
-		
-		int result = qnaService.update(boardDTO);
-		
+	public String update(QnaDTO qnaDTO) throws Exception{
+		int result = qnaService.update(qnaDTO);
 		return "redirect:./list";
-		
 	}
 	
 	

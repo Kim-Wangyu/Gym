@@ -9,13 +9,13 @@
 <body>
 	<h1>Qna Detail Page</h1>
 	
-	<h3>번호 : ${detail.num }</h3>
-	<h3>제목 : ${detail.title }</h3>
-	<h3>내용 : ${detail.contents }</h3>
-	<h3>작성자 : ${detail.writer }</h3>
+	<h3>번호 : ${dto.num }</h3>
+	<h3>제목 : ${dto.title }</h3>
+	<h3>내용 : ${dto.contents }</h3>
+	<h3>작성자 : ${dto.writer }</h3>
 	
-	<a href="./update?num=${detail.num}">UPDATE</a>
-	<a href="./delete?num=${detail.num}">DELETE</a>
+	<a href="./update?num=${dto.num}">UPDATE</a>
+	<a href="./delete?num=${dto.num}">DELETE</a>
 	
 
 </body>

@@ -10,12 +10,13 @@
 <h1>Qna Update Page</h1>
 
 	<form action="./update" method="post">
-		<input type="hidden" name="num" id ="num" value="${update.num }">
-		Title<input type="text" name="title" id="title" value="${update.title }">
-		Contents<textarea name ="contents" id ="contents" rows="" cols=""  >${update.contents }</textarea>
+		<input type="hidden" name="num"  value="${dto.num}">
+		Title<input type="text" name="title" value="${dto.title}">
+		Contents<textarea name ="contents"  rows="" cols=""  >${dto.contents}</textarea>
 		
 	
-		<button type="submit">UPDATE</button>
+		<input type="submit" name="insert">
+		<button type="submit">ADD</button>
 	</form>
 
 </body>
