@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="com.gym.s1.board.qna.QnaDAO">
+
+	<insert id="add" parameterType="QnaDTO">
+		insert into gymqna (num, title, contents,writer, regDate, hit, ref, step,depth)
+		values (gymqna_seq.nextval, #{title},#{contents},#{writer},sysdate, 0, 0, 0, 0)
+	</insert>
+	
+	<select id="list" resultType="QnaDTO">
+		SELECT * FROM GYMQNA
+	</select>
+	
+	<select id ="detail" parameterType="QnaDTO" resultType="QnaDTO">
+		select * from gymqna where num=#{num}
+	</select>
+	
+	<delete id="delete" parameterType="QnaDTO">
+		DELETE GYMQNA WHERE NUM=#{num}
+	</delete>
+	
+	<update id="update" parameterType="QnaDTO">
+		UPDATE GYMQNA SET TITLE = #{title} , CONTENTS = #{contents} WHERE NUM=#{num}
+	</update>
+
+</mapper>
