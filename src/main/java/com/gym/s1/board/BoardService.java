@@ -6,7 +6,7 @@ public interface BoardService {
 	
 	public int add(BoardDTO boardDTO)throws Exception;
 	
-	public List<BoardDTO> list(BoardDTO boardDTO)throws Exception;
+	public List<BoardDTO> list()throws Exception;
 	
 	public BoardDTO detail(BoardDTO boardDTO)throws Exception;
 	
