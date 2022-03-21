@@ -25,11 +25,22 @@
 			<td>${qna.contents }</td>
 			<td>${qna.writer }</td>
 		</tr>
-		</c:forEach>
-		
-		
-		
+		</c:forEach>		
 	</table>
+	
+	<div>
+		<c:if test="${pager.pre}">
+			<a href="./list?page=${pager.startPage-1}">이전</a>
+		</c:if>
+		<c:forEach begin="${pager.startPage}" end="${pager.lastPage}" var="i">
+			<a href="./list?page=${i}">${i}</a>
+		</c:forEach>
+		<c:if test="${pager.next}">
+			<a href="./list?page=${pager.lastPage+1}">다음</a>
+		</c:if>
+	</div>
+	
+	
 	<a href="./add">ADD</a>
 </body>
 </html>

@@ -11,6 +11,7 @@ import com.gym.s1.MyJunitTest;
 import com.gym.s1.board.BoardDTO;
 import com.gym.s1.board.qna.QnaDAO;
 import com.gym.s1.board.qna.QnaDTO;
+import com.gym.s1.util.Pager;
 
 public class QnaTest extends MyJunitTest{
 
@@ -19,20 +20,22 @@ public class QnaTest extends MyJunitTest{
 	
 	//@Test
 	public void addTest() throws Exception{
-		
+		for(int i=1;i<=100;i++) {
 		QnaDTO qnaDTO = new QnaDTO();
-		qnaDTO.setTitle("t1");
-		qnaDTO.setContents("c1");
-		qnaDTO.setWriter("w1");
-		
-	
+		qnaDTO.setTitle("t"+i);
+		qnaDTO.setContents("c"+i);
+		qnaDTO.setWriter("w"+i);
 		int result = qnaDAO.add(qnaDTO);
-		assertEquals(1, result);
+			
+		}	
+		System.out.println("add finish");
+	
+	
 	}
 	
 	//@Test
-	public void listTest() throws Exception{
-		List<BoardDTO> ar = qnaDAO.list();
+	public void listTest(Pager pager) throws Exception{
+		List<BoardDTO> ar = qnaDAO.list(pager);
 		assertNotEquals(0, ar.size());
 	}
 	
@@ -54,7 +57,7 @@ public class QnaTest extends MyJunitTest{
 		assertEquals(1, result);
 	}
 	
-	@Test
+	//@Test
 	public void updateTest() throws Exception{
 		QnaDTO qnaDTO = new QnaDTO();
 		

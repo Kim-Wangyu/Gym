@@ -2,11 +2,13 @@ package com.gym.s1.board;
 
 import java.util.List;
 
+import com.gym.s1.util.Pager;
+
 public interface BoardService {
 	
 	public int add(BoardDTO boardDTO)throws Exception;
 	
-	public List<BoardDTO> list()throws Exception;
+	public List<BoardDTO> list(Pager pager)throws Exception;
 	
 	public BoardDTO detail(BoardDTO boardDTO)throws Exception;
 	

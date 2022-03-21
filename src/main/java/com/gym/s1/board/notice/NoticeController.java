@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.gym.s1.board.BoardDTO;
+import com.gym.s1.util.Pager;
 
 import jdk.nashorn.internal.ir.RuntimeNode.Request;
 
@@ -72,9 +73,9 @@ public class NoticeController {
 	
 	
 	@RequestMapping(value = "list",method = RequestMethod.GET)
-	public ModelAndView list()throws Exception{
+	public ModelAndView list(Pager pager)throws Exception{
 		ModelAndView mv = new ModelAndView();
-		List<BoardDTO> ar = noticeService.list();		
+		List<BoardDTO> ar = noticeService.list(pager);		
 		mv.addObject("list",ar);
 		mv.setViewName("board/list");
 		return mv;

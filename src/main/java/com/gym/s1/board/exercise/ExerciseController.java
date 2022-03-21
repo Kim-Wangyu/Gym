@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.gym.s1.board.BoardDTO;
+import com.gym.s1.util.Pager;
 
 @Controller
 @RequestMapping(value="/exercise/*")
@@ -24,9 +25,9 @@ public class ExerciseController {
 	private ExerciseService exerciseService;
 	
 	@RequestMapping(value="list", method = RequestMethod.GET)
-	public ModelAndView list(BoardDTO boardDTO)throws Exception{
+	public ModelAndView list(BoardDTO boardDTO, Pager pager)throws Exception{
 		ModelAndView mv = new ModelAndView();
-		List<BoardDTO> ar = exerciseService.list();
+		List<BoardDTO> ar = exerciseService.list(pager);
 		mv.addObject("list",ar);
 		mv.setViewName("/exercise/list");
 		return mv;

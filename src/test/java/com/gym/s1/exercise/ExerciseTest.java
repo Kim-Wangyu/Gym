@@ -28,11 +28,11 @@ public class ExerciseTest extends MyJunitTest{
 	}
 	
 	//@Test
-	public void listTest()throws Exception{
-		
-		List<BoardDTO> ar = exerciseDAO.list();
-		assertNotEquals(0, ar.size());
-	}
+//	public void listTest()throws Exception{
+//		
+//		List<BoardDTO> ar = exerciseDAO.list();
+//		assertNotEquals(0, ar.size());
+//	}
 	
 	//@Test
 	public void detailTest()throws Exception{

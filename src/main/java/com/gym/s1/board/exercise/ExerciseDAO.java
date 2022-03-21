@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 
 import com.gym.s1.board.BoardDAO;
 import com.gym.s1.board.BoardDTO;
+import com.gym.s1.util.Pager;
 
 @Repository
 public class ExerciseDAO implements BoardDAO {
@@ -23,8 +24,8 @@ public class ExerciseDAO implements BoardDAO {
 	}
 
 	@Override
-	public List<BoardDTO> list() throws Exception {
-		return sqlSession.selectList(NAMESPACE+"list");
+	public List<BoardDTO> list(Pager pager) throws Exception {
+		return sqlSession.selectList(NAMESPACE+"list",pager);
 	}
 
 	@Override
