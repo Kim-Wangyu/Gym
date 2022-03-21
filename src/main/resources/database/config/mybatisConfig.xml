@@ -4,11 +4,14 @@
   "http://mybatis.org/dtd/mybatis-3-config.dtd">
 
 
+
 <configuration>
 	<typeAliases>
 		<typeAlias type="com.gym.s1.board.qna.QnaDTO" alias="QnaDTO" />
 		<typeAlias type = "java.util.List" alias="List"/>
 		<typeAlias type = "java.lang.Long" alias="Long" />
 		<typeAlias type="com.gym.s1.board.BoardDTO" alias="BoardDTO"/>
+		<typeAlias type="com.gym.s1.board.notice.NoticeDTO" alias="NoticeDTO"/>
 	</typeAliases>
 </configuration>
+

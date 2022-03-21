@@ -12,6 +12,8 @@
 <h1>chaerin</h1>
 <h1>sj</h1>
 
+
+<a href="./notice/list">LIST</a>
 <P>  The time on the server is ${serverTime}. </P>
 </body>
 </html>
