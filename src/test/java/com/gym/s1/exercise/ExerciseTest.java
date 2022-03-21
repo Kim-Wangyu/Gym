@@ -8,11 +8,11 @@ import java.util.List;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.gym.s1.JunitTest;
+import com.gym.s1.MyJunitTest;
 import com.gym.s1.board.BoardDTO;
 import com.gym.s1.board.exercise.ExerciseDAO;
 
-public class ExerciseTest extends JunitTest{
+public class ExerciseTest extends MyJunitTest{
 
 	@Autowired
 	private ExerciseDAO exerciseDAO;

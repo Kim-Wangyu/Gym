@@ -6,12 +6,12 @@
 
 
 <configuration>
-	<typeAliases>
-		<typeAlias type="com.gym.s1.board.qna.QnaDTO" alias="QnaDTO" />
+	<typeAliases>	
 		<typeAlias type = "java.util.List" alias="List"/>
 		<typeAlias type = "java.lang.Long" alias="Long" />
 		<typeAlias type="com.gym.s1.board.BoardDTO" alias="BoardDTO"/>
 		<typeAlias type="com.gym.s1.board.notice.NoticeDTO" alias="NoticeDTO"/>
+		<typeAlias type="com.gym.s1.board.qna.QnaDTO" alias="QnaDTO" />
 	</typeAliases>
 </configuration>
 
