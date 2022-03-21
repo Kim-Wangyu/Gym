@@ -12,6 +12,7 @@
 		<typeAlias type="com.gym.s1.board.BoardDTO" alias="BoardDTO"/>
 		<typeAlias type="com.gym.s1.board.notice.NoticeDTO" alias="NoticeDTO"/>
 		<typeAlias type="com.gym.s1.board.qna.QnaDTO" alias="QnaDTO" />
+		<typeAlias type="com.gym.s1.util.Pager" alias="Pager"/>
 	</typeAliases>
 </configuration>
 

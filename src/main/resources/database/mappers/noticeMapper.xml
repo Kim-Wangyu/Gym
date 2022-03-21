@@ -16,7 +16,11 @@
     </insert>
     
     <select id="list" resultType="NoticeDTO">
-    	SELECT * FROM GYMNOTICE
+    	SELECT * FROM
+			(SELECT rownum R, B.* FROM 
+			(SELECT * FROM GYMNOTICE
+			WHERE NUM>0 ORDER BY NUM) B)
+		WHERE R between #{startRow} and #{lastRow}
     </select>
     
     <select id="detail" resultType="NoticeDTO" parameterType="NoticeDTO">
