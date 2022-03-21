@@ -24,27 +24,27 @@ public class NoticeDAO implements BoardDAO{
 	}
 
 	@Override
-	public List<BoardDTO> list(BoardDTO boardDTO) throws Exception {
+	public List<BoardDTO> list() throws Exception {
 		// TODO Auto-generated method stub
-		return null;
+		return sqlSession.selectList(NAMESPACE+"list");
 	}
 
 	@Override
 	public BoardDTO detail(BoardDTO boardDTO) throws Exception {
 		// TODO Auto-generated method stub
-		return null;
+		return sqlSession.selectOne(NAMESPACE+"detail",boardDTO);
 	}
 
 	@Override
 	public int delete(BoardDTO boardDTO) throws Exception {
 		// TODO Auto-generated method stub
-		return 0;
+		return sqlSession.delete(NAMESPACE+"delete",boardDTO);
 	}
 
 	@Override
 	public int update(BoardDTO boardDTO) throws Exception {
 		// TODO Auto-generated method stub
-		return 0;
+		return sqlSession.update(NAMESPACE+"update",boardDTO);
 	}
 	
 	

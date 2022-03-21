@@ -9,5 +9,13 @@
 <body>
 <h1>Detail Page</h1>
 
+<h3>Num : ${dto.num}</h3>
+<h3>Title : ${dto.title}</h3>
+<h3>Contents : ${dto.contents}</h3>
+<h3>Writer : ${dto.writer}</h3>
+
+<a href="./update?num=${dto.num}">UPDATE</a>
+<a href="./delete?num=${dto.num}">DELETE</a>
+
 </body>
 </html>

@@ -1,5 +1,9 @@
 package com.gym.s1.board.notice;
 
+import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -8,6 +12,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.gym.s1.board.BoardDTO;
+
+import jdk.nashorn.internal.ir.RuntimeNode.Request;
 
 @Controller
 @RequestMapping(value = "/notice/*")
@@ -19,6 +25,60 @@ public class NoticeController {
 	@ModelAttribute("board")
 	public String board() {
 		return "notice";
+	}
+	
+	@RequestMapping(value = "update",method = RequestMethod.GET)
+	public ModelAndView update(BoardDTO boardDTO)throws Exception{
+		ModelAndView mv = new ModelAndView();
+		boardDTO= noticeService.detail(boardDTO);
+		mv.addObject("dto", boardDTO);
+		mv.setViewName("board/update");
+		return mv;
+	}
+	
+	@RequestMapping(value = "update",method = RequestMethod.POST)
+	public ModelAndView update(BoardDTO boardDTO,ModelAndView mv)throws Exception{
+		int result=noticeService.update(boardDTO);
+		mv.setViewName("redirect:./list");
+		
+		return mv;
+	}
+	
+	@RequestMapping(value = "delete",method = RequestMethod.GET)
+	public ModelAndView delete(BoardDTO boardDTO)throws Exception{
+		ModelAndView mv = new ModelAndView();
+		int result = noticeService.delete(boardDTO);
+		mv.setViewName("redirect:./list");
+		return mv;
+	}
+	
+	@RequestMapping(value = "detail",method = RequestMethod.GET)
+	public ModelAndView detail(BoardDTO boardDTO/*HttpServletRequest request*/)throws Exception{
+//		String a = Request.getParameter("num");
+//		Long num = Long.parseLong(a);
+//		BoardDTO boardDTO = new BoardDTO();
+//		boardDTO.setNum(num);
+		ModelAndView mv = new ModelAndView();
+		BoardDTO boardDTO2 =new BoardDTO();
+		boardDTO2 = noticeService.detail(boardDTO);
+		mv.addObject("dto",boardDTO2);
+		mv.setViewName("board/detail");
+		return mv;
+		
+		
+	}
+	
+	
+	
+	
+	@RequestMapping(value = "list",method = RequestMethod.GET)
+	public ModelAndView list()throws Exception{
+		ModelAndView mv = new ModelAndView();
+		List<BoardDTO> ar = noticeService.list();		
+		mv.addObject("list",ar);
+		mv.setViewName("board/list");
+		return mv;
+		
 	}
 
 	

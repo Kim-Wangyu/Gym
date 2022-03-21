@@ -23,27 +23,30 @@ public class NoticeService implements BoardService{
 	}
 
 	@Override
-	public List<BoardDTO> list(BoardDTO boardDTO) throws Exception {
+	public List<BoardDTO> list() throws Exception {
 		// TODO Auto-generated method stub
-		return null;
+		return noticeDAO.list();
 	}
 
 	@Override
 	public BoardDTO detail(BoardDTO boardDTO) throws Exception {
 		// TODO Auto-generated method stub
-		return null;
+		boardDTO =noticeDAO.detail(boardDTO);
+		return boardDTO;
 	}
 
 	@Override
 	public int delete(BoardDTO boardDTO) throws Exception {
 		// TODO Auto-generated method stub
-		return 0;
+		int result = noticeDAO.delete(boardDTO);
+		return result;
 	}
 
 	@Override
 	public int update(BoardDTO boardDTO) throws Exception {
 		// TODO Auto-generated method stub
-		return 0;
+		 
+		return noticeDAO.update(boardDTO);
 	}
 
 }

@@ -6,6 +6,14 @@
     
     <mapper namespace="com.gym.s1.board.notice.NoticeDAO">
     
+    <update id="update" parameterType="NoticeDTO">
+    	UPDATE GYMNOTICE SET TITLE=#{title}, CONTENTS=#{contents} where num=#{num}
+    </update>
+    
+    
+
+    
+    
     
     
     <insert id="add" parameterType="NoticeDTO">
@@ -13,7 +21,17 @@
 	VALUES(GYMMEMBER_SEQ.NEXTVAL,#{title},#{contents},#{writer},sysdate,0)
     </insert>
     
+    <select id="list" resultType="NoticeDTO">
+    	SELECT * FROM GYMNOTICE
+    </select>
     
+    <select id="detail" resultType="NoticeDTO" parameterType="NoticeDTO">
+    	SELECT * FROM GYMNOTICE WHERE NUM=#{num}
+    </select>
     
+    <delete id="delete" parameterType="NoticeDTO">
+    	DELETE  GYMNOTICE WHERE NUM=#{num}
+    
+    </delete>
     
     </mapper>
