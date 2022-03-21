@@ -10,15 +10,9 @@
     	UPDATE GYMNOTICE SET TITLE=#{title}, CONTENTS=#{contents} where num=#{num}
     </update>
     
-    
-
-    
-    
-    
-    
     <insert id="add" parameterType="NoticeDTO">
-   INSERT INTO GYMNOTICE
-	VALUES(GYMMEMBER_SEQ.NEXTVAL,#{title},#{contents},#{writer},sysdate,0)
+  		INSERT INTO GYMNOTICE
+		VALUES(GYMMEMBER_SEQ.NEXTVAL,#{title},#{contents},#{writer},sysdate,0)
     </insert>
     
     <select id="list" resultType="NoticeDTO">

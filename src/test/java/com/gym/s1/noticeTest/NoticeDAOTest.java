@@ -21,7 +21,7 @@ public class NoticeDAOTest extends MyJunitTest {
 	@Autowired
 	private NoticeDAO noticeDAO;
 	
-	@Test
+	//@Test
 	public void updateTest()throws Exception{
 		NoticeDTO noticeDTO = new NoticeDTO();
 		noticeDTO.setNum(3L);
@@ -35,9 +35,9 @@ public class NoticeDAOTest extends MyJunitTest {
 	//@Test
 	public void addTest() throws Exception{
 		NoticeDTO noticeDTO = new NoticeDTO();
-		noticeDTO.setTitle("t3");
-		noticeDTO.setContents("c3");
-		noticeDTO.setWriter("w3");
+		noticeDTO.setTitle("t13");
+		noticeDTO.setContents("c13");
+		noticeDTO.setWriter("w13");
 		
 		int result = noticeDAO.add(noticeDTO);
 		assertEquals(1, result);

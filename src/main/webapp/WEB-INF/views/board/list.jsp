@@ -32,6 +32,6 @@
 			
 
 </table>
-<a href="./notice/add">ADD</a>
+<a href="./add">ADD</a>
 </body>
 </html>

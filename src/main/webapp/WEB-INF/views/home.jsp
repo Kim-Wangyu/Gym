@@ -5,15 +5,12 @@
 	<title>Home</title>
 </head>
 <body>
-<h1>
-	Hello world!  
-</h1>
-<h1>wan</h1>
-<h1>chaerin</h1>
-<h1>sj</h1>
 
 
-<a href="./notice/list">LIST</a>
+<a href="./notice/list">Notice List</a>
+<a href="./qna/list">Qna List</a>
+<a href="./exercise/list">Exercise List</a>
+
 <P>  The time on the server is ${serverTime}. </P>
 </body>
 </html>

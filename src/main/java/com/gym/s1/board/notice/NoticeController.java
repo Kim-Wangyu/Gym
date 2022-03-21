@@ -97,7 +97,7 @@ public class NoticeController {
 		ModelAndView mv = new ModelAndView();
 		
 		int result = noticeService.add(boardDTO); 
-		mv.setViewName("redirect:./add");
+		mv.setViewName("redirect:./list");
 		return mv;
 	}
 	
