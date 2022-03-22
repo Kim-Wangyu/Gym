@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.gym.s1.board.BoardDTO;
 import com.gym.s1.board.BoardService;
+import com.gym.s1.util.Pager;
 
 @Service
 public class NoticeService implements BoardService{
@@ -23,9 +24,9 @@ public class NoticeService implements BoardService{
 	}
 
 	@Override
-	public List<BoardDTO> list() throws Exception {
+	public List<BoardDTO> list(Pager pager) throws Exception {
 		// TODO Auto-generated method stub
-		return noticeDAO.list();
+		return noticeDAO.list(pager);
 	}
 
 	@Override

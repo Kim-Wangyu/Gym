@@ -32,8 +32,8 @@ public class QnaTest extends MyJunitTest{
 	
 	//@Test
 	public void listTest() throws Exception{
-		List<BoardDTO> ar = qnaDAO.list();
-		assertNotEquals(0, ar.size());
+	//	List<BoardDTO> ar = qnaDAO.list();
+	//	assertNotEquals(0, ar.size());
 	}
 	
 	//@Test

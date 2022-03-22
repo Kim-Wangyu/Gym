@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.gym.s1.board.BoardDTO;
+import com.gym.s1.util.Pager;
 
 @Controller
 @RequestMapping(value = "/qna/*")
@@ -35,8 +36,8 @@ public class QnaController {
 	}
 	
 	@RequestMapping(value="list", method=RequestMethod.GET)
-	public ModelAndView list(ModelAndView mv) throws Exception {
-		List<BoardDTO> ar = qnaService.list();
+	public ModelAndView list(ModelAndView mv, Pager pager) throws Exception {
+		List<BoardDTO> ar = qnaService.list(pager);
 		mv.addObject("list", ar);
 		mv.setViewName("qna/list");
 		return mv;

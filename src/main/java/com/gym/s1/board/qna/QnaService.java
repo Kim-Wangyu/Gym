@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.gym.s1.board.BoardDTO;
 import com.gym.s1.board.BoardService;
+import com.gym.s1.util.Pager;
 
 @Service
 public class QnaService implements BoardService{
@@ -18,8 +19,8 @@ public class QnaService implements BoardService{
 		return qnaDAO.add(boardDTO);
 	}
 	
-	public List<BoardDTO> list() throws Exception{
-		List<BoardDTO>ar = qnaDAO.list();
+	public List<BoardDTO> list(Pager pager) throws Exception{
+		List<BoardDTO>ar = qnaDAO.list(pager);
 		return ar;
 	}
 
