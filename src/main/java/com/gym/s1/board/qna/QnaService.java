@@ -21,7 +21,7 @@ public class QnaService implements BoardService{
 	
 	public List<BoardDTO> list(Pager pager) throws Exception{
 		pager.makeRow();
-		pager.makeNum();
+		pager.makeNum(qnaDAO.total(pager));
 		List<BoardDTO>ar = qnaDAO.list(pager);
 		return ar;
 	}
@@ -44,6 +44,7 @@ public class QnaService implements BoardService{
 		return qnaDAO.update(boardDTO);
 
 	}
+	
 
 	
 

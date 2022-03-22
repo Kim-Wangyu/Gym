@@ -12,14 +12,17 @@ public class Pager {
 	private boolean pre;
 	private boolean next;
 	
+	private String search;
+	private String kind;
+	
 	public void makeRow() {
 		this.startRow = (this.getPage()-1)*this.getPerPage()+1;
 		this.lastRow = this.getPage()*this.getPerPage();	
 	}
-	public void makeNum() {
+	public void makeNum(Long totalRow) {
 		
 		//1. 총 row의 갯수 구하기
-		Long totalRow=107L;
+		//Long totalRow=107L;
 		//2. 총 page의 갯수 구하기
 		Long totalPage = totalRow / this.getPerPage();
 		if(totalRow%this.getPerPage()!=0) {
@@ -53,14 +56,10 @@ public class Pager {
 		if(curBlock==totalBlock) {
 			this.lastPage=totalPage;
 		}
-	
-	
 	}
 	
-	
-
 	public Long getPerPage() {
-		if(this.perPage== null||this.perPage<1) {
+		if(this.perPage== null || this.perPage<1) {
 			this.perPage=10L;
 		}
 		return perPage;
@@ -128,6 +127,22 @@ public class Pager {
 	public void setNext(boolean next) {
 		this.next = next;
 	}
+	public String getSearch() {
+		if(this.search==null) {
+			this.search="";
+		}
+		return search;
+	}
+	public void setSearch(String search) {
+		this.search = search;
+	}
+	public String getKind() {
+		return kind;
+	}
+	public void setKind(String kind) {
+		this.kind = kind;
+	}
+	
 	
 	
 }

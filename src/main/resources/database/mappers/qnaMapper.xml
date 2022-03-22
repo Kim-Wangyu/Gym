@@ -7,27 +7,60 @@
 <mapper namespace="com.gym.s1.board.qna.QnaDAO">
 
 	<insert id="add" parameterType="QnaDTO">
-		insert into gymqna (num, title, contents,writer, regDate, hit, ref, step,depth)
-		values (gymqna_seq.nextval, #{title},#{contents},#{writer},sysdate, 0, 0, 0, 0)
+		insert into gymqna (num, title,contents,writer, regDate, hit, ref, step,depth)
+		values(gymqna_seq.nextval, #{title},#{contents},#{writer},sysdate, 0, 0, 0, 0)
 	</insert>
-	
-	<select id="list" parameterType = "Pager" resultType="QnaDTO">
-		SELECT * FROM 
-    		(SELECT ROWNUM R, Q.* FROM
-    		(SELECT * FROM GYMQNA ORDER BY NUM DESC) Q)
-    			WHERE R BETWEEN #{startRow} AND #{lastRow}
+
+	<select id="total" parameterType="Pager" resultType="LONG">
+		SELECT COUNT (NUM) FROM GYMQNA
+		WHERE 
+		<choose>
+			<when test="kind=='col1'">
+				TITLE
+			</when>
+			<when test="kind =='col2'">
+				CONTENTS
+			</when>
+			<otherwise>
+				WRITER
+			</otherwise>
+		</choose>
+		LIKE '%'||#{search}||'%'
 	</select>
-	
-	<select id ="detail" parameterType="QnaDTO" resultType="QnaDTO">
-		select * from gymqna where num=#{num}
+
+	<select id="list" parameterType="Pager" resultType="QnaDTO">
+		SELECT * FROM
+		(SELECT ROWNUM R, Q.* FROM
+			(SELECT * FROM GYMQNA 
+				WHERE 
+				<choose>
+					<when test="kind=='col1'">
+						TITLE
+					</when>
+					<when test="kind =='col2'">
+						CONTENTS
+					</when>
+					<otherwise>
+						WRITER
+					</otherwise>
+				</choose>
+				LIKE '%'||#{search}||'%'
+			ORDER BY NUM DESC)
+		 Q)
+		WHERE R BETWEEN #{startRow} AND #{lastRow}
 	</select>
-	
+
+	<select id="detail" parameterType="QnaDTO" resultType="QnaDTO">
+		select *
+		from gymqna where num=#{num}
+	</select>
+
 	<delete id="delete" parameterType="QnaDTO">
 		DELETE GYMQNA WHERE NUM=#{num}
 	</delete>
-	
+
 	<update id="update" parameterType="QnaDTO">
-		UPDATE GYMQNA SET TITLE = #{title} , CONTENTS = #{contents} WHERE NUM=#{num}
+		UPDATE GYMQNA SET TITLE =#{title}, CONTENTS = #{contents} WHERE NUM=#{num}
 	</update>
 
 </mapper>

@@ -45,5 +45,10 @@ public class QnaDAO implements BoardDAO {
 		// TODO Auto-generated method stub
 		return sqlSession.update(NAMESPACE+"update",boardDTO);
 	}
+	@Override
+	public Long total(Pager pager) throws Exception {
+		// TODO Auto-generated method stub
+		return sqlSession.selectOne(NAMESPACE+"total", pager);
+	}
 
 }
