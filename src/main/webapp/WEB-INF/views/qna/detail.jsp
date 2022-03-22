@@ -16,6 +16,7 @@
 	
 	<a href="./update?num=${dto.num}">UPDATE</a>
 	<a href="./delete?num=${dto.num}">DELETE</a>
+	<a href="./list">LIST</a>
 	
 
 </body>

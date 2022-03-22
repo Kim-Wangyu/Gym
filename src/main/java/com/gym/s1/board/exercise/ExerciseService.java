@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.gym.s1.board.BoardDTO;
 import com.gym.s1.board.BoardService;
+import com.gym.s1.util.Pager;
 @Service
 public class ExerciseService implements BoardService {
 	
@@ -19,8 +20,11 @@ public class ExerciseService implements BoardService {
 	}
 
 	@Override
-	public List<BoardDTO> list() throws Exception {
-		return exerciseDAO.list();
+	public List<BoardDTO> list(Pager pager) throws Exception {
+		Long TotalNum = exerciseDAO.total(pager);
+		pager.makeNum();
+		pager.makePageNum(TotalNum);
+		return exerciseDAO.list(pager);
 	}
 
 	@Override

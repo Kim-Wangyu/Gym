@@ -47,8 +47,8 @@ public class NoticeDAOTest extends MyJunitTest {
 	
 	//@Test 
 	public void listTest() throws Exception{
-		List<BoardDTO> ar =noticeDAO.list();
-		assertNotEquals(0, ar.size());
+	//	List<BoardDTO> ar =noticeDAO.list();
+	//	assertNotEquals(0, ar.size());
 	}
 	
 	//@Test

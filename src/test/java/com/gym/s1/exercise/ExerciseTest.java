@@ -17,21 +17,22 @@ public class ExerciseTest extends MyJunitTest{
 	@Autowired
 	private ExerciseDAO exerciseDAO;
 	
-	//@Test
+	@Test
 	public void addTest()throws Exception {
 		BoardDTO boardDTO = new BoardDTO();
-		boardDTO.setContents("testContents");
-		boardDTO.setTitle("testTitle");
-		boardDTO.setWriter("testWriter");
+		for(int i = 0 ; i<200; i++) {
+		boardDTO.setContents("contents"+i);
+		boardDTO.setTitle("title"+i);
+		boardDTO.setWriter("wirter"+i);
 		int result = exerciseDAO.add(boardDTO);
-		assertEquals(result, 1);
+		}
 	}
 	
 	//@Test
 	public void listTest()throws Exception{
 		
-		List<BoardDTO> ar = exerciseDAO.list();
-		assertNotEquals(0, ar.size());
+	//	List<BoardDTO> ar = exerciseDAO.list();
+	//	assertNotEquals(0, ar.size());
 	}
 	
 	//@Test
@@ -50,7 +51,7 @@ public class ExerciseTest extends MyJunitTest{
 		assertEquals(1, result);
 	}
 	
-	@Test
+	//@Test
 	public void updateTest()throws Exception{
 		BoardDTO boardDTO = new BoardDTO();
 		boardDTO.setTitle("tsfs");

@@ -2,28 +2,63 @@
 <!DOCTYPE mapper
     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
- 
-    <mapper namespace="com.gym.s1.board.exercise.ExerciseDAO">
-    
-    	<insert id="add" parameterType="BoardDTO">
-    		INSERT INTO EXERCISE (NUM,TITLE,CONTENTS,WRITER,REGDATE,HIT)
-			VALUES ( GYMEXERCISE_SEQ.NEXTVAL ,#{title},#{contents},#{writer},SYSDATE,0)
-    	</insert>
-    	
-    	<select id="list"  resultType="BoardDTO">
-    		SELECT * FROM EXERCISE
-    	</select>
-    	
-    	<select id="detail" parameterType="BoardDTO" resultType="BoardDTO">
-    		SELECT * FROM EXERCISE WHERE NUM = #{num}
-    	</select>
-    	
-    	<delete id="delete" parameterType="BoardDTO">
-    		DELETE EXERCISE WHERE NUM = #{num}
-    	</delete>
-    	
-    	<update id="update" parameterType="BoardDTO">
-    		UPDATE EXERCISE SET TITLE=#{title}, CONTENTS=#{contents} WHERE NUM =#{num}
-    	</update>
-    
-    </mapper>
+
+<mapper namespace="com.gym.s1.board.exercise.ExerciseDAO">
+
+	<select id="total" resultType="lONG" parameterType="Pager">
+		SELECT COUNT(NUM) FROM EXERCISE where
+		<choose>
+			<when test="kind=='col1'">
+				TITLE
+			</when>
+			<when test="kind=='col2'">
+				CONTENTS
+			</when>
+			<otherwise>
+				WRITER
+			</otherwise>
+		</choose>
+		LIKE '%'||#{search}||'%'
+	</select>
+
+	<insert id="add" parameterType="BoardDTO">
+		INSERT INTO EXERCISE (NUM,TITLE,CONTENTS,WRITER,REGDATE,HIT)
+		VALUES ( GYMEXERCISE_SEQ.NEXTVAL ,#{title},#{contents},#{writer},SYSDATE,0)
+	</insert>
+
+	<select id="list" resultType="BoardDTO" parameterType="Pager">
+		select * from (
+		select rownum R, b.* from
+		(select * from exercise where
+		num > 0 and
+		<choose>
+			<when test="kind=='col1'">
+				TITLE
+			</when>
+			<when test="kind=='col2'">
+				CONTENTS
+			</when>
+			<otherwise>
+				WRITER
+			</otherwise>
+		</choose>
+		LIKE '%'||#{search}||'%'
+		order by num desc) b)
+		where R between
+		#{startNum} and #{lastNum}
+	</select>
+
+	<select id="detail" parameterType="BoardDTO"
+		resultType="BoardDTO">
+		SELECT * FROM EXERCISE WHERE NUM = #{num}
+	</select>
+
+	<delete id="delete" parameterType="BoardDTO">
+		DELETE EXERCISE WHERE NUM = #{num}
+	</delete>
+
+	<update id="update" parameterType="BoardDTO">
+		UPDATE EXERCISE SET TITLE=#{title}, CONTENTS=#{contents} WHERE NUM =#{num}
+	</update>
+
+</mapper>
