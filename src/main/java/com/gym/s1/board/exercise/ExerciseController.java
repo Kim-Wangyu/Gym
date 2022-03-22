@@ -25,9 +25,10 @@ public class ExerciseController {
 	private ExerciseService exerciseService;
 	
 	@RequestMapping(value="list", method = RequestMethod.GET)
-	public ModelAndView list(BoardDTO boardDTO, Pager pager)throws Exception{
+	public ModelAndView list(BoardDTO boardDTO,Pager pager)throws Exception{
 		ModelAndView mv = new ModelAndView();
 		List<BoardDTO> ar = exerciseService.list(pager);
+		mv.addObject("pager",pager);
 		mv.addObject("list",ar);
 		mv.setViewName("/exercise/list");
 		return mv;

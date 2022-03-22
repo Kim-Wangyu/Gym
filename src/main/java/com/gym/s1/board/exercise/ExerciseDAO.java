@@ -18,6 +18,11 @@ public class ExerciseDAO implements BoardDAO {
 	
 	private final String NAMESPACE = "com.gym.s1.board.exercise.ExerciseDAO.";
 	
+	
+	public Long total(Pager pager)throws Exception{
+		return sqlSession.selectOne(NAMESPACE+"total",pager);
+	}
+	
 	@Override
 	public int add(BoardDTO boardDTO) throws Exception {
 		return sqlSession.insert(NAMESPACE+"add",boardDTO);

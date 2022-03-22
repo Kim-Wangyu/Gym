@@ -21,6 +21,9 @@ public class ExerciseService implements BoardService {
 
 	@Override
 	public List<BoardDTO> list(Pager pager) throws Exception {
+		Long TotalNum = exerciseDAO.total(pager);
+		pager.makeNum();
+		pager.makePageNum(TotalNum);
 		return exerciseDAO.list(pager);
 	}
 
