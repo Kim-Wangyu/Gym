@@ -28,7 +28,7 @@ public class Pager {
 	}
 	
 	public void makeNum(Long totalCount) {
-		totalCount = 203L;
+		
 		
 		Long totalPage =totalCount/this.getPerpage();
 		if(totalCount%this.getPerpage()!=0) {
@@ -118,6 +118,9 @@ public class Pager {
 	}
 
 	public String getSearch() {
+		if(this.search==null) {
+			search="";
+		}
 		return search;
 	}
 

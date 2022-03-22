@@ -10,6 +10,23 @@
 <body>
 <h1>List Page</h1>
 
+<div>
+	<form action="./list" method="get"> 
+		<fieldset>
+			<select name="kind">
+				<option value="col1">제목</option>
+				<option value="col2">타이틀</option>
+				<option value="col3">작성자</option>
+			</select>
+			<input type="text" name="search" value="${pager.search}">
+			<button type="submit">검색</button>
+		
+		</fieldset>
+	
+	</form>
+
+</div>
+
 <table>
 	<thead>
 		<tr>
@@ -39,7 +56,7 @@
 	</c:if>
 
 	<c:forEach begin="${pager.startNum}" end="${pager.lastNum}" var="i">
-		<a href="./list?page=${i}">${i}</a>
+		<a href="./list?page=${i}&kind=${pager.kind}&search=${pager.search}">${i}</a>
 	</c:forEach>
 
 	<c:if test="${pager.next}">

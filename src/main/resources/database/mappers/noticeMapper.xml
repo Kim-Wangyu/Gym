@@ -19,9 +19,36 @@
     	SELECT * FROM
 			(SELECT rownum R, B.* FROM 
 			(SELECT * FROM GYMNOTICE
-			WHERE NUM>0 ORDER BY NUM) B)
+			WHERE NUM>0 and 
+			<choose>
+				<when test="kind=='col1'">
+				Title
+				</when>
+				<when test="kind=='col2'">
+				Contents
+				</when>
+				<otherwise>
+				Writer
+				</otherwise>
+			</choose>
+			LIKE '%'||#{search}||'%'
+			ORDER BY NUM) B)
 		WHERE R between #{startRow} and #{lastRow}
+		
     </select>
+    
+    <select id="total" resultType="Long" parameterType="Pager">
+    	SELECT COUNT(num) FROM GYMNOTICE WHERE num>0 and
+    	<choose>
+    		<when test="kind=='col1'">Title</when>
+    		<when test="kind=='col2'">Contents</when>
+    		<otherwise>Writer</otherwise>
+    	</choose>
+    	LIKE '%'||#{search}||'%'
+    </select>
+    
+    
+    
     
     <select id="detail" resultType="NoticeDTO" parameterType="NoticeDTO">
     	SELECT * FROM GYMNOTICE WHERE NUM=#{num}
