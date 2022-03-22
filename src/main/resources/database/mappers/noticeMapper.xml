@@ -12,7 +12,7 @@
     
     <insert id="add" parameterType="NoticeDTO">
   		INSERT INTO GYMNOTICE
-		VALUES(GYMMEMBER_SEQ.NEXTVAL,#{title},#{contents},#{writer},sysdate,0)
+		VALUES(GYMMEMBER_SEQ.NEXTVAL,#{title},#{contents},#{writer},sysdate,0,0,0,0)
     </insert>
     
     <select id="list" resultType="NoticeDTO">
@@ -33,7 +33,7 @@
 			</choose>
 			LIKE '%'||#{search}||'%'
 			ORDER BY NUM) B)
-		WHERE R between #{startRow} and #{lastRow}
+		WHERE R between #{startNum} and #{lastNum}
 		
     </select>
     

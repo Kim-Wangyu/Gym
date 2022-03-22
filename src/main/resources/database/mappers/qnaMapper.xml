@@ -47,7 +47,7 @@
 				LIKE '%'||#{search}||'%'
 			ORDER BY NUM DESC)
 		 Q)
-		WHERE R BETWEEN #{startRow} AND #{lastRow}
+		WHERE R BETWEEN #{startNum} AND #{lastNum}
 	</select>
 
 	<select id="detail" parameterType="QnaDTO" resultType="QnaDTO">

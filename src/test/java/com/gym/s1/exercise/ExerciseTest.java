@@ -17,7 +17,7 @@ public class ExerciseTest extends MyJunitTest{
 	@Autowired
 	private ExerciseDAO exerciseDAO;
 	
-	@Test
+	//@Test
 	public void addTest()throws Exception {
 		BoardDTO boardDTO = new BoardDTO();
 		for(int i = 0 ; i<200; i++) {
