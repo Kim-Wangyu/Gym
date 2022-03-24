@@ -36,9 +36,9 @@ public class NoticeDAOTest extends MyJunitTest {
 	public void addTest() throws Exception{
 		for(int i=0;i<200;i++) {
 		NoticeDTO noticeDTO = new NoticeDTO();
-		noticeDTO.setTitle("t13"+i);
-		noticeDTO.setContents("c13"+i);
-		noticeDTO.setWriter("w13"+i);
+		noticeDTO.setTitle("t"+i);
+		noticeDTO.setContents("c"+i);
+		noticeDTO.setWriter("w"+i);
 		
 		int result = noticeDAO.add(noticeDTO);
 		}
