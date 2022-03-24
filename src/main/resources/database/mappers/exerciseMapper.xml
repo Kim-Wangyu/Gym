@@ -22,8 +22,8 @@
 	</select>
 
 	<insert id="add" parameterType="BoardDTO">
-		INSERT INTO EXERCISE (NUM,TITLE,CONTENTS,WRITER,REGDATE,HIT)
-		VALUES ( GYMEXERCISE_SEQ.NEXTVAL ,#{title},#{contents},#{writer},SYSDATE,0)
+		INSERT INTO EXERCISE (NUM,TITLE,CONTENTS,WRITER,REGDATE,HIT,depth,ref,step)
+		VALUES ( GYMEXERCISE_SEQ.NEXTVAL ,#{title},#{contents},#{writer},SYSDATE,0,0,0,0)
 	</insert>
 
 	<select id="list" resultType="BoardDTO" parameterType="Pager">

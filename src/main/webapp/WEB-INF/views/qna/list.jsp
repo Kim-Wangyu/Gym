@@ -43,13 +43,13 @@
 	
 	<div>
 		<c:if test="${pager.pre}">
-			<a href="./list?page=${pager.startPage-1}">이전</a>
+			<a href="./list?page=${pager.startPageNum-1}">이전</a>
 		</c:if>
-		<c:forEach begin="${pager.startPage}" end="${pager.lastPage}" var="i">
+		<c:forEach begin="${pager.startPageNum}" end="${pager.lastPageNum}" var="i">
 			<a href="./list?page=${i}&kind=${pager.kind}&search=${pager.search}">${i}</a>
 		</c:forEach>
 		<c:if test="${pager.next}">
-			<a href="./list?page=${pager.lastPage+1}">다음</a>
+			<a href="./list?page=${pager.lastPageNum+1}">다음</a>
 		</c:if>
 	</div>
 	

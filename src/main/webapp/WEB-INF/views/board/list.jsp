@@ -15,7 +15,7 @@
 		<fieldset>
 			<select name="kind">
 				<option value="col1">제목</option>
-				<option value="col2">타이틀</option>
+				<option value="col2">내용</option>
 				<option value="col3">작성자</option>
 			</select>
 			<input type="text" name="search" value="${pager.search}">
@@ -52,15 +52,15 @@
 
 <div>
 	<c:if test="${pager.pre}">
-		<a href="./list?page=${pager.startNum-1}">PREVIEW</a>
+		<a href="./list?page=${pager.startPageNum-1}">PREVIEW</a>
 	</c:if>
 
-	<c:forEach begin="${pager.startNum}" end="${pager.lastNum}" var="i">
+	<c:forEach begin="${pager.startPageNum}" end="${pager.lastPageNum}" var="i">
 		<a href="./list?page=${i}&kind=${pager.kind}&search=${pager.search}">${i}</a>
 	</c:forEach>
 
 	<c:if test="${pager.next}">
-		<a href="./list?page=${pager.lastNum+1}">NEXT</a>
+		<a href="./list?page=${pager.lastPageNum+1}">NEXT</a>
 	</c:if>
 
 

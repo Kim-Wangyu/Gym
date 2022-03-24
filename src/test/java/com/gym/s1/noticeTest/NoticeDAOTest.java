@@ -32,7 +32,7 @@ public class NoticeDAOTest extends MyJunitTest {
 		assertEquals(1, result);
 	}
 	
-	@Test
+	//@Test
 	public void addTest() throws Exception{
 		for(int i=0;i<200;i++) {
 		NoticeDTO noticeDTO = new NoticeDTO();
