@@ -40,7 +40,7 @@ public class NoticeDAOTest extends MyJunitTest {
 		noticeDTO.setContents("c"+i);
 		noticeDTO.setWriter("w"+i);
 		
-		int result = noticeDAO.add(noticeDTO);
+		 noticeDAO.add(noticeDTO);
 		}
 		
 	}
