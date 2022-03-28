@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+    <mapper namespace="com.gym.s1.board.qna.qnaReply.QnaReplyDAO">
+    
+    	<insert id = "add" parameterType="QnaReplyDTO">
+    		INSERT INTO GYMQNAREPLY
+    		VALUES(GQR_SEQ.NEXTVAL,#{num},#{writer},#{contents}, sysdate)
+    	</insert>
+    	
+    	<select id ="list" parameterType="QnaReplyDTO" resultType="QnaReplyDTO">
+    		SELECT * FROM GYMQNAREPLY
+       		WHERE NUM=#{num}
+      	 	ORDER BY REPLYNUM DESC
+    	</select>
+    	
+    	<delete id="delete" parameterType="QnaReplyDTO">
+    		DELETE GYMQNAREPLY WHERE REPLYNUM=#{replyNum}
+    	</delete>
+    	
+    	<update id="update" parameterType = "QnaReplyDTO">
+    		UPDATE GYMQNAREPLY SET CONTENTS=#{contents} WHERE REPLYNUM=#{replyNum}
+    	</update>
+    
+    </mapper>

@@ -20,14 +20,14 @@ public class QnaTest extends MyJunitTest{
 	
 	//@Test
 	public void addTest() throws Exception{
-		for(int i=1;i<=100;i++) {
+		
 		QnaDTO qnaDTO = new QnaDTO();
-		qnaDTO.setTitle("t"+i);
-		qnaDTO.setContents("c"+i);
-		qnaDTO.setWriter("w"+i);
+		qnaDTO.setTitle("ttt");
+		qnaDTO.setContents("ccc");
+		qnaDTO.setWriter("www");
 		int result = qnaDAO.add(qnaDTO);
-			
-		}	
+		assertNotNull(qnaDTO);
+		
 		System.out.println("add finish");
 	
 	

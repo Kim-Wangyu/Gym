@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import com.gym.s1.MyJunitTest;
 import com.gym.s1.board.BoardDTO;
 import com.gym.s1.board.exercise.ExerciseDAO;
+import com.gym.s1.util.Pager;
 
 public class ExerciseTest extends MyJunitTest{
 
@@ -28,11 +29,11 @@ public class ExerciseTest extends MyJunitTest{
 		}
 	}
 	
-	//@Test
-	public void listTest()throws Exception{
+	@Test
+	public void listTest(Pager pager)throws Exception{
 		
-	//	List<BoardDTO> ar = exerciseDAO.list();
-	//	assertNotEquals(0, ar.size());
+		List<BoardDTO> ar = exerciseDAO.list(pager);
+		assertNotEquals(0, ar.size());
 	}
 	
 	//@Test

@@ -14,7 +14,9 @@
 		<typeAlias type="com.gym.s1.board.BoardDTO" alias="BoardDTO"/>
 		<typeAlias type="com.gym.s1.board.notice.NoticeDTO" alias="NoticeDTO"/>
 		<typeAlias type="com.gym.s1.board.qna.QnaDTO" alias="QnaDTO" />
+		<typeAlias type="com.gym.s1.board.exercise.ExerciseDTO" alias="ExerciseDTO"/>
 		<typeAlias type="com.gym.s1.member.MemberDTO" alias="MemberDTO" />
+		<typeAlias type="com.gym.s1.board.qna.qnaReply.QnaReplyDTO" alias="QnaReplyDTO"/>
 		
 
 
