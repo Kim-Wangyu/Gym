@@ -43,4 +43,12 @@ public class NoticeReplyDAOTest extends MyJunitTest{
 	int result = noticeReplyDAO.update(noticeReplyDTO);
 	assertEquals(1, result);
 	}
+	
+	//@Test
+	public void deleteTest()throws Exception{
+		NoticeReplyDTO noticeReplyDTO = new NoticeReplyDTO();
+		noticeReplyDTO.setReplyNum(28L);
+		int result= noticeReplyDAO.delete(noticeReplyDTO);
+		assertEquals(1, result);
+	}
 }

@@ -20,4 +20,8 @@
     	<update id="update" parameterType="NoticeReplyDTO">
     		UPDATE GYMNOTICEREPLY SET CONTENTS=#{contents} where REPLYNUM=#{replyNum}
     	</update>
+    	
+    	<delete id="delete" parameterType="NoticeReplyDTO">
+    		DELETE GYMNOTICEREPLY WHERE REPLYNUM=#{replyNum}
+    	</delete>
     </mapper>

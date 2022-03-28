@@ -8,8 +8,11 @@
 		<td>${dto.writer}</td>
 		
 		<td>
+		<c:if test="${dto.writer eq member.id}">
 			<button class="update" type="button" data-index="${dto.replyNum}">UPDATE</button>
+			<button class="del" type="button" data-num="${dto.replyNum}">DELETE</button>
 		</td>
+		</c:if>
 	</tr>
 	
 	
