@@ -21,7 +21,7 @@ public class ExerciseReplyController {
 		ModelAndView mv =new ModelAndView();
 		int result=exerciseReplyService.update(exerciseReplyDTO);
 		mv.addObject("result",result);
-		mv.setViewName("common/ajaxReply");
+		mv.setViewName("common/ajaxResult");
 		return mv;
 	}
 	
@@ -30,7 +30,7 @@ public class ExerciseReplyController {
 		ModelAndView mv =new ModelAndView();
 		int result = exerciseReplyService.delete(exerciseReplyDTO);
 		mv.addObject("result",result);
-		mv.setViewName("common/ajaxReply");
+		mv.setViewName("common/ajaxResult");
 		return mv;
 	}
 	
@@ -48,7 +48,7 @@ public class ExerciseReplyController {
 		ModelAndView mv = new ModelAndView();
 		int result = exerciseReplyService.add(exerciseReplyDTO);
 		mv.addObject("result",result);
-		mv.setViewName("common/ajaxReply");
+		mv.setViewName("common/ajaxResult");
 		return mv;
 	}
 	
