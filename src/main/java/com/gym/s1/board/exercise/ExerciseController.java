@@ -55,7 +55,7 @@ public class ExerciseController {
 		return mv;
 	}
 	
-	@RequestMapping(value="delete",method=RequestMethod.GET)
+	@RequestMapping(value="delete",method=RequestMethod.POST)
 	public String delete(BoardDTO boardDTO)throws Exception{
 		int result = exerciseService.delete(boardDTO);
 		return "redirect:./list";

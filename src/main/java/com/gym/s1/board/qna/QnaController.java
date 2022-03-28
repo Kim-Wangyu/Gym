@@ -2,6 +2,8 @@ package com.gym.s1.board.qna;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -52,7 +54,7 @@ public class QnaController {
 		return mv;
 	}
 	
-	@RequestMapping(value="delete", method=RequestMethod.GET)
+	@RequestMapping(value="delete", method=RequestMethod.POST)
 	public String delete(BoardDTO boardDTO)throws Exception{
 		int result= qnaService.delete(boardDTO);
 		
