@@ -65,7 +65,8 @@
 
 
 </div>
-
+<c:if test="${not empty member.id}">
 <a href="./add">ADD</a>
+</c:if>
 </body>
 </html>

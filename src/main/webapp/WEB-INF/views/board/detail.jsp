@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,23 +18,24 @@
 
 //-----------------------------
 <hr>
-
-<div>
-<form action="../common/noticeReply" method="post" enctype="application/x-www-form-urlencoded">
-	Contents<textarea rows="" cols="" name="contents" id="contents" ></textarea>
-	<input type="hidden" name="num" id="num" value="${dto.num}">
-	Writer<input type="text" name="writer" readonly="readonly" id="writer" value="${member.id}">
-	<button type="button" name="replyBtn" id="replyBtn">REPLY</button>
-</form>
-</div>
-
+<c:if test="${not empty member.id}">
+	<div>
+	<form action="../common/noticeReply" method="post" enctype="application/x-www-form-urlencoded">
+		Contents<textarea rows="" cols="" name="contents" id="contents" ></textarea>
+		<input type="hidden" name="num" id="num" value="${dto.num}">
+		Writer<input type="text" name="writer" readonly="readonly" id="writer" value="${member.id}">
+		<button type="button" name="replyBtn" id="replyBtn">REPLY</button>
+	</form>
+	</div>
+</c:if>
 <table id="replyResult">
 
 </table>
 
+<c:if test="${dto.writer eq member.id}">
 <a href="./update?num=${dto.num}">UPDATE</a>
 <a href="./delete?num=${dto.num}">DELETE</a>
-
+</c:if>
 <script type="text/javascript" src="../resources/js/noticeReply.js"></script>
 </body>
 </html>
