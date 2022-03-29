@@ -6,7 +6,7 @@
 	<title>Home</title>
 </head>
 <body>
-
+<c:import url="./template/header.jsp"></c:import>
 <h3> ${member.name}님 환영합니다</h3>
 
 <a href="./notice/list">Notice List</a>

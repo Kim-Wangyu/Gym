@@ -4,6 +4,15 @@ const num = document.getElementById("num");
 const contents = document.getElementById("contents");
 const writer = document.getElementById("writer");
 const replyResult = document.querySelector("#replyResult")
+// const reReply = document.querySelectorAll(".reReply")
+
+
+// replyResult.addEventListener("click", function(event){
+//     if(event.target.classList.contains("reReply")){
+
+//     }
+    
+// });
 
 
 replyResult.addEventListener("click",function(event){
