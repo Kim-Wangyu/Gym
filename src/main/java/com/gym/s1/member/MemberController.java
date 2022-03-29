@@ -23,6 +23,13 @@ public class MemberController {
 	@Autowired
 	private MemberService memberService;
 	
+	@GetMapping("calendar")
+	public ModelAndView calendar()throws Exception{
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("./apply/calendar");
+		return mv;
+	}
+	
 	@GetMapping("join")
 	public String Join()throws Exception{
 		return "./member/join";
