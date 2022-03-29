@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+   <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,6 +16,7 @@
 	<h3>작성자 : ${dto.writer}</h3>
 	
 	<div>
+	
       <input type="hidden" name="num" value="${dto.num}" id="num">
          <input type="text" readonly name="writer" value="${member.id}" id="writer">
          <textarea rows="" cols="" name="contents" id="contents"></textarea>
@@ -25,14 +27,19 @@
 		
 	</table>
 	
+	
+
+	<c:if test="${member.id eq dto.writer}">
+		
 	<form id ="frm" method ="post">
 		<input type="hidden" name ="num" id="num2" value ="${dto.num}">
 	</form>
 	
-	<%-- 	<button id = "del" >DELETE</button> --%>
-	<a href="#" id="del">DELETE</a>
-	<a href="./update?num=${dto.num}">UPDATE</a>
-	
+		<%-- 	<button id = "del" >DELETE</button> --%>
+		<a href="#" id="del">DELETE</a>
+		<a href="./update?num=${dto.num}">UPDATE</a>
+		<script src="../resources/js/delete.js"></script>
+	</c:if>
 	<a href="./list">LIST</a>
 	
 	<script src="../resources/js/qnaReply.js"></script>
