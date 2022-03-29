@@ -7,10 +7,12 @@
 		<td id="up${dto.replyNum}">${dto.contents}</td>
 		<td>${dto.writer}</td>
 		
+		
 		<td>
 		<c:if test="${dto.writer eq member.id}">
 			<button class="update" type="button" data-index="${dto.replyNum}">UPDATE</button>
 			<button class="del" type="button" data-num="${dto.replyNum}">DELETE</button>
+			<button class="reReply" type="button">reReply</button>
 		</td>
 		</c:if>
 	</tr>

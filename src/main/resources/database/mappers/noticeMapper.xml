@@ -32,7 +32,7 @@
 				</otherwise>
 			</choose>
 			LIKE '%'||#{search}||'%'
-			ORDER BY NUM) B)
+			ORDER BY NUM DESC) B)
 		WHERE R between #{startNum} and #{lastNum}
 		
     </select>

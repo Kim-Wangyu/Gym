@@ -13,7 +13,7 @@
 	<form action="./add" method="post">
 		Title <input type="text" name="title">
 		Contents <textarea name="contents" rows="" cols="" ></textarea>
-		Writer <input type="text" name="writer">
+		Writer <input type="text" name="writer" value="${member.id}" readonly="readonly">
 	
 	<button type="submit">ADD</button>
 	</form>
