@@ -3,15 +3,6 @@ const writer =  document.querySelector('#writer');
 const contents =  document.querySelector('#contents');
 const reply = document.querySelector('#reply');
 const replyResult = document.querySelector('#replyResult');
-const frm = document.getElementById('frm');
-const del = document.getElementById('del');
-
-//qna delete
-del.addEventListener("click",function(){
-    console.log("SSS");
-    frm.setAttribute("action","./delete");
-    frm.submit();
-})
 
 //update
 replyResult.addEventListener("click",function(event){
