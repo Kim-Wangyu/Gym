@@ -4,6 +4,7 @@
 <html>
 <head>
 	<title>Home</title>
+	<c:import url="./template/header_css.jsp"></c:import>
     <link rel="stylesheet" href="/s1/resources/css/home.css">
 </head>
 <body>
