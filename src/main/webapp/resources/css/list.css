@@ -1,0 +1,14 @@
+.table_total{
+    width:70%;
+    margin : 0 auto;
+}
+
+.table_total >.search{
+    float: right;
+    margin-bottom: 20px;
+   
+}
+.table_total >.pager{
+    float: right;
+
+}

@@ -1,0 +1,24 @@
+.d1{
+    position: relative;
+    width:450px;
+    margin: 70px auto 0;
+    padding :10px;
+    box-sizing: border-box;
+}
+
+.d1 h3{
+    display: flex;
+    background: lightgrey;
+    padding: 10px 20px;
+    color:black;
+    margin:5px 0;
+    transition: .5s ;
+}
+.d1 a{
+    border: solid 2px #ec3b3b;
+    box-sizing: border-box;
+    height: 50px;
+    width: 90%;
+    border-radius: 40px;
+    cursor: pointer;
+}

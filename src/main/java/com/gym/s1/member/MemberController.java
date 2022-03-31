@@ -14,7 +14,11 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
+
+import com.gym.s1.board.BoardDTO;
+import com.gym.s1.board.qna.QnaDTO;
 
 @Controller
 @RequestMapping("/member/*")
@@ -95,4 +99,29 @@ public class MemberController {
 	public String mypage()throws Exception{
 		return "./member/mypage";
 	}	
+	
+	@GetMapping("update")
+	public String update(MemberDTO memberDTO, ModelAndView mv) throws Exception{
+		return "./member/update";
+	}
+	@PostMapping("update")
+	public String update(MemberDTO memberDTO,HttpSession session) throws Exception{
+		int result =memberService.update(memberDTO);
+		if(result ==1) {
+			session.setAttribute("member", memberDTO);
+		}
+		return "./member/mypage";
+	}
+	@GetMapping("pwupdate")
+	public String pwupdate(MemberDTO memberDTO, ModelAndView mv) throws Exception{
+		return "./member/pwupdate";
+	}
+	@PostMapping("pwupdate")
+	public String pwupdate(MemberDTO memberDTO) throws Exception{
+		int result =memberService.pwupdate(memberDTO);
+
+		return "./member/mypage";
+	}
+	
+	
 }

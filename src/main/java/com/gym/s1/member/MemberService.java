@@ -16,4 +16,10 @@ public class MemberService {
 	public MemberDTO login(MemberDTO memberDTO)throws Exception{
 		return memberDAO.login(memberDTO);
 	}
+	public int update(MemberDTO memberDTO)throws Exception{
+		return memberDAO.update(memberDTO);
+	}
+	public int pwupdate(MemberDTO memberDTO)throws Exception{
+		return memberDAO.pwupdate(memberDTO);
+	}
 }
