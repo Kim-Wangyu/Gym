@@ -6,6 +6,7 @@
 	<title>Home</title>
 	<c:import url="./template/header_css.jsp"></c:import>
     <link rel="stylesheet" href="/s1/resources/css/home.css">
+   
 </head>
 <body>
 <c:import url="./template/header.jsp"></c:import>
@@ -34,28 +35,28 @@
 </p>
 </div>
 
-<div class="d1">
-<ul>
-    <li><h1> Notice</h1>
+<div class="wd1">
+<ul class="wul">
+    <li class="wli"><h1> Notice</h1>
         <c:forEach items="${list}" var="dto">
 			<tr class="listNotice">
-				<td> <a href="./notice/detail?num=${dto.num}">
+				<td> <a class="wa" href="./notice/detail?num=${dto.num}">
 				${dto.title}</a></td>
             </tr>
         </c:forEach>
     </li>
-    <li><h1>Exercise</h1>
+    <li class="wli"><h1>Exercise</h1>
             <c:forEach items="${list1}" var="dto">
 			<tr class="listExercise">
-				<td> <a href="./exercise/detail?num=${dto.num}">
+				<td> <a class="wa" href="./exercise/detail?num=${dto.num}">
 				${dto.title}</a></td>
             </tr>
         </c:forEach>
     </li>
-    <li><h1>Q&A</h1>
+    <li class="wli"><h1>Q&A</h1>
     	<c:forEach items="#{list2}" var="dto">
     	<tr class="listQna">
-    		<td> <a href="./qna/detail?num=${dto.num}">
+    		<td> <a class="wa" href="./qna/detail?num=${dto.num}">
     		${dto.title}</a></td>
     		</tr>
     	</c:forEach>
