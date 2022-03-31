@@ -13,4 +13,10 @@
     	<select id="login" parameterType="MemberDTO" resultType="MemberDTO" >
     		SELECT * FROM GYMMEMBER WHERE ID=#{id} and PW=#{pw}
     	</select>
+    	<update id="update" parameterType="MemberDTO">
+    		UPDATE GYMMEMBER SET NAME=#{name}, PHONE=#{phone} WHERE ID=#{id}
+    	</update>
+    	<update id="pwupdate" parameterType="MemberDTO">
+    		UPDATE GYMMEMBER SET PW=#{pw} WHERE ID=#{id}
+    	</update>
     </mapper>

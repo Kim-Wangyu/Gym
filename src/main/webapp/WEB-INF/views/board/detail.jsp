@@ -6,8 +6,11 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link href="../resources/css/detail.css" rel="stylesheet">
+</head>
 </head>
 <body>
+	<c:import url="../template/header.jsp"></c:import>
 <h1>Detail Page</h1>
 
 <h3>Num : ${dto.num}</h3>

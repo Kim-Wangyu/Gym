@@ -31,5 +31,22 @@ public class MemberTest extends MyJunitTest {
 		memberDTO = memberDAO.login(memberDTO);
 		assertNotNull(memberDTO);
 	}
+	//@Test
+	public void updateTest()throws Exception{
+		MemberDTO memberDTO =new MemberDTO();
+		memberDTO.setId("3333");
+		memberDTO.setName("7777");
+		memberDTO.setPhone("7777");
+		int result = memberDAO.update(memberDTO);
+		assertNotNull(memberDTO);
+	}
+	@Test
+	public void pwupdate() throws Exception{
+		MemberDTO memberDTO =new MemberDTO();
+		memberDTO.setId("chaechae");
+		memberDTO.setPw("chaerin");
+		int result = memberDAO.pwupdate(memberDTO);
+		assertNotNull(memberDTO);
+	}
 
 }

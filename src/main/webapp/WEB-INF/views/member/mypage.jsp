@@ -19,7 +19,12 @@
 	
 	<h3>이름 : ${member.name}</h3>
 	<h3>전화번호 : ${member.phone}</h3>
-	<button>전화번호 수정</button>
+	
+	<a href="./pwupdate">비밀번호 수정</a>
+	<a href="./update">정보 수정</a>
+	
+	
+	<script type="text/javascript" src="../resources/js/mypage.js"></script>
 	
 </body>
 </html>

@@ -1,0 +1,15 @@
+.table_head{
+	width:100%;
+	border-collapse: collapse;
+}
+.table_head td, .table_head th{
+	border: 1px solid #9a929c;
+	border-spacing: 80;
+	height: 35px;
+    text-align: center; 
+	
+}
+.table_head tr:first-child{
+	background-color: #c0c1c2;
+	height:60px;
+}
