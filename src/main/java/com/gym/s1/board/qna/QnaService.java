@@ -19,6 +19,16 @@ public class QnaService implements BoardService{
 		return qnaDAO.add(boardDTO);
 	}
 	
+	
+	public List<BoardDTO> list2(Pager pager) throws Exception {
+		// TODO Auto-generated method stub
+		pager.makeNum();
+		pager.makePageNum(qnaDAO.total(pager));
+		pager.setStartNum(1L);
+		pager.setLastNum(5L);
+		return qnaDAO.list(pager);
+	}
+	
 	public List<BoardDTO> list(Pager pager) throws Exception{
 		pager.makeNum();
 		pager.makePageNum(qnaDAO.total(pager));

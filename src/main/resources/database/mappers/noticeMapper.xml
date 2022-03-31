@@ -6,6 +6,9 @@
     
     <mapper namespace="com.gym.s1.board.notice.NoticeDAO">
     
+    
+
+    
     <update id="update" parameterType="NoticeDTO">
     	UPDATE GYMNOTICE SET TITLE=#{title}, CONTENTS=#{contents} where num=#{num}
     </update>

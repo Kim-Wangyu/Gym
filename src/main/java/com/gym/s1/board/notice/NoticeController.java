@@ -30,6 +30,8 @@ public class NoticeController {
 		return "notice";
 	}
 	
+
+	
 	@RequestMapping(value = "update",method = RequestMethod.GET)
 	public ModelAndView update(BoardDTO boardDTO)throws Exception{
 		ModelAndView mv = new ModelAndView();
@@ -106,6 +108,7 @@ public class NoticeController {
 		mv.setViewName("redirect:./list");
 		return mv;
 	}
+	
 	
 
 	

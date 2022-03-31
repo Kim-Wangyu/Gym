@@ -14,12 +14,21 @@ import com.gym.s1.board.BoardDAO;
 import com.gym.s1.board.BoardDTO;
 import com.gym.s1.board.notice.NoticeDAO;
 import com.gym.s1.board.notice.NoticeDTO;
+import com.gym.s1.util.Pager;
 
 
 public class NoticeDAOTest extends MyJunitTest {
 	
 	@Autowired
 	private NoticeDAO noticeDAO;
+	
+	//@Test
+	public void homeNoticeTest()throws Exception{
+		Pager pager = new Pager();
+		NoticeDTO noticeDTO = new NoticeDTO();
+		List<BoardDTO> ar = noticeDAO.list(pager);
+		assertNotEquals(0, ar.size());
+	}
 	
 	//@Test
 	public void updateTest()throws Exception{

@@ -16,4 +16,6 @@ public interface BoardService {
 	
 	public int update(BoardDTO boardDTO)throws Exception;
 	
+	public List<BoardDTO> list2(Pager pager)throws Exception;
+	
 }
