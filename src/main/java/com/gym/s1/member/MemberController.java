@@ -22,6 +22,21 @@ public class MemberController {
 	
 	@Autowired
 	private MemberService memberService;
+//	String a = request.getParameter("num");
+//	Long num = Long.parseLong(a);
+//	BoardDTO boardDTO = new BoardDTO();
+//	boardDTO.setNum(num);
+	
+	@PostMapping("calendar")
+	public String apply(HttpSession session,HttpServletRequest request)throws Exception{
+		System.out.println("play");
+		MemberDTO memberDTO = (MemberDTO)session.getAttribute("member");
+		String a = request.getParameter("exercise");
+		String b = request.getParameter("time");
+		System.out.println(a);
+		System.out.println(b);
+		return "redirect:./calendar";
+	}
 	
 	@GetMapping("calendar")
 	public ModelAndView calendar()throws Exception{
