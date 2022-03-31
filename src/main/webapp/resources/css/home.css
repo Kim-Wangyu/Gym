@@ -1,4 +1,4 @@
-.d1{
+.wd1{
     width: 80%;
     height: 300px;
  
@@ -6,7 +6,7 @@
     
 }
 
-.d1 > ul{
+.wd1 > .wul{
     width: 100%;
     height: 100%;
     display: flex;
@@ -15,7 +15,7 @@
 
 }
 
-.d1 li{
+.wd1 .wli{
     width: 33%;
     height: 100%;
     border: 2px black solid;
@@ -25,7 +25,7 @@
     border-collapse: collapse;
     
 }
-li a{
+.wli .wa{
     text-align: center;
     display: block;
     font-size: large;
@@ -35,7 +35,7 @@ li a{
     font-weight:bold;
     
 }
-h1{
+#title{
     text-align: center;
     margin-top: 20px;
     margin-bottom: 50px;
