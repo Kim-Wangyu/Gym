@@ -17,6 +17,7 @@ public class NoticeDAO implements BoardDAO{
 	private SqlSession sqlSession;
 	private final String NAMESPACE="com.gym.s1.board.notice.NoticeDAO.";
 	
+	
 
 	@Override
 	public int add(BoardDTO boardDTO) throws Exception {

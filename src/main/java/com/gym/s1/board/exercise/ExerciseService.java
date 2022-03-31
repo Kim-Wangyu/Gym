@@ -18,6 +18,16 @@ public class ExerciseService implements BoardService {
 	public int add(BoardDTO boardDTO) throws Exception {
 		return exerciseDAO.add(boardDTO);
 	}
+	
+	@Override
+	public List<BoardDTO> list2(Pager pager) throws Exception {
+		// TODO Auto-generated method stub
+		pager.makeNum();
+		pager.makePageNum(exerciseDAO.total(pager));
+		pager.setStartNum(1L);
+		pager.setLastNum(5L);
+		return exerciseDAO.list(pager);
+	}
 
 	@Override
 	public List<BoardDTO> list(Pager pager) throws Exception {

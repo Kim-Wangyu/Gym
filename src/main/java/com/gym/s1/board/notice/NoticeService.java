@@ -14,6 +14,7 @@ public class NoticeService implements BoardService{
 	
 	@Autowired
 	private NoticeDAO noticeDAO;
+	
 
 	@Override
 	public int add(BoardDTO boardDTO) throws Exception {
@@ -30,6 +31,17 @@ public class NoticeService implements BoardService{
 		pager.makePageNum(noticeDAO.total(pager));
 		return noticeDAO.list(pager);
 	}
+	//------------
+	@Override
+	public List<BoardDTO> list2(Pager pager) throws Exception {
+		// TODO Auto-generated method stub
+		pager.makeNum();
+		pager.makePageNum(noticeDAO.total(pager));
+		pager.setStartNum(1L);
+		pager.setLastNum(5L);
+		return noticeDAO.list(pager);
+	}
+	//---------------
 
 	@Override
 	public BoardDTO detail(BoardDTO boardDTO) throws Exception {
