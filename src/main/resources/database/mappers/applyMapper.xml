@@ -5,5 +5,9 @@
 
 <mapper namespace="com.gym.s1.apply.ApplyDAO">
 
+	<insert id="add">
+		INSERT INTO APPLY (APPLYNUM,TRAINERNUM,DAY,TIME,CATEGORY)
+		VALUES (APPLY_SEQ.NEXTVAL,#{memberNum},#{day},#{time},0)
+	</insert>
 
 </mapper>

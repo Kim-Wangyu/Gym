@@ -3,7 +3,8 @@ const preMonth = document.getElementById("preMonth");
 const nextMonth = document.getElementById("nextMonth");
 const year = document.getElementById("year");
 const month = document.getElementById("month");
-const apply = document.getElementById("apply");
+const applyDiv = document.getElementById("applyDiv");
+
 
 
 
@@ -17,21 +18,15 @@ const apply = document.getElementById("apply");
 //trainer 각 날마다 1~8 and 1~8에 각각 한명의 멤버만 연결되야 하고 and 1~8에 한명이 연결되면 calendar페이지에서 빗금처리라던가 이런처리 and 데이터베이스에 저장되어야하고 
 //1 = 9~10 2= 10~11 3= 11~12 4= 12~13 5=13~14 6= 14~15 7= 15~16  8= 16~17 
 
+let day=document.createElement("div");
+let addDiv = document.createElement("div");
 
 tb_body.addEventListener("click",function(event){
 
     //form태그 생성
-    let form = document.createElement("form");
-    form.setAttribute("action","./calendar");
-    form.setAttribute("method","post");
-    //inpuy id생성
-    let id = document.createElement("input");
-    id.setAttribute("type","hidden");
-    id.setAttribute("name","id");
-    id.setAttribute("id","id");
-    //선택한 날짜div에 넣기
-    let day=document.createElement("div")
-    day.innerHTML=current_year+"년"+current_month+"월"+event.target.innerText+"일"
+    let form = document.createElement("form");//<form></form>
+    form.setAttribute("method","post");//<form action="./calendar" method="post"></form>
+
     //select 운동종목 만들기
     let exercise = document.createElement("select");//<select></select>
     exercise.setAttribute("id","exercise");//<select id="exercise"></select>
@@ -56,40 +51,104 @@ tb_body.addEventListener("click",function(event){
         let option = document.createElement("option");
         option.setAttribute("value",i);
         option.innerText=8+i+":00~"+(9+i)+":00";
+        option.setAttribute("id","time"+i);
         time.append(option);
     }
     //button 만들기
+    //apply, add버튼 
     let button = document.createElement("button");
-    button.setAttribute("type","submit");
-    button.setAttribute("id","btn");
-    button.innerText="apply";
-    //form태그 안에 id 날짜, 운동종목, 시간 넣기
-    form.append(id);
-    form.append(day);
-    form.append(exercise);
-    form.append(time);
-    form.append(button);
+    //submit 버튼 만들기
+    let button1 = document.createElement("button");
+    button1.setAttribute("type","submit");
+    button1.innerText="submit";
+    
     //날짜를 클릭 했을때 그 날짜와 함께 선택할 운동 시간 띄우기
     if(event.target.classList.contains("day")){
        if(event.target.innerText!=""){ //날짜가 공백인곳을 클릭하지 않았을때
-         apply.innerHTML="";
-         apply.append(form);
+            //선택한 날짜div에 넣기
+         
+         day.innerHTML="";
+         day.innerHTML=current_year+"년"+current_month+"월"+event.target.innerText+"일";
+        //관리자면 add버튼 add 메소드 전송 회원이면 apply버튼 apply메소드 전송
+         if(applyDiv.getAttribute("data-id")==1){
+            form.setAttribute("action","./add");
+            button.setAttribute("id","addBtn");
+            button.innerText="add";
+            button.setAttribute("type","button");
+            form.append(day);
+            form.append(exercise);
+            form.append(time);
+            form.append(button); 
+            form.append(button1);
+            form.append(addDiv);
+            
+        }else{
+            form.setAttribute("action","./calendar");
+            button.setAttribute("id","applyBtn");
+            button.innerText="apply";
+            button.setAttribute("type","submit");
+            form.append(day);
+            form.append(exercise);
+            form.append(time);
+            form.append(button); 
+        }
+
+        applyDiv.innerHTML="";
+        applyDiv.append(form);   
+          //form태그 안에 id 날짜, 운동종목, 시간 넣기
+   
+
        }
+     
     }
+
 })  
 
-//신청 버튼 눌럿을때========================================================================
-    apply.addEventListener("click",function(event){
-        if(event.target.getAttribute("id")=="btn"){
+    //Button눌럿을때=================================================================================
+
+    applyDiv.addEventListener("click",function(event){
+        //apply버튼 눌럿을때
+        if(event.target.getAttribute("id")=="applyBtn"){
            let delConfirm = confirm("신청하시겠습니까?");
            if(delConfirm){
                alert("신청이 완료되었습니다");
            }
         }
+        //add버튼 눌럿을때
+         if(event.target.getAttribute("id")=="addBtn"){
+             //삭제버튼 생성
+            let deleteBtn = document.createElement("button");
+            deleteBtn.setAttribute("type","button");
+            deleteBtn.innerText="del";
+            deleteBtn.setAttribute("class","del");
+            let diva = document.createElement("div");
+            //addDiv에 선택한 날짜, 시간, 삭제버튼 추가
+            let input= document.createElement("input");
+            let input1= document.createElement("input");
+            let input2= document.createElement("input");
+            input.setAttribute("value",day.innerHTML);
+            input.setAttribute("name","day1");
+            input1.setAttribute("type","hidden");
+            input1.setAttribute("name","time");
+            input1.setAttribute("value",document.getElementById("time"+time.value).value);
+            input2.setAttribute("value",document.getElementById("time"+time.value).innerText);
+            diva.append(input);
+            diva.append(input1);
+            diva.append(input2);
+            diva.append(deleteBtn);
+            addDiv.append(diva);
+        
+        }
+
        
     })
-    
-
+    //딜리트버튼 선택하면 지우기
+    addDiv.addEventListener("click",function(event){
+        if(event.target.classList.contains("del")){
+            //부모 선택해서 지우기
+            event.target.parentNode.remove();
+        }
+    })
 
 
 //달력시작--------------------------------------------------------------------------------------------

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -48,7 +49,8 @@
             </table>
         </div>
     </div>
-    <div id="apply"></div>
+    <div id="applyDiv" data-id="${member.grade}"></div>
+    <div id="addDiv"></div>
     <script src="../resources/js/calendar.js"></script>
 </body>
 </html>

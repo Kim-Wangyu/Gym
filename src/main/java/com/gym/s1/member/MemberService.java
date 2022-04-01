@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 public class MemberService {
 	
 	@Autowired
-	private MemberDAO memberDAO; 
+	private MemberDAO memberDAO;
 	
 	public int join(MemberDTO memberDTO)throws Exception{
 		return memberDAO.join(memberDTO);

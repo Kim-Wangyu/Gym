@@ -7,4 +7,9 @@ import org.springframework.stereotype.Service;
 public class ApplyService {
 	@Autowired
 	private ApplyDAO applyDAO;
+	
+	public int add(ApplyDTO applyDTO)throws Exception {
+		return applyDAO.add(applyDTO);
+	}
+	
 }
