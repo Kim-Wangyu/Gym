@@ -37,8 +37,12 @@
 
 <c:if test="${dto.writer eq member.id}">
 <a href="./update?num=${dto.num}">UPDATE</a>
-<a href="./delete?num=${dto.num}">DELETE</a>
+<a href="#" id="del">DELETE</a>
+		<form id="frm" method="post">
+			<input type="hidden" name="num" id="num1" value="${dto.num}">
+		</form>
 </c:if>
+<script src="../resources/js/delete.js"></script>
 <script type="text/javascript" src="../resources/js/noticeReply.js"></script>
 </body>
 </html>
