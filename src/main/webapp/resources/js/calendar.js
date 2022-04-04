@@ -47,13 +47,46 @@ tb_body.addEventListener("click",function(event){
     time.setAttribute("id","time");
     time.setAttribute("name","time")
     time.setAttribute("style","width:80px;display: initial;");
-    for(let i = 1 ; i<= 8 ; i++){
-        let option = document.createElement("option");
-        option.setAttribute("value",i);
-        option.innerText=8+i+":00~"+(9+i)+":00";
-        option.setAttribute("id","time"+i);
-        time.append(option);
-    }
+        let  time1= document.createElement("option");
+        time1.setAttribute("value","1");
+        time1.innerText="09:00~10:00";
+        time.append(time1);
+        time.setAttribute("style","width:80px;display: initial;");
+        let  time2= document.createElement("option");
+        time2.setAttribute("value","2");
+        time2.innerText="10:00~11:00";
+        time.append(time2);
+        time.setAttribute("style","width:80px;display: initial;");
+        let  time3= document.createElement("option");
+        time3.setAttribute("value","3");
+        time3.innerText="11:00~12:00";
+        time.append(time3);
+        time.setAttribute("style","width:80px;display: initial;");
+        let  time4= document.createElement("option");
+        time4.setAttribute("value","4");
+        time4.innerText="12:00~13:00";
+        time.append(time4);
+        time.setAttribute("style","width:80px;display: initial;");
+        let  time5= document.createElement("option");
+        time5.setAttribute("value","5");
+        time5.innerText="13:00~14:00";
+        time.append(time5);
+        let  time6= document.createElement("option");
+        time6.setAttribute("value","6");
+        time6.innerText="14:00~15:00";
+        time.append(time6);
+        let  time7= document.createElement("option");
+        time7.setAttribute("value","7");
+        time7.innerText="15:00~16:00";
+        time.append(time7);
+        let  time8= document.createElement("option");
+        time8.setAttribute("value","8");
+        time8.innerText="16:00~17:00";
+        time.append(time8);
+        let  time9= document.createElement("option");
+        time9.setAttribute("value","9");
+        time9.innerText="17:00~18:00";
+        time.append(time9);
     //button 만들기
     //apply, add버튼 
     let button = document.createElement("button");
@@ -71,7 +104,7 @@ tb_body.addEventListener("click",function(event){
          day.innerHTML=current_year+"년"+current_month+"월"+event.target.innerText+"일";
         //관리자면 add버튼 add 메소드 전송 회원이면 apply버튼 apply메소드 전송
          if(applyDiv.getAttribute("data-id")==1){
-            form.setAttribute("action","./add");
+            form.setAttribute("action","./addApply");
             button.setAttribute("id","addBtn");
             button.innerText="add";
             button.setAttribute("type","button");
@@ -125,16 +158,12 @@ tb_body.addEventListener("click",function(event){
             //addDiv에 선택한 날짜, 시간, 삭제버튼 추가
             let input= document.createElement("input");
             let input1= document.createElement("input");
-            let input2= document.createElement("input");
             input.setAttribute("value",day.innerHTML);
-            input.setAttribute("name","day1");
-            input1.setAttribute("type","hidden");
-            input1.setAttribute("name","time");
-            input1.setAttribute("value",document.getElementById("time"+time.value).value);
-            input2.setAttribute("value",document.getElementById("time"+time.value).innerText);
+            input.setAttribute("name","addDay");
+            input1.setAttribute("name","addTime");
+            input1.setAttribute("value",time.value);
             diva.append(input);
             diva.append(input1);
-            diva.append(input2);
             diva.append(deleteBtn);
             addDiv.append(diva);
         

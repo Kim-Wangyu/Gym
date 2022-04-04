@@ -10,7 +10,7 @@ public class ApplyDAO {
 	private SqlSession sqlSession;
 	private final String NAMESPACE="com.gym.s1.apply.ApplyDAO.";
 	
-	public int add(ApplyDTO applyDTO)throws Exception{
-		return sqlSession.insert(NAMESPACE+"add",applyDTO);
+	public int addApply(ApplyDTO applyDTO)throws Exception{
+		return sqlSession.insert(NAMESPACE+"addApply",applyDTO);
 	}
 }

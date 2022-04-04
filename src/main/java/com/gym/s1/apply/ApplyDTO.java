@@ -5,9 +5,9 @@ import java.sql.Date;
 public class ApplyDTO {
 	private Long applyNum;
 	private Long membershipNum;
-	private Long trainerNum;
+	private Long memberNum;
 	private Date day;
-	private Long time;
+	private String time; //1 9-10 2 10-11
 	private Long category;
 	public Long getApplyNum() {
 		return applyNum;
@@ -21,11 +21,11 @@ public class ApplyDTO {
 	public void setMembershipNum(Long membershipNum) {
 		this.membershipNum = membershipNum;
 	}
-	public Long getTrainerNum() {
-		return trainerNum;
+	public Long getMemberNum() {
+		return memberNum;
 	}
-	public void setTrainerNum(Long trainerNum) {
-		this.trainerNum = trainerNum;
+	public void setMemberNum(Long memberNum) {
+		this.memberNum = memberNum;
 	}
 	public Date getDay() {
 		return day;
@@ -33,10 +33,10 @@ public class ApplyDTO {
 	public void setDay(Date day) {
 		this.day = day;
 	}
-	public Long getTime() {
+	public String getTime() {
 		return time;
 	}
-	public void setTime(Long time) {
+	public void setTime(String time) {
 		this.time = time;
 	}
 	public Long getCategory() {
@@ -45,6 +45,8 @@ public class ApplyDTO {
 	public void setCategory(Long category) {
 		this.category = category;
 	}
+	
+	
 	
 }
 
