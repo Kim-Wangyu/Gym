@@ -16,13 +16,13 @@
 		<input type="hidden" name="bpw" id="bpw" value="${member.pw}">
 		
 		현재 비밀번호<input type="password" id ="pw1" name="pw1">
-		수정 할 비밀번호<input type="password" id ="pw2" name="pw2" >
-		비밀번호 확인<input type="password"id ="pw" name="pw">
+		수정 할 비밀번호<input type="password" id ="pw2" name="pw2" ><div id="pwResult2"></div>
+		비밀번호 확인<input type="password"id ="pw" name="pw"><div id="pwResult"></div>
 		
-		<button type="submit" id="btn">수정</button>
+		<button type="button" id="btn">수정</button>
 	</form>
 	
-	<!-- <script type="text/javascript" src="../resources/js/pwupdate.js"></script> -->
+	<script type="text/javascript" src="../resources/js/pwupdate.js"></script>
 
 </body>
 </html>
