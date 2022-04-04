@@ -19,4 +19,38 @@
     	<update id="pwupdate" parameterType="MemberDTO">
     		UPDATE GYMMEMBER SET PW=#{pw} WHERE ID=#{id}
     	</update>
+    	
+    	<select id="total" parameterType="Pager" resultType="LONG">
+		SELECT COUNT (MEMBERNUM) FROM GYMMEMBER
+		WHERE GRADE
+				LIKE '%'||#{search}||'%'
+	</select> 
+	
+	
+    	<select id="list" parameterType="Pager" resultType="MemberDTO">
+		SELECT * FROM 
+		(SELECT ROWNUM R, M.* FROM
+			(SELECT * FROM GYMMEMBER
+				WHERE GRADE
+				LIKE '%'||#{search}||'%'
+			ORDER BY MEMBERNUM DESC) M) 
+		WHERE R BETWEEN #{startNum} AND #{lastNum}
+	</select>
+    	
+    	<select id="detail" parameterType="MemberDTO" resultType="MemberDTO">
+    		SELECT * FROM GYMMEMBER WHERE MEMBERNUM=#{memberNum}
+    	</select>
+    	<update id="upgrade" parameterType="MemberDTO">
+    		UPDATE GYMMEMBER SET GRADE=#{grade} WHERE MEMBERNUM=#{memberNum}
+    	</update>
+    	<insert id="trainerAdd" parameterType="TrainerDTO">
+    		INSERT INTO TRAINER 
+    		VALUES(trainer_seq.nextval,#{memberNum},#{price},#{category})
+    	</insert>
+    	<update id="trainerUpdate" parameterType="TrainerDTO">
+    		UPDATE TRAINER SET PRICE=#{price}, CATEGORY=#{category} WHERE MEMBERNUM=#{memberNum}
+    	</update>
+    	<select id="trainerDetail" parameterType="TrainerDTO" resultType="TrainerDTO">
+    		SELECT * FROM TRAINER WHERE MEMBERNUM=#{memberNum}
+    	</select>
     </mapper>

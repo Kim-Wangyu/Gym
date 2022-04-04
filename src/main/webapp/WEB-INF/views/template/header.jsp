@@ -15,6 +15,10 @@
 			<ul>
 			<c:choose>
 				<c:when test="${not empty member}">
+					<c:if test="${member.grade eq 2}">
+	
+						<li><a href="/s1/member/list">Upgrade</a>
+					</c:if>
 					<li><a href="/s1/member/mypage">Mypage</a></li>
 					<li><a href="/s1/member/logout">Logout</a></li>
 				</c:when>
@@ -28,4 +32,5 @@
 			</ul>
 		
 		</nav>
+		
 	</header>

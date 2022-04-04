@@ -1,6 +1,7 @@
 package com.gym.s1.member;
 
 import java.net.http.HttpRequest;
+import java.util.List;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
@@ -19,6 +20,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.gym.s1.board.BoardDTO;
 import com.gym.s1.board.qna.QnaDTO;
+import com.gym.s1.util.Pager;
 
 @Controller
 @RequestMapping("/member/*")
@@ -123,5 +125,53 @@ public class MemberController {
 		return "./member/mypage";
 	}
 	
+	@GetMapping("list")
+	public ModelAndView list(ModelAndView mv,HttpSession session,Pager pager) throws Exception {
+		MemberDTO memberDTO = (MemberDTO) session.getAttribute("member");
+		
+		if(memberDTO==null||memberDTO.getGrade()==0||memberDTO.getGrade()==1) {	
+			mv.setViewName("redirect:../");	
+		}else if(memberDTO.getGrade()==2) {
+			List<MemberDTO> ar=memberService.list(pager);
+			mv.addObject("list",ar);
+			mv.setViewName("member/list");
+		}
+		return mv;
+	}
+	
+	@GetMapping("detail")
+	public ModelAndView detail(MemberDTO memberDTO,TrainerDTO trainerDTO) throws Exception{
+		ModelAndView mv = new ModelAndView();
+		memberDTO = memberService.detail(memberDTO);
+		mv.addObject("member",memberDTO);
+		mv.setViewName("member/detail");
+		trainerDTO= memberService.trainerDetail(trainerDTO);
+		mv.addObject("trainer",trainerDTO);
+		return mv;
+	}
+	
+	@GetMapping("upgrade")
+	public ModelAndView upgrade(MemberDTO memberDTO,TrainerDTO trainerDTO, ModelAndView mv) throws Exception{
+		memberDTO= memberService.detail(memberDTO);
+		mv.addObject("dto",memberDTO);
+		mv.setViewName("member/upgrade");
+		trainerDTO= memberService.trainerDetail(trainerDTO);
+		mv.addObject("trainer",trainerDTO);
+		
+		return mv;
+	}
+	@PostMapping("upgrade")
+	public String upgrade(MemberDTO memberDTO, TrainerDTO trainerDTO) throws Exception{
+		int result =memberService.upgrade(memberDTO);
+		int result2=memberService.trainerAdd(trainerDTO);
+		return "redirect:./detail";
+	}
+
+	@PostMapping("trainerUpdate")
+	public String trainerUpdate(TrainerDTO trainerDTO) throws Exception{
+		int result =memberService.trainerUpdate(trainerDTO);
+		
+		return "redirect:./detail";
+	}
 	
 }

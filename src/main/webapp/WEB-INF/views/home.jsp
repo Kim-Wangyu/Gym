@@ -3,7 +3,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
 <head>
-	<title>Home</title>
+	
 	<c:import url="./template/header_css.jsp"></c:import>
     <link rel="stylesheet" href="/s1/resources/css/home.css">
    
@@ -22,6 +22,9 @@
 
 <div class="wd1">
 <ul class="wul">
+	<li class="wli">
+		<h1>Home</h1>
+	</li>
     <li class="wli"><h1> Notice</h1>
         <c:forEach items="${list}" var="dto">
 			<tr class="listNotice">

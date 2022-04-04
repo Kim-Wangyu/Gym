@@ -5,9 +5,6 @@ const year = document.getElementById("year");
 const month = document.getElementById("month");
 const apply = document.getElementById("apply");
 
-
-
-
 //날짜를 클릭했을때----------------------------------------------------------------------------------------
 //전송하면 1. 선택한 운동, 2.날짜 3.시간 4.회원아이디 전송 
 //date 전송해서 pt선생이 갖고잇는 시간에 멤버가 신청한 시간이 들어가고 pt선생이 가지고 있는 시간은 한정적이라 그게 다 빠지면 화면에 반영되고 
@@ -16,7 +13,6 @@ const apply = document.getElementById("apply");
 //1,2,3,4,5
 //trainer 각 날마다 1~8 and 1~8에 각각 한명의 멤버만 연결되야 하고 and 1~8에 한명이 연결되면 calendar페이지에서 빗금처리라던가 이런처리 and 데이터베이스에 저장되어야하고 
 //1 = 9~10 2= 10~11 3= 11~12 4= 12~13 5=13~14 6= 14~15 7= 15~16  8= 16~17 
-
 
 tb_body.addEventListener("click",function(event){
 
@@ -72,8 +68,8 @@ tb_body.addEventListener("click",function(event){
     //날짜를 클릭 했을때 그 날짜와 함께 선택할 운동 시간 띄우기
     if(event.target.classList.contains("day")){
        if(event.target.innerText!=""){ //날짜가 공백인곳을 클릭하지 않았을때
-         apply.innerHTML="";
-         apply.append(form);
+        apply.innerHTML="";
+        apply.append(form);
        }
     }
 })  
