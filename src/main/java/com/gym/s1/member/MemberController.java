@@ -142,14 +142,22 @@ public class MemberController {
 	public String upgrade(MemberDTO memberDTO, TrainerDTO trainerDTO) throws Exception{
 		int result =memberService.upgrade(memberDTO);
 		int result2=memberService.trainerAdd(trainerDTO);
-		return "redirect:./detail";
+		return "redirect:./list";
 	}
 
 	@PostMapping("trainerUpdate")
 	public String trainerUpdate(TrainerDTO trainerDTO) throws Exception{
 		int result =memberService.trainerUpdate(trainerDTO);
 		
-		return "redirect:./detail";
+		return "redirect:./list";
+	}
+	@GetMapping("buy")
+	public ModelAndView select(MemberDTO memberDTO,TrainerDTO trainerDTO) throws Exception{
+		ModelAndView mv = new ModelAndView();
+		List<TrainerDTO> ar = memberService.select(trainerDTO);
+		mv.addObject("list",ar);
+		mv.setViewName("member/buy");
+		return mv;
 	}
 	
 }

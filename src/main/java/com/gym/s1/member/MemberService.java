@@ -49,5 +49,8 @@ public class MemberService {
 	public TrainerDTO trainerDetail(TrainerDTO trainerDTO) throws Exception{
 		return memberDAO.trainerDetail(trainerDTO);
 	}
+	public List<TrainerDTO> select(TrainerDTO trainerDTO)throws Exception{
+		return memberDAO.select(trainerDTO);
+	}
 
 }
