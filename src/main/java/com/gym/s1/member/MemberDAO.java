@@ -55,5 +55,8 @@ public class MemberDAO {
 	public List<TrainerDTO> select(TrainerDTO trainerDTO)throws Exception{
 		return sqlSession.selectList(NAMESPACE+"select",trainerDTO);
 	}
+	public int buyAdd(MembershipDTO membershipDTO) throws Exception{
+		return sqlSession.insert(NAMESPACE+"buyAdd",membershipDTO);
+	}
 	
 }

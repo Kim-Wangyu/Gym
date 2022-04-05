@@ -86,4 +86,15 @@ public class MemberTest extends MyJunitTest {
 //		List<MemberDTO> ar = memberDAO.select(trainerDTO);
 //		assertNotNull(ar);
 //	}
+	//@Test
+	public void buy()throws Exception{
+		MembershipDTO membershipDTO = new MembershipDTO();
+		membershipDTO.setMemberNum(1L);
+		membershipDTO.setTraNum(10L);
+		membershipDTO.setCount(5L);
+		membershipDTO.setPrice(265000L);
+		membershipDTO.setLocker(1L);
+		membershipDTO.setClothes(1L);
+		int result = memberDAO.buyAdd(membershipDTO);
+	}
 }

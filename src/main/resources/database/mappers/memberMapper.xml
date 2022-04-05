@@ -78,4 +78,9 @@
 		</association>
  	</resultMap>
  	
+ 	<insert id="buyAdd" parameterType="MembershipDTO">
+ 		INSERT INTO MEMBERSHIP
+ 		VALUES(MEMBERSHIP_SEQ.NEXTVAL, #{memberNum},#{traNum},#{count},#{price},#{locker},#{clothes},SYSDATE,SYSDATE)
+ 	</insert>
+ 	
     </mapper>

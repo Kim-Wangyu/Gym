@@ -52,5 +52,8 @@ public class MemberService {
 	public List<TrainerDTO> select(TrainerDTO trainerDTO)throws Exception{
 		return memberDAO.select(trainerDTO);
 	}
+	public int buyAdd(MembershipDTO membershipDTO)throws Exception{
+		return memberDAO.buyAdd(membershipDTO);
+	}
 
 }

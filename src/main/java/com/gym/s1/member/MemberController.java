@@ -152,12 +152,27 @@ public class MemberController {
 		return "redirect:./list";
 	}
 	@GetMapping("buy")
-	public ModelAndView select(MemberDTO memberDTO,TrainerDTO trainerDTO) throws Exception{
+	public ModelAndView select(TrainerDTO trainerDTO) throws Exception{
 		ModelAndView mv = new ModelAndView();
 		List<TrainerDTO> ar = memberService.select(trainerDTO);
 		mv.addObject("list",ar);
-		mv.setViewName("member/buy");
+		mv.setViewName("member/buy");		
+		
 		return mv;
 	}
+	
+	@PostMapping("buy")
+	public String buyAdd(MembershipDTO membershipDTO)throws Exception{
+		
+//		String []a = traNum_price.split("-");
+//		
+//		Long traNumber=Long.parseLong(a[0]);
+//		membershipDTO.setTraNum(traNumber);
+	
+		int result = memberService.buyAdd(membershipDTO);
+		
+		return "redirect:./mypage";
+	}
+
 	
 }
