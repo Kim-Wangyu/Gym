@@ -28,3 +28,4 @@ cli.addEventListener("click",function(){
 cli1.addEventListener("click",function(){
     changePic(1);
 })
+

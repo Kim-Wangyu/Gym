@@ -1,0 +1,47 @@
+#tab{
+    width: 200px;
+    
+    background-color: black;
+    color: white;
+    font-weight: bold;
+   margin-left: 300px;
+    display: inline-flex;
+    margin-right: 20px;
+}
+#tex{
+    width: 1000px;
+   
+    display: inline-table
+}
+#red{
+    color: red;
+}
+#gridT{
+    display: flex;
+   
+}
+.introPic{
+    width: 300px;
+    height: 300px;
+    display: inline-flex;
+    margin-left: 50px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.tabText{
+    font-size: 35px;
+    text-align: center;
+    line-height: 80px;
+    font-style: italic;
+}
+
+#useBox{
+    width: 100%;
+    display: block;
+
+}
+#usePic{
+    margin-left: 450px;
+
+}
