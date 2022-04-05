@@ -80,10 +80,10 @@ public class MemberTest extends MyJunitTest {
 		
 		assertEquals(result, 1);
 	}
-	@Test
-	public void select()throws Exception{
-		TrainerDTO trainerDTO = new TrainerDTO();
-		List<MemberDTO> ar = memberDAO.select(trainerDTO);
-		assertNotNull(ar);
-	}
+	//@Test
+//	public void select()throws Exception{
+//		TrainerDTO trainerDTO = new TrainerDTO();
+//		List<MemberDTO> ar = memberDAO.select(trainerDTO);
+//		assertNotNull(ar);
+//	}
 }
