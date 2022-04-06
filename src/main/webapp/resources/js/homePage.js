@@ -4,6 +4,8 @@ const cli = document.getElementById("cli");
 const cli1 = document.getElementById("cli1");
 
 
+
+
 let num=0;
 function changePic(idx){
    
