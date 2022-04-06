@@ -25,6 +25,7 @@
 
 		<table class="table_head">
 			<tr>
+				<th>id</th>
 				<th>이름</th>
 				<th>번호</th>
 				<th>등급</th>
@@ -32,7 +33,8 @@
 			</tr>
 
 			<c:forEach items="${list}" var="member">
-				<tr>	
+				<tr>
+					<td>${member.id}</td>	
 					<td><a href="./detail?memberNum=${member.memberNum}">${member.name}</td>
 					<td>${member.phone}</td>
 					<td>${member.grade}</td>

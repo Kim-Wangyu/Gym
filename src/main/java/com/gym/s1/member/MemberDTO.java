@@ -6,8 +6,6 @@ public class MemberDTO {
    private String pw;
    private String name;
    private String phone;
-   private String price;
-   private String category;
    private Long grade;
    //0 일반회원
    //1 관리자(트레이너)
@@ -41,18 +39,6 @@ public class MemberDTO {
    }
    public void setPhone(String phone) {
       this.phone = phone;
-   }
-   public String getPrice() {
-      return price;
-   }
-   public void setPrice(String price) {
-      this.price = price;
-   }
-   public String getCategory() {
-      return category;
-   }
-   public void setCategory(String category) {
-      this.category = category;
    }
    public Long getGrade() {
       return grade;

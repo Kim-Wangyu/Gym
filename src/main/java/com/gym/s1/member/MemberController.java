@@ -142,14 +142,37 @@ public class MemberController {
 	public String upgrade(MemberDTO memberDTO, TrainerDTO trainerDTO) throws Exception{
 		int result =memberService.upgrade(memberDTO);
 		int result2=memberService.trainerAdd(trainerDTO);
-		return "redirect:./detail";
+		return "redirect:./list";
 	}
 
 	@PostMapping("trainerUpdate")
 	public String trainerUpdate(TrainerDTO trainerDTO) throws Exception{
 		int result =memberService.trainerUpdate(trainerDTO);
 		
-		return "redirect:./detail";
+		return "redirect:./list";
 	}
+	@GetMapping("buy")
+	public ModelAndView select(TrainerDTO trainerDTO) throws Exception{
+		ModelAndView mv = new ModelAndView();
+		List<TrainerDTO> ar = memberService.select(trainerDTO);
+		mv.addObject("list",ar);
+		mv.setViewName("member/buy");		
+		
+		return mv;
+	}
+	
+	@PostMapping("buy")
+	public String buyAdd(MembershipDTO membershipDTO)throws Exception{
+		
+//		String []a = traNum_price.split("-");
+//		
+//		Long traNumber=Long.parseLong(a[0]);
+//		membershipDTO.setTraNum(traNumber);
+	
+		int result = memberService.buyAdd(membershipDTO);
+		
+		return "redirect:./mypage";
+	}
+
 	
 }

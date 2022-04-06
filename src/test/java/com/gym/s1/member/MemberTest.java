@@ -70,7 +70,7 @@ public class MemberTest extends MyJunitTest {
 		
 		assertEquals(result, 1);
 	}
-	@Test
+	//@Test
 	public void traup()throws Exception{
 		TrainerDTO trainerDTO = new TrainerDTO();
 		trainerDTO.setMemberNum(129L);
@@ -79,5 +79,22 @@ public class MemberTest extends MyJunitTest {
 		int result =memberDAO.trainerUpdate(trainerDTO);
 		
 		assertEquals(result, 1);
+	}
+	//@Test
+//	public void select()throws Exception{
+//		TrainerDTO trainerDTO = new TrainerDTO();
+//		List<MemberDTO> ar = memberDAO.select(trainerDTO);
+//		assertNotNull(ar);
+//	}
+	//@Test
+	public void buy()throws Exception{
+		MembershipDTO membershipDTO = new MembershipDTO();
+		membershipDTO.setMemberNum(1L);
+		membershipDTO.setTraNum(10L);
+		membershipDTO.setCount(5L);
+		membershipDTO.setPrice(265000L);
+		membershipDTO.setLocker(1L);
+		membershipDTO.setClothes(1L);
+		int result = memberDAO.buyAdd(membershipDTO);
 	}
 }

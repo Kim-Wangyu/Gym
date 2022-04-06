@@ -29,6 +29,12 @@
     border-collapse: collapse;
     
 }
+.wd1 li a:hover, .wd1 ul li:hover a{
+    background: rgb(31,31,31);
+    color:#FFFFFF;
+    text-decoration:none;
+    }
+
 .wli .wa{
     text-align: center;
     display: block;
