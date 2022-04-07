@@ -15,11 +15,11 @@
 	</update>
 	
 	<select id="applyList" parameterType="ApplyDTO" resultType="ApplyDTO">
-		SELECT * FROM APPLY WHERE DAY = #{day} ORDER BY TRANUM, TIME ASC
+		SELECT * FROM APPLY WHERE DAY = #{day} AND MEMBERSHIPNUM IS NULL ORDER BY TRANUM, TIME ASC
 	</select>
 	
 	<select id="timeList" parameterType="ApplyDTO" resultType="ApplyDTO">
-		SELECT * FROM APPLY WHERE DAY = #{day} AND TRANUM = #{traNum} ORDER BY TIME ASC
+		SELECT * FROM APPLY WHERE DAY = #{day} AND TRANUM = #{traNum} AND MEMBERSHIPNUM IS NULL ORDER BY TIME ASC
 	</select>
 	
  	<select id="trainerName" parameterType="TrainerDTO" resultType="MemberDTO">
