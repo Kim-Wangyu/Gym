@@ -18,7 +18,7 @@
 		<div id=files>
 			<c:forEach items="${dto.exFileDTOs}" var = "f">
 			<div>
-				${f.oriName}<button type="button" data-fileNum="${f.fileNum}" class="fileDelBtn">X</button>
+				${f.oriName}<button type="button" data-fileNum="${f.fileNum}" class="fileDeleteBtn">X</button>
 			</div>
 			</c:forEach>
 		</div>
