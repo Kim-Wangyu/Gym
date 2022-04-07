@@ -72,9 +72,9 @@
 
 
 	</div>
-		<c:if test ="${member.grade eq 2}">
+	<%-- 	<c:if test ="${member.grade eq 2}"> --%>
 				<a href="./add">ADD</a>
-			</c:if>
+		<%-- 	</c:if> --%>
 	</div>
 </body>
 </html>

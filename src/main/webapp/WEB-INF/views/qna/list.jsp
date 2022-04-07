@@ -61,7 +61,7 @@
 		</div>
 
 
-		<c:if test="${not empty member}">
+ 		<c:if test="${not empty member}">
 			<a href="./add">ADD</a>
 		</c:if>
 	</div>
