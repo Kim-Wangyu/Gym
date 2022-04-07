@@ -18,6 +18,16 @@
 	<h3>Contents : ${dto.contents}</h3>
 	<h3>RegDate : ${dto.regDate}</h3>
 	<h3>Hit : ${dto.hit}</h3>
+	
+	<div>
+		<c:forEach items="${dto.exFileDTOs}" var="f"> 
+		<img alt="" src="../resources/upload/exercise/${f.fileName}"> <!-- 그냥 보임 -->
+		<a href="../resources/upload/${board}/${f.fileName}">${f.oriName}</a> <!--  클릭해서 보기     --> 
+		<%-- <a href="./fileDown?fileNum=${f.fileNum}">${f.oriName}</a> --%>	
+		</c:forEach>
+	</div> 
+	
+	
 	<table id="replyResult">
 	</table>
 	<c:if test="${not empty member}"></c:if>

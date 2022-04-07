@@ -4,8 +4,10 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.gym.s1.board.BoardDTO;
+import com.gym.s1.util.FileManager;
 import com.gym.s1.util.Pager;
 
 @Service
@@ -13,9 +15,22 @@ public class MemberService {
 	
 	@Autowired
 	private MemberDAO memberDAO;
+	@Autowired
+	private FileManager fileManager;
 	
-	public int join(MemberDTO memberDTO)throws Exception{
-		return memberDAO.join(memberDTO);
+	public int join(MemberDTO memberDTO, MultipartFile file)throws Exception{
+		int result = memberDAO.join(memberDTO);
+	
+			String fileName=fileManager.save(file, "resources/upload/member/");
+				
+			MemberFileDTO memberFileDTO = new MemberFileDTO();
+			memberFileDTO.setMemberNum(memberDTO.getMemberNum());
+			memberFileDTO.setFileName(fileName);
+			memberFileDTO.setOriName(file.getOriginalFilename());
+				
+			result = memberDAO.addFile(memberFileDTO);
+			
+		return result;
 	}
 	
 	public MemberDTO login(MemberDTO memberDTO)throws Exception{

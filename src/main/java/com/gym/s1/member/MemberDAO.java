@@ -58,5 +58,8 @@ public class MemberDAO {
 	public int buyAdd(MembershipDTO membershipDTO) throws Exception{
 		return sqlSession.insert(NAMESPACE+"buyAdd",membershipDTO);
 	}
+	public int addFile(MemberFileDTO memberFileDTO)throws Exception{
+		return sqlSession.insert(NAMESPACE+"addFile",memberFileDTO);
+	}
 	
 }

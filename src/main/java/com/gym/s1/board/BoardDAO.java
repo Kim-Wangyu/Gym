@@ -2,6 +2,7 @@ package com.gym.s1.board;
 
 import java.util.List;
 
+
 import com.gym.s1.util.Pager;
 
 public interface BoardDAO {
@@ -17,9 +18,9 @@ public interface BoardDAO {
 	
 	public int update(BoardDTO boardDTO)throws Exception;
 
-
 	public Long total(Pager pager)throws Exception;
 	
+	public int addFile(BoardFileDTO BoardFileDTO) throws Exception;
 
 
 

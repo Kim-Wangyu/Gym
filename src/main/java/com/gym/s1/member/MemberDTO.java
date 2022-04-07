@@ -7,6 +7,8 @@ public class MemberDTO {
    private String name;
    private String phone;
    private Long grade;
+   private MemberFileDTO memberFileDTO;
+   
    //0 일반회원
    //1 관리자(트레이너)
    //2 관리자
@@ -46,7 +48,10 @@ public class MemberDTO {
    public void setGrade(Long grade) {
       this.grade = grade;
    }
-   
-   
-   
+   public MemberFileDTO getMemberFileDTO() {
+	   return memberFileDTO;
+   }
+   public void setMemberFileDTO(MemberFileDTO memberFileDTO) {
+	   this.memberFileDTO = memberFileDTO;
+   }
 }
