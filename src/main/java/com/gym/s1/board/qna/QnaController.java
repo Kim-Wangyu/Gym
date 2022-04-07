@@ -9,11 +9,14 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.gym.s1.board.BoardDTO;
+import com.gym.s1.board.BoardFileDTO;
 import com.gym.s1.util.Pager;
 
 @Controller
@@ -23,15 +26,29 @@ public class QnaController {
 	@Autowired
 	private QnaService qnaService;
 	
+	@ModelAttribute("board")
+	public String board() {
+		return "qna";
+	}
+	
+	@PostMapping("fileDelete")
+	public ModelAndView fileDelete(BoardFileDTO boardFileDTO)throws Exception{
+		ModelAndView mv = new ModelAndView();
+		int result = qnaService.fileDelete(boardFileDTO);
+		mv.addObject("result",result);
+		mv.setViewName("common/ajaxResult");
+		return mv;
+	}
+	
 	@RequestMapping(value="add", method=RequestMethod.GET)
 	public String add()throws Exception{
 		return "/qna/add";
 	}
 	
 	@RequestMapping(value="add", method=RequestMethod.POST)
-	public ModelAndView add(BoardDTO boardDTO) throws Exception{
+	public ModelAndView add(BoardDTO boardDTO,MultipartFile[] files) throws Exception{
 		ModelAndView mv = new ModelAndView();
-		int result = qnaService.add(boardDTO);
+		int result = qnaService.add(boardDTO,files);
 		
 		mv.setViewName("redirect:./list");
 		return mv;
@@ -70,8 +87,8 @@ public class QnaController {
 		return mv;
 	}
 	@RequestMapping(value="update",method=RequestMethod.POST)
-	public String update(QnaDTO qnaDTO) throws Exception{
-		int result = qnaService.update(qnaDTO);
+	public String update(QnaDTO qnaDTO,MultipartFile[] files) throws Exception{
+		int result = qnaService.update(qnaDTO,files);
 		return "redirect:./list";
 	}
 	

@@ -4,8 +4,11 @@ import java.util.List;
 
 import com.gym.s1.util.Pager;
 
+
 public interface BoardDAO {
 	//add, list, detail, delete, update
+	
+	public int addFile(BoardFileDTO boardFileDTO) throws Exception;
 	
 	public int add(BoardDTO boardDTO)throws Exception;
 	

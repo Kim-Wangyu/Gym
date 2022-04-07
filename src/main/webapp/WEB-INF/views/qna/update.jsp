@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,15 +10,28 @@
 <body>
 <h1>Qna Update Page</h1>
 
-	<form action="./update" method="post">
+	<form action="./update" method="post" enctype="multipart/form-data">
 		<input type="hidden" name="num"  value="${dto.num}">
 		Title<input type="text" name="title" value="${dto.title}">
 		Contents<textarea name ="contents"  rows="" cols=""  >${dto.contents}</textarea>
+		<div id="files">
+			<c:forEach items="${dto.fileDTOs}" var="f">
+				<div>
+					${f.oriName} <button type="button" data-fileNum="${f.fileNum}" class="fileDeleteBtn">X</button>
+				</div>
+			
+			</c:forEach>
 		
+		</div>
+			<div id="fileResult"></div>
+		
+		<div>
+			<button id="fileAdd" type="button">fileADD</button>
+		</div>
 	
 		<input type="submit" name="insert">
 		<button type="submit">ADD</button>
 	</form>
-
+	<script type="text/javascript" src="../resources/js/file.js"></script>
 </body>
 </html>

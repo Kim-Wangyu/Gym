@@ -19,6 +19,14 @@
 		<h3>제목 : ${dto.title}</h3>
 		<h3>내용 : ${dto.contents}</h3>
 		<h3>작성자 : ${dto.writer}</h3>
+		
+		<div>
+		<c:forEach items="${dto.fileDTOs}" var="f">
+			<a href="../resources/upload/${board}/${f.fileName}">${f.oriName}</a> <!--  클릭해서 보기     -->
+				<img alt="" src="../resources/upload/${board}/${f.fileName}">
+		
+		</c:forEach>
+		</div>
 	
 	<div>
 		<input type="hidden" name="num" value="${dto.num}" id="num"> 
