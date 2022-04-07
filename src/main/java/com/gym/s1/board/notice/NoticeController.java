@@ -9,11 +9,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.gym.s1.board.BoardDTO;
+import com.gym.s1.board.BoardFileDTO;
 import com.gym.s1.util.Pager;
 
 import jdk.nashorn.internal.ir.RuntimeNode.Request;
@@ -30,6 +33,16 @@ public class NoticeController {
 		return "notice";
 	}
 	
+	@PostMapping("fileDelete")
+	public ModelAndView fileDelete(BoardFileDTO boardFileDTO)throws Exception{
+		ModelAndView mv = new ModelAndView();
+		System.out.println(boardFileDTO.getFileNum());
+		int result = noticeService.fileDelete(boardFileDTO);
+		mv.setViewName("common/ajaxResult");
+		mv.addObject("result",result);
+		return mv;
+		
+	}
 
 	
 	@RequestMapping(value = "update",method = RequestMethod.GET)
@@ -42,8 +55,10 @@ public class NoticeController {
 	}
 	
 	@RequestMapping(value = "update",method = RequestMethod.POST)
-	public ModelAndView update(BoardDTO boardDTO,ModelAndView mv)throws Exception{
-		int result=noticeService.update(boardDTO);
+	public ModelAndView update(BoardDTO boardDTO,ModelAndView mv,MultipartFile[] files)throws Exception{
+		int result=noticeService.update(boardDTO, files);
+		
+		
 		mv.setViewName("redirect:./list");
 		
 		return mv;
@@ -89,9 +104,7 @@ public class NoticeController {
 	
 	@RequestMapping(value = "add",method = RequestMethod.GET)
 	public ModelAndView add() throws Exception{
-		
-		
-		
+	
 		ModelAndView mv = new ModelAndView();
 		
 		mv.setViewName("board/add");
@@ -100,11 +113,11 @@ public class NoticeController {
 	
 	
 	@RequestMapping(value = "add",method = RequestMethod.POST)
-	public ModelAndView add(BoardDTO boardDTO) throws Exception{
+	public ModelAndView add(BoardDTO boardDTO, MultipartFile[] files) throws Exception{
 		
 		ModelAndView mv = new ModelAndView();
 		
-		int result = noticeService.add(boardDTO); 
+		int result = noticeService.add(boardDTO,files); 
 		mv.setViewName("redirect:./list");
 		return mv;
 	}

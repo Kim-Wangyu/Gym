@@ -19,6 +19,22 @@
 <h3>Writer : ${dto.writer}</h3>
 
 
+<hr>
+
+<div>
+	<c:forEach items="${dto.fileDTOs}" var="f">
+		 <a href="../resources/upload/${board}/${f.fileName}">${f.oriName}</a> <!--  클릭해서 보기     -->
+		 <img alt="" src="../resources/upload/${board}/${f.fileName}">
+		<%-- <a href="./fileDown?fileNum=${f.fileNum}">${f.oriName}</a> --%>
+	
+	</c:forEach>
+</div>
+
+
+
+
+
+
 //-----------------------------
 <hr>
 <c:if test="${not empty member.id}">
