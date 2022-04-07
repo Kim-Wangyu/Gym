@@ -7,7 +7,7 @@
 
 
 
-	<delete id="deleteFile" parameterType="ExerciseFileDTO">
+	<delete id="fileDelete" parameterType="ExerciseFileDTO">
 		DELETE GYMEXERCISEFILE WHERE FILENUM=#{fileNum}
 	</delete>
 

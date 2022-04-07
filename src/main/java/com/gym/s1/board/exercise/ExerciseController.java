@@ -32,10 +32,10 @@ public class ExerciseController {
 		return "exercise";
 	}
 	
-	@PostMapping("deleteFile")
-	public ModelAndView deleteFile(ExerciseFileDTO exerciseFileDTO)throws Exception{
+	@PostMapping("fileDelete")
+	public ModelAndView fileDelete(ExerciseFileDTO exerciseFileDTO)throws Exception{
 		ModelAndView mv=new ModelAndView();
-		int result =exerciseService.deleteFile(exerciseFileDTO);
+		int result =exerciseService.fileDelete(exerciseFileDTO);
 		mv.addObject("result",result);
 		mv.setViewName("/common/ajaxResult");
 		return mv;

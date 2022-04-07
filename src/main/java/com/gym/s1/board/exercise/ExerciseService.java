@@ -20,8 +20,8 @@ public class ExerciseService implements BoardService {
 	@Autowired
 	private FileManager fileManager;
 	
-	public int deleteFile(ExerciseFileDTO exerciseFileDTO)throws Exception{
-		int result=exerciseDAO.deleteFile(exerciseFileDTO);
+	public int fileDelete(ExerciseFileDTO exerciseFileDTO)throws Exception{
+		int result=exerciseDAO.fileDelete(exerciseFileDTO);
 		return result;
 	}
 	

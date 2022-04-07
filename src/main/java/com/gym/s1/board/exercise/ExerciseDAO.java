@@ -54,8 +54,8 @@ public class ExerciseDAO implements BoardDAO {
 		return sqlSession.insert(NAMESPACE+"addFile", boardFileDTO);
 		
 	}
-	public int deleteFile(BoardFileDTO boardFileDTO) throws Exception{
-		return sqlSession.delete(NAMESPACE+"deleteFile",boardFileDTO);
+	public int fileDelete(BoardFileDTO boardFileDTO) throws Exception{
+		return sqlSession.delete(NAMESPACE+"fileDelete",boardFileDTO);
 	}
 
 
