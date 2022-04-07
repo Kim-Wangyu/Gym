@@ -4,6 +4,7 @@ const pwResult = document.getElementById('pwResult');
 const pwResult2 = document.getElementById('pwResult2');
 const id=document.getElementById('id');
 const idResult = document.getElementById('idResult');
+const file = document.getElementById('file');
 
 const form=document.getElementById('form');
 const btn = document.getElementById('btn');
@@ -12,7 +13,7 @@ let idcheck=true;
 let pwcheck=true;
 let namecheck=true;
 let phonecheck=true;
-
+let filecheck=true;
 
 //pw글자수 확인
 pw.addEventListener("keyup",function(){
@@ -48,7 +49,9 @@ pw.addEventListener("change", function(){
     pwResult2.innerHTML="";
     pw.focus();
 })
-
+file.addEventListener("change",function(){
+    filecheck=true;
+})
 //join 버튼 클릭시 필수요소 확인
 btn.addEventListener('click',function(){
     
@@ -77,7 +80,13 @@ btn.addEventListener('click',function(){
         phonecheck=false;
         return;
     }
-    if(idcheck&&pwcheck&&namecheck&&phonecheck){
+    if(file.value==""){
+        alert("file 넣으세요");
+        file.focus();
+        filecheck=false;
+        return;
+    }
+    if(idcheck&&pwcheck&&namecheck&&phonecheck&&filecheck){
         form.submit();
     }else{
         alert("조건을 확인하세요");

@@ -2,17 +2,44 @@
 <!DOCTYPE mapper
     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
- 
-    
     <mapper namespace="com.gym.s1.member.MemberDAO">
+    	<insert id="addFile" parameterType="MemberFileDTO">
+    		INSERT INTO GYMMEMBERFILE
+    		VALUES(GYMFILE_SEQ.NEXTVAL,#{memberNum},#{fileName},#{oriName})
+    	</insert>
+    
     	<insert id="join" parameterType="MemberDTO">
+    	<selectKey keyProperty="memberNum" order="BEFORE" resultType="Long">
+			SELECT GYMMEMBER_SEQ.NEXTVAL FROM DUAL
+    	</selectKey>
     		insert into gymmember 
-    		values (gymmember_seq.nextval,#{id},#{pw},#{name},#{phone},0)
+    		values (#{memberNum},#{id},#{pw},#{name},#{phone},0)
     	</insert>
     	
-    	<select id="login" parameterType="MemberDTO" resultType="MemberDTO" >
-    		SELECT * FROM GYMMEMBER WHERE ID=#{id} and PW=#{pw}
-    	</select>
+    	<select id="login" parameterType="MemberDTO" resultMap="memberResult" >
+    		<!-- SELECT * FROM GYMMEMBER WHERE ID=#{id} and PW=#{pw} -->
+    		SELECT M.*, F.*
+			FROM GYMMEMBER M
+			LEFT JOIN
+			GYMMEMBERFILE F
+			ON(M.MEMBERNUM=F.MEMBERNUM)
+			WHERE ID=#{id} and PW=#{pw}
+		</select>	
+		
+		<resultMap type="MemberDTO" id="memberResult">
+			<id column="memberNum" property="memberNum"/>
+			<result column="id" property="id"/>
+			<result column="pw" property="pw"/>
+			<result column="name" property="name"/>
+			<result column="phone" property="phone"/>
+			<result column="grade" property="grade"/>
+		
+		<association property="memberFileDTO" javaType="MemberFileDTO" >
+			<id column ="fileNum" property="fileNum"/>
+			<result column ="fileName" property="fileName"/>
+			<result column ="oriName" property="oriName"/>
+		</association>	
+    	</resultMap>
     	<update id="update" parameterType="MemberDTO">
     		UPDATE GYMMEMBER SET NAME=#{name}, PHONE=#{phone} WHERE ID=#{id}
     	</update>

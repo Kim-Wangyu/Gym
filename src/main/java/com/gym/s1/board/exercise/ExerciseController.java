@@ -10,8 +10,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Repository;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.gym.s1.board.BoardDTO;
@@ -23,6 +26,20 @@ public class ExerciseController {
 	
 	@Autowired
 	private ExerciseService exerciseService;
+	
+	@ModelAttribute("board")
+	public String board() {
+		return "exercise";
+	}
+	
+	@PostMapping("deleteFile")
+	public ModelAndView deleteFile(ExerciseFileDTO exerciseFileDTO)throws Exception{
+		ModelAndView mv=new ModelAndView();
+		int result =exerciseService.deleteFile(exerciseFileDTO);
+		mv.addObject("result",result);
+		mv.setViewName("/common/ajaxResult");
+		return mv;
+	}
 	
 	@RequestMapping(value="list", method = RequestMethod.GET)
 	public ModelAndView list(BoardDTO boardDTO,Pager pager)throws Exception{
@@ -40,8 +57,8 @@ public class ExerciseController {
 	}
 	
 	@RequestMapping(value="add", method = RequestMethod.POST)
-	public String add(BoardDTO boardDTO)throws Exception{
-		int result = exerciseService.add(boardDTO);
+	public String add(BoardDTO boardDTO,MultipartFile [] files)throws Exception{
+		int result = exerciseService.add(boardDTO,files);
 		return "redirect:./list";
 	}
 	
@@ -69,11 +86,13 @@ public class ExerciseController {
 	}
 	
 	@RequestMapping(value="update",method=RequestMethod.POST)
-	public ModelAndView update(BoardDTO boardDTO)throws Exception{
+	public ModelAndView update(BoardDTO boardDTO,MultipartFile [] files)throws Exception{
 		ModelAndView mv = new ModelAndView();
-		int result = exerciseService.update(boardDTO);
+		int result = exerciseService.update(boardDTO,files);
+	
 		mv.setViewName("redirect:./list");
 		return mv;
 	}
+	
 	
 }

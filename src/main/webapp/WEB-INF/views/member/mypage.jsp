@@ -20,12 +20,13 @@
 	<h3>이름 : ${member.name}</h3>
 	<h3>전화번호 : ${member.phone}</h3>
 	
+	<div>
+	<img alt="" src="../resources/upload/member/${member.memberFileDTO.fileName}">${member.memberFileDTO.oriName}
+	</div>
 	<a href="./pwupdate">비밀번호 수정</a>
 	<a href="./update">정보 수정</a>
 	<a href="./buy">회원권 구매</a>
-	
-	
-	<script type="text/javascript" src="../resources/js/mypage.js"></script>
+
 	
 </body>
 </html>

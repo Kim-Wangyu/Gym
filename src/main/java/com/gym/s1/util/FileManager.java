@@ -13,44 +13,43 @@ import org.springframework.web.multipart.MultipartFile;
 
 @Component
 public class FileManager {
-
-	@Autowired
-	private ServletContext servletContext;
-	
-	
-	public String save(MultipartFile multipartFile, String path)throws Exception{
-		
-		String realPath = servletContext.getRealPath(path);
-		System.out.println(realPath);
-		
-		File file = new File(realPath);
-		
-		if(!file.exists()) {
-			//file.mkdir(); //중간 폴더가 없으면 에러
-			file.mkdirs(); //중간폴더가 없으면 중간폴더도 생성해줌,그래서 더 안전함
-			
-		}
-		//1. 시간
-//		Calendar ca = Calendar.getInstance();
-//		long l = ca.getTimeInMillis(); //현재시간을 밀리세컨으로 변환, 중복될일 X
-//		System.out.println("time : "+l);
-//		String oriName= multipartFile.getOriginalFilename(); //iu.jfif가 나올것 파일명
-//		String fileName = l +"_"+oriName;
-//		System.out.println("fileName : "+fileName);
-		
-		//2. UUID   이름 만들어주는 얘
-		String oriName= multipartFile.getOriginalFilename(); //iu.jfif가 나올것 파일명
-		String fileName = UUID.randomUUID().toString();
-		fileName = fileName+"_"+oriName;
-		System.out.println("UUID : " +fileName);
-		
-
-				
-		//2. FileCopyUtils   저장하는 얘 HDD에
-		file = new File(file,fileName);
-		FileCopyUtils.copy(multipartFile.getBytes(), file);
-		
-		return fileName;
-		
-	}
+   @Autowired
+   private ServletContext servletContext;
+   
+   public boolean remove(String path, String fileName) throws Exception{
+	   //파일을 HDD에서 삭제
+	   //저장된 폴더명, 저장된 파일명
+	   path = servletContext.getRealPath(path); //path에 실제경로를 받아옴
+	   
+	   File file = new File(path, fileName);
+	   
+	   return file.delete();	   
+	   
+   }
+   
+   public String save(MultipartFile multipartFile,String path) throws Exception{//HDD에 저장하는곳
+     
+      //path= /resources/upload/member
+      String realPath =servletContext.getRealPath(path);
+      System.out.println(realPath);
+      
+      File file =new File(realPath);
+      
+      if(!file.exists()) {
+    	  //file.mkdir();
+    	  file.mkdirs();
+      }
+     
+      //UUID로 파일명 랜덤 생성 
+      String oriName= multipartFile.getOriginalFilename(); //iu1.jpg
+      String fileName = UUID.randomUUID().toString();
+      fileName = fileName +"_"+oriName;
+      
+      //file HDD에 저장
+      // FileCopyUtils
+      file = new File(file, fileName);
+      FileCopyUtils.copy(multipartFile.getBytes(), file);
+      
+      return fileName;
+   }
 }

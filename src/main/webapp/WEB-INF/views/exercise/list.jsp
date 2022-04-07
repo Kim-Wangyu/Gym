@@ -58,7 +58,9 @@
 			<a href="./list?page=${pager.lastPageNum+1}">Next</a>
 		</c:if>
 	</div>
-	<a href="./add">ADD</a>
+	<c:if test ="${member.grade eq 2}">
+				<a href="./add">ADD</a>
+			</c:if>
 	</div>
 
 

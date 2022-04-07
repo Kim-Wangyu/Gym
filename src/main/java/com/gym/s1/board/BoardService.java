@@ -20,4 +20,6 @@ public interface BoardService {
 	
 	public List<BoardDTO> list2(Pager pager)throws Exception;
 	
+	
+	
 }

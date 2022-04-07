@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.gym.s1.board.BoardDTO;
@@ -35,9 +36,9 @@ public class MemberController {
 	}
 	
 	@PostMapping("join")
-	public ModelAndView join(MemberDTO memberDTO)throws Exception{
+	public ModelAndView join(MemberDTO memberDTO,MultipartFile file)throws Exception{
 		ModelAndView mv = new ModelAndView();
-		int result =  memberService.join(memberDTO);
+		int result =  memberService.join(memberDTO,file);
 		mv.setViewName("redirect:/");
 		return mv;
 	}

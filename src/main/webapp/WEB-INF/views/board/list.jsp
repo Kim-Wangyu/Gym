@@ -72,9 +72,9 @@
 
 
 	</div>
-	<c:if test="${not empty member.id}">
-		<a href="./add">ADD</a>
-	</c:if>
+		<c:if test ="${member.grade eq 2}">
+				<a href="./add">ADD</a>
+			</c:if>
 	</div>
 </body>
 </html>
