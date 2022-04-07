@@ -22,6 +22,7 @@
 	
 	<a href="./pwupdate">비밀번호 수정</a>
 	<a href="./update">정보 수정</a>
+	<a href="./buy">회원권 구매</a>
 	
 	
 	<script type="text/javascript" src="../resources/js/mypage.js"></script>

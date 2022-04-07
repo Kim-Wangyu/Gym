@@ -53,4 +53,34 @@
     	<select id="trainerDetail" parameterType="TrainerDTO" resultType="TrainerDTO">
     		SELECT * FROM TRAINER WHERE MEMBERNUM=#{memberNum}
     	</select>
+    	
+    	<select id="select"  parameterType="TrainerDTO" resultMap="selectResult">
+			SELECT T.TRANUM, G.NAME, T.PRICE, T.CATEGORY
+			FROM GYMMEMBER G
+     		INNER JOIN
+     		TRAINER T
+     		ON (G.MEMBERNUM = T.MEMBERNUM)
+		</select>
+     
+     <resultMap type="TrainerDTO" id="selectResult">
+ 		<id column="traNum" property="traNum"/>
+		<result column="memberNum" property="memberNum"/>
+		<result column="price" property="price"/>
+		<result column="category" property="category"/>
+		
+		<association property="memberDTOs" javaType="MemberDTO">
+			<id column="memberNum" property="memberNum"/>
+			<result column="id" property="id"/>
+			<result column="pw" property="pw"/>
+			<result column="name" property="name"/>
+			<result column="phone" property="phone"/>
+			<result column="grade" property="grade"/>
+		</association>
+ 	</resultMap>
+ 	
+ 	<insert id="buyAdd" parameterType="MembershipDTO">
+ 		INSERT INTO MEMBERSHIP
+ 		VALUES(MEMBERSHIP_SEQ.NEXTVAL, #{memberNum},#{traNum},#{count},#{price},#{locker},#{clothes},SYSDATE,SYSDATE)
+ 	</insert>
+ 	
     </mapper>

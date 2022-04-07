@@ -13,6 +13,7 @@
 	<c:import url="../template/header.jsp"></c:import>
 	<h1>Member Detail Page</h1>
 	
+	<h3>id : ${member.id}</h3>
 	<h3>이름 : ${member.name}</h3>
 	<h3>번호 : ${member.phone}</h3>
 	<h3>등급 : ${member.grade}</h3>

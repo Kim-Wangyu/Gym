@@ -1,3 +1,4 @@
+
 .wd1{
     width: 80%;
     height: 300px;
@@ -14,6 +15,9 @@
    
 
 }
+.lim{
+    text-align: center;
+}
 
 .wd1 .wli{
     width: 33%;
@@ -25,6 +29,12 @@
     border-collapse: collapse;
     
 }
+.wd1 li a:hover, .wd1 ul li:hover a{
+    background: rgb(31,31,31);
+    color:#FFFFFF;
+    text-decoration:none;
+    }
+
 .wli .wa{
     text-align: center;
     display: block;
@@ -45,15 +55,55 @@
 	width: 100%;
     height: 600px;
     display: flex;
+   
+   position: relative; 
 
     /* background-image: url("/s1/resources/images/gymHome2.jpg");
     background-repeat: no-repeat;
     background-size: 1910px 600px; */
 }
+#cli{
+    width: 100px;
+    height: 50px;
+    position: absolute;
+   
+    border: solid black 2px;
+    border-radius : 50px;
+    font-weight: bold;
+    margin-top: 250px;
+    margin-left: 50px;
+}
+#cli1{
+    width: 100px;
+    height: 50px;
+    position: absolute;
+   
+    border: solid black 2px;
+    border-radius : 50px;
+    font-weight: bold;
+    margin-top: 250px;
+    margin-left: 1720px;
+}
+#cli:hover{
+    background-color: white;
+    }
+#cli1:hover{
+    background-color: white;
+}
 #photo{
     width: 1800px;
     height: 600px;
     display: block;
+    position: relative;
+    margin-left: 40px;
+    margin-top: 50px;
+}
+
+#btnBox{
+    width: 100%;
+    height: 100px;
+    display: flex;
+    justify-content: center;
 }
 
  .homePic:focus-within {
@@ -101,3 +151,74 @@
     content: url("/s1/resources/images/woAfter.jpg");
 } 
 
+#bottomBox{
+    width: 80%;
+    height: 120px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+margin-left: 200px;
+    
+}
+
+.bottom{
+    width: 39%;
+    
+   
+    
+    text-align: center;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+
+}
+#bolibox{
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+#boliBox .boli{
+    height: 40px;
+    text-align: center;
+    list-style: none;
+    
+}
+
+.bp{
+    width: 30px;
+    height: 30px;
+}
+
+#lastBox{
+    width: 80%;
+    height: 81px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 150px;
+    
+}
+#last1{
+    width: 25%;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+  
+}
+#last2{
+    width: 70%;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+
+}
+#lastLogo{
+    width: 120px;
+    height: 120px;
+}

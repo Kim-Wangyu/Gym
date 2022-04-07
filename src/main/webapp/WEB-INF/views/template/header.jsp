@@ -1,13 +1,31 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
-	<header class="header">
-		<nav class="nav_main">
-			<ul>
+	<header class="header" >
+		<nav class="nav_main" id="headerId" >
+			<ul class="mainmenu">
 				<li><a href="/s1/"><img class="imgLogo" src="/s1/resources/images/Logo.jpg" alt=""></a></li>
-				<li><a href="/s1/">HOME</a></li>
+				<li><a href="/s1/">HOME</a>
+					<ul class="submenu">
+						<li class="sub1"><a href="./etc/intro">intro</a></li>
+						<li><a href="./etc/greeting">guide</a></li>
+						<li><a href="./etc/map">map</a></li>
+					</ul>
+				</li>
 				<li><a href="/s1/notice/list"> Notice</a></li>
-				<li><a href="/s1/exercise/list"> Exercise</a></li>
-				<li><a href="/s1/qna/list"> Q&A</a></li>
+				<li><a href="/s1/exercise/list"> Exercise</a>
+					<ul class="submenu">
+						<li class="sub1">PT trainer</li>
+						<li>Pilates trainer</li>
+					</ul>
+				</li>
+				<li><a href="/s1/qna/list"> Q&A</a>
+					<ul class="submenu">
+						<li class="sub1">자주묻는질문</li>
+						<li>질문들</li>
+					</ul>
+				</li>
 			</ul>
 		</nav>
 		

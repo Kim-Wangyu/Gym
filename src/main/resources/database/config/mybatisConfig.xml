@@ -22,6 +22,11 @@
 		<typeAlias type="com.gym.s1.board.qna.qnaReply.QnaReplyDTO" alias="QnaReplyDTO"/>
 		<typeAlias type="com.gym.s1.board.notice.reply.NoticeReplyDTO" alias="NoticeReplyDTO"/>
 		<typeAlias type="com.gym.s1.apply.ApplyDTO" alias="ApplyDTO" />
+		
+		<typeAlias type="com.gym.s1.board.BoardFileDTO" alias="BoardFileDTO"/>
+		<typeAlias type="com.gym.s1.board.notice.NoticeFileDTO" alias="NoticeFileDTO"/>
+		<typeAlias type="com.gym.s1.board.exercise.ExerciseFileDTO" alias="ExerciseFileDTO"/>
+		<typeAlias type="com.gym.s1.member.MemberFileDTO" alias="MemberFileDTO" />
 
 
 	</typeAliases>

@@ -1,27 +1,34 @@
 .header{
     width: 100%;
     height: 125px;
-    background-color: black;  
+    background-color: black;
     display: flex;
     justify-content: space-between;
-  
+    overflow: hidden;
+   
+}
+.header:hover{
+    overflow: visible;
 }
 
 .nav_main{
-    width: 800px;
-    height: 100%;
+    width: 1200px;
+    height: 216px;
+    background:linear-gradient(black 125px,rgba(49, 48, 48, 0.5) -115px);
 
 }
+
+
 
 .imgLogo{
     width: 130px;
-    height: 130px;
+    height: 126px;
     display: inline;
 }
 
-.nav_main  ul{
-    width: 100%;
-    height: 100%;
+.nav_main  .mainmenu{
+    width: 84%;
+    height: 130px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -49,6 +56,26 @@
 .nav_sub a {
     color: white;
     font-size: large;
+}
+
+.mainmenu{
+    position: relative;
+}
+
+.submenu{
+    display: block;
+    height: 100px;
+    position: absolute;
+
+}
+.submenu li{
+    color: white;
+    line-height: 24px;
+    font-weight: bold;
+}
+.sub1{
+    margin-top: 44px;
+    width: 100px;
 }
 
 

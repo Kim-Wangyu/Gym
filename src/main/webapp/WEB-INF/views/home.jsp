@@ -3,29 +3,46 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
 <head>
-	
+	<title>Home</title>
 	<c:import url="./template/header_css.jsp"></c:import>
     <link rel="stylesheet" href="/s1/resources/css/home.css">
    
 </head>
 <body>
 <c:import url="./template/header.jsp"></c:import>
+<h3> ${member.name}님 환영합니다</h3>
 
+<a href="./notice/list">Notice List</a>
+<a href="./qna/list">Qna List</a>
+<a href="./exercise/list">Exercise List</a>
+<c:if test="${member eq null}">
+<a href="./member/join">Join</a>
+<a href="./member/login">Login</a>
+</c:if>
+<c:if test="${member ne null}">
+<a href="./member/logout">Logout</a>
+<a href="./member/mypage">Mypage</a>
+</c:if>
+
+
+<P>  The time on the server is ${serverTime}. </P>
 <div id="galleryCont">
-<p> <img src="/s1/resources/images/Logo.jpg" id="photo">
-</p>
-<p>
-	<button onclick="changePic(0);">이전</button>
-	<button onclick="changePic(1);">다음</button>
-</p>
+
+ 	<img src="/s1/resources/images/Logo.jpg" id="photo">
+	<button id="cli" type="button">이전</button>
+	<button id="cli1" type="button">다음</button>
+	
 </div>
+
+<div id="btnBox">
+<!-- 	<button id="cli" type="button">이전</button>
+	<button id="cli1" type="button">다음</button> -->
+</div>
+
 
 <div class="wd1">
 <ul class="wul">
-	<li class="wli">
-		<h1>Home</h1>
-	</li>
-    <li class="wli"><h1> Notice</h1>
+    <li class="wli"><h1 class="lim"> Notice</h1>
         <c:forEach items="${list}" var="dto">
 			<tr class="listNotice">
 				<td> <a class="wa" href="./notice/detail?num=${dto.num}">
@@ -33,7 +50,7 @@
             </tr>
         </c:forEach>
     </li>
-    <li class="wli"><h1>Exercise</h1>
+    <li class="wli"><h1 class="lim">Exercise</h1>
             <c:forEach items="${list1}" var="dto">
 			<tr class="listExercise">
 				<td> <a class="wa" href="./exercise/detail?num=${dto.num}">
@@ -41,7 +58,7 @@
             </tr>
         </c:forEach>
     </li>
-    <li class="wli"><h1>Q&A</h1>
+    <li class="wli"><h1 class="lim">Q&A</h1>
     	<c:forEach items="#{list2}" var="dto">
     	<tr class="listQna">
     		<td> <a class="wa" href="./qna/detail?num=${dto.num}">
@@ -61,11 +78,8 @@
 </div>
 
 
+<c:import url="./template/bottom.jsp"></c:import>
 
-
-
-
-
-<script src="./resources/js/homePage.js"></script>
+	<script src="./resources/js/homePage.js"></script>
 </body>
 </html>
