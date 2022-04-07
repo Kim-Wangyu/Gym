@@ -5,7 +5,7 @@ import java.sql.Date;
 public class ApplyDTO {
 	private Long applyNum;
 	private Long membershipNum;
-	private Long memberNum;
+	private Long traNum;
 	private Date day;
 	private String time; //1 9-10 2 10-11
 	private Long category;
@@ -21,11 +21,11 @@ public class ApplyDTO {
 	public void setMembershipNum(Long membershipNum) {
 		this.membershipNum = membershipNum;
 	}
-	public Long getMemberNum() {
-		return memberNum;
+	public Long getTraNum() {
+		return traNum;
 	}
-	public void setMemberNum(Long memberNum) {
-		this.memberNum = memberNum;
+	public void setTraNum(Long traNum) {
+		this.traNum = traNum;
 	}
 	public Date getDay() {
 		return day;

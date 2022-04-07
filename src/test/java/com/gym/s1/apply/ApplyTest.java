@@ -3,6 +3,7 @@ package com.gym.s1.apply;
 import static org.junit.Assert.*;
 
 import java.sql.Date;
+import java.util.List;
 
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +18,24 @@ public class ApplyTest extends MyJunitTest{
 	@Autowired
 	private ApplyDAO applyDAO;
 	
+	//@Test
+	public void traName()throws Exception{
+		ApplyDTO applyDTO = new ApplyDTO();
+		applyDTO.setTraNum(4L);
+		Date a = Date.valueOf("2022-4-12");
+		applyDTO.setDay(a);
+		List<ApplyDTO> ar = applyDAO.timeList(applyDTO);
+		assertNotEquals(0, ar.size());
+	}
 	
+	//@Test
+	public void applyTest()throws Exception{
+		ApplyDTO applyDTO = new ApplyDTO();
+		applyDTO.setApplyNum(101L);
+		applyDTO.setMembershipNum(1L);
+		int result = applyDAO.apply(applyDTO);
+		assertEquals(1, result);
+	}
 	
 	
 	//@Test
@@ -94,7 +112,7 @@ public class ApplyTest extends MyJunitTest{
 		applyDTO.setCategory(0L);
 		applyDTO.setDay(date);
 		applyDTO.setTime("1");
-		applyDTO.setMemberNum(246L);
+		applyDTO.setTraNum(246L);
 		int result = applyDAO.addApply(applyDTO);
 		assertEquals(1, result);
 	}

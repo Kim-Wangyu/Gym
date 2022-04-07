@@ -63,6 +63,12 @@ public class MemberController {
 			message="로그인실패";
 			path= "./login";
 		}
+		TrainerDTO trainerDTO = new TrainerDTO();
+		if(memberDTO.getGrade().equals(1L)) {
+			trainerDTO.setMemberNum(memberDTO.getMemberNum());
+			trainerDTO = memberService.trainerDetail(trainerDTO);
+			session.setAttribute("trainer", trainerDTO);
+		}
 		session.setAttribute("member", memberDTO);
 		model.addAttribute("message", message);
 		model.addAttribute("path", path);
@@ -142,14 +148,14 @@ public class MemberController {
 	public String upgrade(MemberDTO memberDTO, TrainerDTO trainerDTO) throws Exception{
 		int result =memberService.upgrade(memberDTO);
 		int result2=memberService.trainerAdd(trainerDTO);
-		return "redirect:./detail";
+		return "redirect:./list";
 	}
 
 	@PostMapping("trainerUpdate")
 	public String trainerUpdate(TrainerDTO trainerDTO) throws Exception{
 		int result =memberService.trainerUpdate(trainerDTO);
 		
-		return "redirect:./detail";
+		return "redirect:./list";
 	}
 	
 }

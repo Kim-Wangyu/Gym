@@ -4,6 +4,8 @@ const nextMonth = document.getElementById("nextMonth");
 const year = document.getElementById("year");
 const month = document.getElementById("month");
 const applyDiv = document.getElementById("applyDiv");
+const selectName = document.getElementById("selectName");
+
 
 
 
@@ -17,8 +19,24 @@ const applyDiv = document.getElementById("applyDiv");
 //1,2,3,4,5
 //trainer 각 날마다 1~8 and 1~8에 각각 한명의 멤버만 연결되야 하고 and 1~8에 한명이 연결되면 calendar페이지에서 빗금처리라던가 이런처리 and 데이터베이스에 저장되어야하고 
 //1 = 9~10 2= 10~11 3= 11~12 4= 12~13 5=13~14 6= 14~15 7= 15~16  8= 16~17 
+function getTime(){
+    const xhttp1 =new XMLHttpRequest();
+    const day = document.getElementById("day");
+    const memberNum = document.getElementsByClassName("optionName");
+    for(m of memberNum){
+        if(m.selected){
+            xhttp1.open("GET","../apply/getTime?day="+day.value+"&memberNum="+m.value);
+        }
+    }
+    xhttp1.send();
+    xhttp1.onreadystatechange = function(){
+        if(this.readyState==4&&this.status==200){
+        document.getElementById("time").innerHTML = this.responseText.trim();
+        }
+    }
+}
 
-let day=document.createElement("div");
+let day=document.createElement("input");
 let addDiv = document.createElement("div");
 
 tb_body.addEventListener("click",function(event){
@@ -27,65 +45,59 @@ tb_body.addEventListener("click",function(event){
     let form = document.createElement("form");//<form></form>
     form.setAttribute("method","post");//<form action="./calendar" method="post"></form>
 
-    //select 운동종목 만들기
-    let exercise = document.createElement("select");//<select></select>
-    exercise.setAttribute("id","exercise");//<select id="exercise"></select>
-    exercise.setAttribute("style","width:80px;display: initial;")//<select id="exercise" class="form-control" style="width:80px;display: initial;" >
-    exercise.setAttribute("name","exercise");
-    for(let i = 1 ; i<= 3 ; i++){
-        let option = document.createElement("option");//<option></option>
-        option.setAttribute("value","pt"+i);//<option value="pt1"></option>
-        option.innerText="pt"+i;//<option value="pt1">pt1</option>
-        exercise.append(option);
-    }
-    let option1 = document.createElement("option")
-    option1.setAttribute("value","pilates");
-    option1.innerText="pilates";
-    exercise.append(option1);
+
     //select 시간 만들기
     let time = document.createElement("select");
     time.setAttribute("id","time");
-    time.setAttribute("name","time")
     time.setAttribute("style","width:80px;display: initial;");
         let  time1= document.createElement("option");
-        time1.setAttribute("value","1");
+        time1.setAttribute("value","09:00~10:00");
         time1.innerText="09:00~10:00";
+        time1.setAttribute("name","time")
         time.append(time1);
         time.setAttribute("style","width:80px;display: initial;");
         let  time2= document.createElement("option");
-        time2.setAttribute("value","2");
+        time2.setAttribute("value","10:00~11:00");
         time2.innerText="10:00~11:00";
+        time2.setAttribute("name","time")
         time.append(time2);
         time.setAttribute("style","width:80px;display: initial;");
         let  time3= document.createElement("option");
-        time3.setAttribute("value","3");
+        time3.setAttribute("value","11:00~12:00");
         time3.innerText="11:00~12:00";
+        time3.setAttribute("name","time")
         time.append(time3);
         time.setAttribute("style","width:80px;display: initial;");
         let  time4= document.createElement("option");
-        time4.setAttribute("value","4");
+        time4.setAttribute("value","12:00~13:00");
         time4.innerText="12:00~13:00";
+        time4.setAttribute("name","time")
         time.append(time4);
         time.setAttribute("style","width:80px;display: initial;");
         let  time5= document.createElement("option");
-        time5.setAttribute("value","5");
+        time5.setAttribute("value","13:00~14:00");
         time5.innerText="13:00~14:00";
+        time5.setAttribute("name","time")
         time.append(time5);
         let  time6= document.createElement("option");
-        time6.setAttribute("value","6");
+        time6.setAttribute("value","14:00~15:00");
         time6.innerText="14:00~15:00";
+        time6.setAttribute("name","time")
         time.append(time6);
         let  time7= document.createElement("option");
-        time7.setAttribute("value","7");
+        time7.setAttribute("value","15:00~16:00");
         time7.innerText="15:00~16:00";
+        time7.setAttribute("name","time")
         time.append(time7);
         let  time8= document.createElement("option");
-        time8.setAttribute("value","8");
+        time8.setAttribute("value","16:00~17:00");
         time8.innerText="16:00~17:00";
+        time8.setAttribute("name","time")
         time.append(time8);
         let  time9= document.createElement("option");
-        time9.setAttribute("value","9");
+        time9.setAttribute("value","17:00~18:00");
         time9.innerText="17:00~18:00";
+        time9.setAttribute("name","time")
         time.append(time9);
     //button 만들기
     //apply, add버튼 
@@ -98,10 +110,10 @@ tb_body.addEventListener("click",function(event){
     //날짜를 클릭 했을때 그 날짜와 함께 선택할 운동 시간 띄우기
     if(event.target.classList.contains("day")){
        if(event.target.innerText!=""){ //날짜가 공백인곳을 클릭하지 않았을때
-            //선택한 날짜div에 넣기
-         
-         day.innerHTML="";
-         day.innerHTML=current_year+"년"+current_month+"월"+event.target.innerText+"일";
+            //선택한 날짜 넣기
+         day.value=current_year+"년"+current_month+"월"+event.target.innerText+"일";
+         day.setAttribute("name","applyDay")
+         day.setAttribute("readonly","readonly")
         //관리자면 add버튼 add 메소드 전송 회원이면 apply버튼 apply메소드 전송
          if(applyDiv.getAttribute("data-id")==1){
             form.setAttribute("action","./addApply");
@@ -109,21 +121,25 @@ tb_body.addEventListener("click",function(event){
             button.innerText="add";
             button.setAttribute("type","button");
             form.append(day);
-            form.append(exercise);
             form.append(time);
             form.append(button); 
             form.append(button1);
             form.append(addDiv);
             
         }else{
-            form.setAttribute("action","./calendar");
-            button.setAttribute("id","applyBtn");
-            button.innerText="apply";
-            button.setAttribute("type","submit");
-            form.append(day);
-            form.append(exercise);
-            form.append(time);
-            form.append(button); 
+            const xhttps = new XMLHttpRequest();
+            xhttps.open("POST","../apply/clickDay");
+            xhttps.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            xhttps.send("cday="+day.value);
+            xhttps.onreadystatechange=function(){
+                if(this.readyState==4 && this.status==200){
+                    form.setAttribute("action","./apply");
+                    form.innerHTML=this.responseText.trim();
+                    document.getElementById("selectName").addEventListener("change",function(){
+                       getTime();
+                    })
+                }
+             }
         }
 
         applyDiv.innerHTML="";
@@ -158,7 +174,7 @@ tb_body.addEventListener("click",function(event){
             //addDiv에 선택한 날짜, 시간, 삭제버튼 추가
             let input= document.createElement("input");
             let input1= document.createElement("input");
-            input.setAttribute("value",day.innerHTML);
+            input.setAttribute("value",day.value);
             input.setAttribute("name","addDay");
             input1.setAttribute("name","addTime");
             input1.setAttribute("value",time.value);

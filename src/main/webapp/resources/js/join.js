@@ -8,7 +8,7 @@ const idResult = document.getElementById('idResult');
 const form=document.getElementById('form');
 const btn = document.getElementById('btn');
 
-
+let check=true;
 
 //pw, pw2 check 후 pw를 수정했을때 pw2의 비밀번호 초기화
 pw.addEventListener("change", function(){
@@ -46,7 +46,7 @@ pw2.addEventListener("blur",function(){
 
 //join 버튼 클릭시 필수요소 확인
 btn.addEventListener('click',function(){
-    let check=true;
+  
    
     if(id.value==""){
         alert("id를 입력하세요");

@@ -9,5 +9,33 @@
 		INSERT INTO APPLY (APPLYNUM,TRANUM,DAY,TIME,CATEGORY)
 		VALUES (APPLY_SEQ.NEXTVAL,#{traNum},#{day},#{time},0)
 	</insert>
-
+	
+	<update id="apply" parameterType="ApplyDTO">
+		UPDATE APPLY SET MEMBERSHIPNUM=#{membershipNum} WHERE APPLYNUM =#{applyNum}
+	</update>
+	
+	<select id="applyList" parameterType="ApplyDTO" resultType="ApplyDTO">
+		SELECT * FROM APPLY WHERE DAY = #{day} ORDER BY TRANUM, TIME ASC
+	</select>
+	
+	<select id="timeList" parameterType="ApplyDTO" resultType="ApplyDTO">
+		SELECT * FROM APPLY WHERE DAY = #{day} AND TRANUM = #{traNum} ORDER BY TIME ASC
+	</select>
+	
+ 	<select id="trainerName" parameterType="TrainerDTO" resultType="MemberDTO">
+		SELECT NAME,MEMBERNUM FROM GYMMEMBER WHERE MEMBERNUM = (SELECT MEMBERNUM FROM TRAINER WHERE TRANUM=#{traNum})
+	</select>
+	
+	<select id="findTraNum" parameterType="TrainerDTO" resultType="TrainerDTO">
+		SELECT * FROM TRAINER WHERE MEMBERNUM =  #{memberNum}
+	</select>
+	
+	<select id="findApplyNum"  parameterType="ApplyDTO" resultType="ApplyDTO">
+		SELECT * FROM APPLY WHERE MEMBERSHIPNUM IS NULL AND DAY=#{day} AND TIME = #{time} AND TRANUM =#{traNum}
+	</select>
+	
+	<select id="findMembershipNum" parameterType="MembershipDTO" resultType="membershipDTO">
+		SELECT * FROM MEMBERSHIP WHERE MEMBERNUM = #{memberNum}
+	</select>
+		
 </mapper>
