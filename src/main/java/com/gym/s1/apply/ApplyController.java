@@ -112,7 +112,12 @@ public class ApplyController {
 			}
  		mv.addObject("list",ar);
 		mv.addObject("traName",ar2);
-		mv.setViewName("apply/clickDay");
+
+		if(ar.size()==0) {
+			mv.setViewName("apply/empty");
+		}else {
+			mv.setViewName("apply/clickDay");
+		}
 		return mv;
  		}
 
