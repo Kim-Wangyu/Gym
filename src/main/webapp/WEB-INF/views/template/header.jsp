@@ -16,7 +16,7 @@
 				<li><a href="/s1/notice/list"> Notice</a></li>
 				<li><a href="/s1/exercise/list"> Exercise</a>
 					<ul class="submenu">
-						<li class="sub1">PT trainer</li>
+						<li class="sub1"><a href="/s1/etc/trainers">PT trainer</a></li>
 						<li>Pilates trainer</li>
 					</ul>
 				</li>
