@@ -9,6 +9,41 @@ import org.springframework.web.servlet.ModelAndView;
 @RequestMapping("/etc/**")
 public class EtcController {
 	
+	@GetMapping("sangHwa")
+	public ModelAndView sangHwa()throws Exception{
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("./etc/sangHwa");
+		return mv;
+	}
+	
+	@GetMapping("siYeong")
+	public ModelAndView siYeong()throws Exception{
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("./etc/siYeong");
+		return mv;
+	}
+	
+	@GetMapping("rain")
+	public ModelAndView rain()throws Exception{
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("./etc/rain");
+		return mv;
+	}
+	
+	@GetMapping("jongKuk")
+	public ModelAndView jongKuk()throws Exception{
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("./etc/jongKuk");
+		return mv;
+	}
+	
+	@GetMapping("trainers")
+	public ModelAndView trainers()throws Exception{
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("./etc/trainers");
+		return mv;
+	}
+	
 	@GetMapping("intro")
 	public ModelAndView intro()throws Exception{
 		ModelAndView mv = new ModelAndView();
