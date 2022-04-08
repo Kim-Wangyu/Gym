@@ -6,11 +6,13 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<c:import url="../template/header_css.jsp"></c:import>
 <link href="../resources/css/detail.css" rel="stylesheet">
 </head>
 </head>
 <body>
 	<c:import url="../template/header.jsp"></c:import>
+	<div class ="d1">
 	<h1>Exercise Detail Page</h1>
 	<h3>Num : ${dto.num}</h3>
 	<h3>Title : ${dto.title}</h3>
@@ -46,7 +48,7 @@
 	<script src="../resources/js/delete.js"></script>
 
 	<a href="./list">List</a>
-
+</div>
 	<script src="../resources/js/exerciseReply.js"></script>
 </body>
 </html>

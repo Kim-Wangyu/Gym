@@ -32,5 +32,11 @@ public class EtcController {
 		mv.setViewName("./etc/map");
 		return mv;
 	}
+	@GetMapping("faq")
+	public ModelAndView faq() throws Exception{
+		ModelAndView mv=new ModelAndView();
+		mv.setViewName("./etc/faq");
+		return mv;
+	}
 
 }

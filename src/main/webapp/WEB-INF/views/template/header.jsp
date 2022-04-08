@@ -22,7 +22,7 @@
 				</li>
 				<li><a href="/s1/qna/list"> Q&A</a>
 					<ul class="submenu">
-						<li class="sub1">자주묻는질문</li>
+						<li class="sub1"><a href="/s1/etc/faq">자주묻는질문</a></li>
 						<li>질문들</li>
 					</ul>
 				</li>

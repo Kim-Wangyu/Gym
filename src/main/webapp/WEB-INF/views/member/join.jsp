@@ -14,12 +14,12 @@
 	<div class="d1">
 		<h2>Join Page</h2>
 		<form action="./join" method="post" id="form" enctype="multipart/form-data">
-			Id<input type="text" id ="id" name="id" placeholder="아이디 필수"><div id="idResult"></div>
-			Password<input type="password" id ="pw"  name="pw" placeholder="6자 이상 10자 이하로 작성"><div id="pwResult"></div>
-			Password 확인<input type="password" id ="pw2"  name="pw2" placeholder="6자 이상 10자 이하로 작성"><div id="pwResult2"></div>
-			Name<input type="text" name="name" id ="name" > 
-			Phone<input type="text" name="phone" id ="phone" >
-			Photo<input type="file" name="file" id="file">
+			<div>ID<input type="text" id ="id" name="id" placeholder="아이디 필수"><div id="idResult"></div></div>
+			<div>Password<input type="password" id ="pw"  name="pw" placeholder="6자 이상 10자 이하로 작성"><div id="pwResult"></div></div>
+			<div>Password 확인<input type="password" id ="pw2"  name="pw2" placeholder="6자 이상 10자 이하로 작성"><div id="pwResult2"></div></div>
+			<div>Name<input type="text" name="name" id ="name" > </div>
+			<div>Phone<input type="text" name="phone" id ="phone" ></div>
+			<div>Photo<input type="file" name="file" id="file"></div>
 			
 			<button type="submit" id="btn"> Join</button>
 		</form>

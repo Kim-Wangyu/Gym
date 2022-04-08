@@ -1,0 +1,41 @@
+ .faq{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.faq > li{      /* faq 들 세로 간격 10px*/
+  padding: 10px 0;  
+}
+.faq > li:nth-child(n+2){ /* 2번째 faq 부터 끝까지 구분 점선 */
+  border-top: 1px dashed #aaa;
+}
+.faq input {  /* 체크박스 안보이게 */
+  display: none;
+} 
+.faq label { /* 제목 - 클릭 영역 */
+  font-weight: bold;
+  color: black;
+  margin: 20px 0 0;
+  cursor: pointer; /* 커서 손 모양으로 바꿔줌 */
+}
+.faq label::before { /* 제목 앞 화살표 */
+    content: "▶";
+    display: block;
+    color: black;
+    margin-right: 8px;
+    float: left; /*줄바꿈 안하고 바로 내용 왼쪽에 화살표 나옴 */
+}
+.faq input:checked + label::before { /* 내용 펼침 상태 제목 앞 화살표 */
+    content: "▼";
+}
+
+.faq div { /* 내용 영역 - 기본 감춤 상태 */
+  display: none;
+  color: #666;
+  font-size: 0.9375em;
+  padding: 10px 0 10px 30px;
+  box-sizing: border-box;
+}
+.faq input:checked + label + div { /* 내용 영역 펼침 */
+  display: block;
+}

@@ -6,11 +6,13 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<c:import url="../template/header_css.jsp"></c:import>
 <link href="../resources/css/detail.css" rel="stylesheet">
 </head>
 </head>
 <body>
 	<c:import url="../template/header.jsp"></c:import>
+	<div class ="d1">
 <h1>Detail Page</h1>
 
 <h3>Num : ${dto.num}</h3>
@@ -58,6 +60,9 @@
 			<input type="hidden" name="num" id="num1" value="${dto.num}">
 		</form>
 </c:if>
+
+	<a href="./list">LIST</a>
+</div>
 <script src="../resources/js/delete.js"></script>
 <script type="text/javascript" src="../resources/js/noticeReply.js"></script>
 </body>
