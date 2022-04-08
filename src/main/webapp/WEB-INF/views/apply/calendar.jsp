@@ -52,5 +52,6 @@
     <div id="applyDiv" data-id="${member.grade}"></div>
     <div id="addDiv"></div>
     <script src="../resources/js/calendar.js"></script>
+    <script src="../resources/js/apply.js"></script>
 </body>
 </html>

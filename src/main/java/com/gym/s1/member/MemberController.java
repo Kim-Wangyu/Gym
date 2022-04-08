@@ -1,6 +1,7 @@
 package com.gym.s1.member;
 
 import java.net.http.HttpRequest;
+import java.sql.Date;
 import java.util.List;
 
 import javax.servlet.http.Cookie;
@@ -168,13 +169,17 @@ public class MemberController {
 	}
 	
 	@PostMapping("buy")
-	public String buyAdd(MembershipDTO membershipDTO)throws Exception{
-		
-//		String []a = traNum_price.split("-");
-//		
-//		Long traNumber=Long.parseLong(a[0]);
-//		membershipDTO.setTraNum(traNumber);
-	
+	public String buyAdd(MembershipDTO membershipDTO,String start, String finish)throws Exception{
+		start=start.replace("년","-");
+		start=start.replace("월","-");
+		start=start.replace("일","");
+		finish=finish.replace("년","-");
+		finish=finish.replace("월","-");
+		finish=finish.replace("일","");
+		Date startDate = Date.valueOf(start); 
+		Date finishDate = Date.valueOf(finish);
+		membershipDTO.setStartDate(startDate);
+		membershipDTO.setFinishDate(finishDate);
 		int result = memberService.buyAdd(membershipDTO);
 		
 		return "redirect:./mypage";
