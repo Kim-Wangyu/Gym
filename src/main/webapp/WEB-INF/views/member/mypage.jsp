@@ -8,21 +8,22 @@
 <title>Insert title here</title>
 <c:import url="../template/header_css.jsp"></c:import>
 <link href="../resources/css/mypage.css" rel="stylesheet">
+<link rel="stylesheet" href="/s1/resources/css/home.css">
 </head>
 <body>
 	<c:import url="../template/header.jsp"></c:import>
-	
-	<div class="d1">
 	<div id="wrapper">
+	<div class="d1">
+	
 		<h1>My page</h1>
-
+		<div class="d2">
 		<h3 class="h3">이름 : ${member.name}</h3>
 		<h3 class="h3">전화번호 : ${member.phone}</h3>
 		<h3 class="h3">
 			회원 사진<img alt=""
 				src="../resources/upload/member/${member.memberFileDTO.fileName}" style="margin-left:10px;">
 		</h3>
-
+		</div>
 		<a class="mypagebtn" href="./pwupdate">비밀번호 수정</a> <a
 			class="mypagebtn" href="./update">정보 수정</a>
 		<c:if test="${member.grade==0}">
@@ -40,6 +41,6 @@
 	</div>
 	<script type="text/javascript" src="../resources/js/mypage.js"></script>
 
->>>>>>> Add_css
+
 </body>
 </html>

@@ -1,9 +1,14 @@
 .d1{
     margin-top:80px ;
     position: relative;
-    width:500px;
     padding :10px;
     box-sizing: border-box;
+    justify-content: center;
+    text-align: center;
+}
+.d1 .d2{
+    width: 800px;
+    margin: auto;
 }
 .d1 h3{
     display: flex;

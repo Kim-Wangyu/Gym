@@ -11,9 +11,9 @@
 				
 				<a href="/s1/" class="listmenu"><img alt="" src="/s1/resources/images/dumbbel.jpg" class="dumbbelimg"> HOME</a>
 					<ul class="submenu">
-						<li class="sub1"><a href="./etc/intro">intro</a></li>
-						<li><a href="./etc/greeting">guide</a></li>
-						<li><a href="./etc/map">map</a></li>
+						<li class="sub1"><a href="/s1/etc/intro">intro</a></li>
+						<li><a href="/s1/etc/greeting">guide</a></li>
+						<li><a href="/s1/etc/map">map</a></li>
 					</ul>
 				</li>
 				<li><a href="/s1/notice/list"class="listmenu"> <img alt="" src="/s1/resources/images/dumbbel.jpg" class="dumbbelimg"> Notice</a></li>

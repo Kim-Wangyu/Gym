@@ -103,8 +103,8 @@
         <img id="faqPic" alt="" src="/s1/resources/images/faqPic.jpg">
         </div>
         </div>
-        <footer>
+      
         <c:import url="../template/bottom.jsp"></c:import>
-        </footer>
+        
 </body>
 </html>

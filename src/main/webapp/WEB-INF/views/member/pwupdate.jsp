@@ -14,16 +14,16 @@
 </head>
 <body>
 	<c:import url="../template/header.jsp"></c:import>
-	<div class="d1">
+	
 		<div id="wrapper">
-
+<div class="d1">
 			<h1>Member Pw Update Page</h1>
 
 			<form action="./pwupdate" method="post" id="form">
 
 				<input type="hidden" name="id" value="${member.id}"> <input
 					type="hidden" name="bpw" id="bpw" value="${member.pw}">
-
+				<div class="d2">
 				<h3>
 					현재 비밀번호<input class="upgradeh3" type="password" id="pw1" name="pw1"
 						style="margin-left: 36px;">
@@ -38,8 +38,9 @@
 						type="password" id="pw" name="pw" style="margin-left: 35px;">
 				</h3>
 				<div id="pwResult"></div>
+				
 				<a href="./mypage"> < my page</a>
-				<button id="upgradebtn" type="submit" id="btn">비밀번호 수정</button>
+				<button id="upgradebtn" type="submit" id="btn">비밀번호 수정</button></div>
 			</form>
 		
 		<script type="text/javascript" src="../resources/js/pwupdate.js"></script>
