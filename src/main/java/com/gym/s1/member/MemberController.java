@@ -54,6 +54,7 @@ public class MemberController {
 		memberDTO = memberService.login(memberDTO);
 		String path = "../";
 		String message = "";
+		TrainerDTO trainerDTO = new TrainerDTO();
 		if(memberDTO!=null) {
 			message="로그인 성공";
 			if(remember!=null&&remember.equals("1")) {
@@ -61,18 +62,20 @@ public class MemberController {
 				response.addCookie(cookie);
 				cookie.setMaxAge(-1);
 			}
-			TrainerDTO trainerDTO = new TrainerDTO();
+			
 			if(memberDTO.getGrade().equals(1L)) {
 				trainerDTO.setMemberNum(memberDTO.getMemberNum());
 				trainerDTO = memberService.trainerDetail(trainerDTO);
-				session.setAttribute("trainer", trainerDTO);
+			
+				
 			}
 		}
 		else {
 			message="로그인 실패";
 			path= "./login";
 		}
-		
+		session.setAttribute("trainer", trainerDTO);
+		System.out.println("안녕"+trainerDTO.getTraNum());
 		session.setAttribute("member", memberDTO);
 		model.addAttribute("message", message);
 		model.addAttribute("path", path);
@@ -98,7 +101,11 @@ public class MemberController {
 	public String update(MemberDTO memberDTO,HttpSession session) throws Exception{
 		int result =memberService.update(memberDTO);
 		if(result ==1) {
-			session.setAttribute("member", memberDTO);
+			 
+		MemberDTO memberDTO2= (MemberDTO) session.getAttribute("member");
+		memberDTO2.setName(memberDTO.getName());
+		memberDTO2.setPhone(memberDTO.getPhone());
+		session.setAttribute("member", memberDTO2);
 		}
 		return "./member/mypage";
 	}

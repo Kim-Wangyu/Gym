@@ -3,7 +3,7 @@ const pw = document.getElementById("pw");
 const pw2 = document.getElementById("pw2");
 const pw3 = document.getElementById("pw3");
 const bpw = document.getElementById("bpw");
-const form = document.getElementById("form");
+const form=document.getElementById('form');
 const pwResult = document.getElementById('pwResult');
 const pwResult2 = document.getElementById('pwResult2');
 
@@ -32,7 +32,7 @@ btn.addEventListener("click", function(){
     if(pw1.value == bpw.value){
        if(pw2.value==pw.value){
             alert("수정 완료 성공")
-
+            form.submit();
         }
         else{
             alert("비밀번호 다르다")

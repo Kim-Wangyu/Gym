@@ -16,11 +16,13 @@
 	<h3>id : ${member.id}</h3>
 	<h3>이름 : ${member.name}</h3>
 	<h3>번호 : ${member.phone}</h3>
-	<h3>등급 : ${member.grade}</h3>
+	<c:if test="${member.grade eq 0 }">
+		<h3>등급 : 회원</h3>
+	</c:if>
 	
 	<c:if test="${member.grade eq 1}">
+		<h3>등급 : 트레이너</h3>
 		<h3>가격 : ${trainer.price}</h3>
-		<h3>운동종류 : ${trainer.category}</h3>
 	</c:if>
 	
 	

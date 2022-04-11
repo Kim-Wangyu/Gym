@@ -17,10 +17,10 @@
 	<div class="table_total">
 	<h1>Member list page</h1>
 	<div class="search">
-			<form action="./list" method="get">
-				등급<input type="text" name="search" value="${pager.search }">
-				<button type="submit">검색</button>
-			</form>
+		<form action="./list" method="get">
+			이름<input type="text" name="search" value="${pager.search}">
+			<button type="submit">검색</button>
+		</form>
 	</div>
 
 		<table class="table_head">
@@ -37,7 +37,15 @@
 					<td>${member.id}</td>	
 					<td><a href="./detail?memberNum=${member.memberNum}">${member.name}</td>
 					<td>${member.phone}</td>
-					<td>${member.grade}</td>
+					
+						<c:if test="${member.grade eq 0 }">
+							<td>회원</td>
+						</c:if>
+						<c:if test="${member.grade eq 1 }">
+							<td>트레이너</td>
+						</c:if>
+					
+					
 				
 				</tr>
 			</c:forEach>

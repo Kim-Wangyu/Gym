@@ -58,7 +58,7 @@
 		SELECT * FROM 
 		(SELECT ROWNUM R, M.* FROM
 			(SELECT * FROM GYMMEMBER
-				WHERE GRADE
+				WHERE NAME
 				LIKE '%'||#{search}||'%'
 			ORDER BY MEMBERNUM DESC) M) 
 		WHERE R BETWEEN #{startNum} AND #{lastNum}
