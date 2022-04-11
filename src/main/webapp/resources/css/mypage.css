@@ -1,0 +1,51 @@
+.d1{
+    margin-top:80px ;
+    position: relative;
+    width:500px;
+    padding :10px;
+    box-sizing: border-box;
+}
+.d1 h3{
+    display: flex;
+    background: lightgrey;
+    padding: 10px 20px;
+    color:black;
+    margin:5px 0;
+    transition: .5s ;
+}
+.d1 .updateh3{
+    margin-left: 10px;
+}
+.d1 #updatebtn{
+    float: right;
+    border: solid 2px #ec3b3b;
+    box-sizing: border-box;
+    height: 50px;
+    width: 50%;
+    border-radius: 40px;
+    align-items: center;
+    cursor: pointer;
+}
+.d1 .mypagebtn{
+    border: solid 2px #ec3b3b;
+    box-sizing: border-box;
+    height: 50px;
+    width: 100%;
+    border-radius: 40px;
+    cursor: pointer;
+}
+
+.d1 .upgradeh3{
+    margin-left: 10px;
+}
+.d1 #upgradebtn{
+    float: right;
+    border: solid 2px #ec3b3b;
+    box-sizing: border-box;
+    height: 50px;
+    width: 50%;
+    border-radius: 40px;
+    align-items: center;
+    cursor: pointer;
+}
+

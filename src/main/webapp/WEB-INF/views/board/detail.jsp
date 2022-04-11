@@ -53,8 +53,8 @@
 </table>
 
 <c:if test="${dto.writer eq member.id}">
-<a href="./update?num=${dto.num}">UPDATE</a>
-<a href="#" id="del">DELETE</a>
+<a href="./update?num=${dto.num}" class="btnbtn">UPDATE</a>
+<a href="#" class="btnbtn" id="del">DELETE</a>
 		<form id="frm" method="post">
 			<input type="hidden" name="num" id="num1" value="${dto.num}">
 		</form>

@@ -6,15 +6,19 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<c:import url="../template/header_css.jsp"></c:import>
+<link href="../resources/css/add.css" rel="stylesheet">
 </head>
 <body>
+<c:import url="../template/header.jsp"></c:import>
+<div class="d1">
 <h1>Update Page</h1>
 
 	<form action="./update" method="POST" enctype="multipart/form-data">
 		<input type="hidden" name="num" value="${dto.num}" readonly="readonly">
-		Title <input type="text" name="title" value="${dto.title}">
-		Contents <input type="text" name="contents" value="${dto.contents}">
-		Writer <input type="text" readonly="readonly" name="writer" value="${dto.writer}">
+		<h3 class="updateh3">Title</h3> <input  class="updateinput" type="text" name="title" value="${dto.title}">
+		<h3 class="updateh3">Contents</h3> <input  class="updatetextarea" type="text" name="contents" value="${dto.contents}">
+		<h3 class="updateh3">Writer</h3> <input  class="updateinput" type="text" readonly="readonly" name="writer" value="${dto.writer}">
 		
 	<div id="files">
 		<c:forEach items="${dto.fileDTOs}" var="f">
@@ -36,7 +40,7 @@
 	
 	<input type="submit" value="update">
 	</form>
-
+</div>
 <script type="text/javascript" src="../resources/js/file.js"></script>
 </body>
 </html>

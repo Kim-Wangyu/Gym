@@ -1,0 +1,33 @@
+.d1{
+    background-color: lightgray;
+    width: 470px;
+    height: 440px;
+    margin: auto;
+    margin-top: 80px;
+}
+.addh3{
+    margin-left: 10px;
+}
+.updateh3{
+    margin-left: 10px;
+}
+.updateinput{
+    margin-left: 10px;
+    width:450px;
+    height:30px;
+}
+.updatetextarea{
+    margin-left: 10px;
+    width:450px;
+    height:70px;
+}
+.addinput{
+    margin-left: 10px;
+    width:450px;
+    height:30px;
+}
+.addtextarea{
+    margin-left: 10px;
+    width:450px;
+    height:70px;
+}
