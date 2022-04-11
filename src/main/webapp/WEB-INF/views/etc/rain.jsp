@@ -12,18 +12,7 @@
 </head>
 <body>
 <c:import url="../template/header.jsp"></c:import>
-<h1>Trainers Page</h1>
-<div id="galleryCont">
 
- 	<img src="/s1/resources/images/Logo.jpg" id="photo">
-	<div id="gc">
-		<button id="cli" type="button">이전</button>
-	</div>
-	<div id="gc1">
-		<button id="cli1" type="button">다음</button>
-	</div>
-	
-</div>
 
 <div id="jongBox">
 	<div>

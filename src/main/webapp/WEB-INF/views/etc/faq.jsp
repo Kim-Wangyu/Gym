@@ -9,14 +9,19 @@
 <title>Insert title here</title>
 <link href="../resources/css/faq.css" rel="stylesheet">
 <c:import url="../template/header_css.jsp"></c:import>
-
+    <link rel="stylesheet" href="/s1/resources/css/home.css">
 </head>
 </head>
 <body>
+
 <c:import url="../template/header.jsp"></c:import>
-    <h1>Faq</h1>
-   
-	<ul class="faq">
+
+<div id="wrapper">
+  
+   <div id="faqBox">
+     
+	<ul class="faq"> 
+			<li><h1>&nbsp&nbsp&nbsp&nbsp자주 묻는 질문</h1></li>
             <li>
                 <input type="checkbox" id="faq-1">
                 <label for="faq-1">런닝머신 밖에 할 줄 모르는데 헬스장 다닐 수 있을까요?</label>
@@ -60,6 +65,46 @@
 					<p>개인이 원하시는 목표를 설정한 뒤 그에 효과적으로 도달할 수 있는 맞춤 운동루틴을 제공하며 강사님과 함께 운동하시기 때문에 효과 또한 뛰어납니다.</p>
                 </div>
             </li>
+            <li>
+                <input type="checkbox" id="faq-6">
+                <label for="faq-6">무산소 운동? 유산소 운동? 운동의 종류를 알려주세요.</label>
+                <div>
+                    <p>무산소 운동은 운동 중 몸 안에 많은 양의 산소를 공급하지 않고 단발적인 힘을 내는 운동을 말합니다. 단거리 달리기 등이 대표적인 예입니다.</p>
+					<p>유산소 운동은 운동 중 몸 안에 최대한 많은 산소를 공급함으로써 심폐기능을 향상 시키는 운동을 말합니다. 헬스장에서는 런닝머신을 통한 걷기, 장거리 달리기 등이 있습니다.</p>
+                </div>
+            </li>
+            <li>
+                <input type="checkbox" id="faq-7">
+                <label for="faq-7">초보자는 헬스장에서 어떤 운동을 위주로 시작하면 좋을까요?</label>
+                <div>
+                    <p>“ 런닝머신(유산소) 5분 + 웨이트(무산소) 60분이내 + 런닝머신(유산소) 20분 ”을 기본 코스로 진행하면 좋습니다.</p>
+					<p>웨이트 운동법 대해서 알려드리자면, 초보자에게는 부위별 고립 운동보다는 몸 전체의 큰 근육들을 다 쓸 수 있는 이른바 헬스의 3대 운동을 추천합니다. 헬스의 3대 운동에는 벤치 프레스, 데드 리프트, 스쿼트가 있습니다.</p>
+                </div>
+            </li>
+            <li>
+                <input type="checkbox" id="faq-8">
+                <label for="faq-8">운동을 시작하면 언제쯤부터 살이 빠질까요?</label>
+                <div>
+                    <p>체중이 줄어드는 것은 간단히 말해서 다음과 같은 공식을 따른다고 보면 쉽습니다.<br>
+						“기초대사량 + 운동량 = 음식 섭취량“</p>
+					<p>‘기초 대사량’ 이라는 것은 사람이 가만히 있어도 자신의 몸을 유지하기 위해 사용되는 에너지의 양을 말합니다. <br>
+					위의 식에서 등호를 중심으로 양 변이 같을 경우 몸무게가 유지 되고, 한 쪽이 클 경우 몸무게에 변화가 생긴다고 보면 됩니다. <br>
+					우리는 흔히 이 것을 계산하기 쉽게 칼로리라는 단위를 사용하고 있습니다. <br>몸무게를 줄이기 위해선 하루에 섭취하는 칼로리보다 
+					사용하는 칼로리가 더 많으면 된다는 것입니다.<br> 하지만 이것만 생각하고 다이어트를 하면 여러 가지 부작용이 있을 수 있습니다.<br>
+					 다음질문에서 더 자세히 다루도록 하겠습니다.</p>
+                </div>
+            </li>
+            <li>
+            
+            </li>
         </ul>
+        </div>
+        <div id="faqPicBox">
+        <img id="faqPic" alt="" src="/s1/resources/images/faqPic.jpg">
+        </div>
+        </div>
+        <footer>
+        <c:import url="../template/bottom.jsp"></c:import>
+        </footer>
 </body>
 </html>

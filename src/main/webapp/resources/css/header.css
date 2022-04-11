@@ -72,6 +72,9 @@
 .nav_sub a {
     color: white;
     font-size: large;
+    background-color: black;
+    font-weight: bolder;
+    height: 100px;
 }
 
 .mainmenu{

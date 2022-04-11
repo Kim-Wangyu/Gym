@@ -6,8 +6,12 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+	<c:import url="../template/header_css.jsp"></c:import>
+    <link rel="stylesheet" href="/s1/resources/css/home.css">
 </head>
 <body>
+<div id="wrapper">
+<c:import url="../template/header.jsp"></c:import>
 	<h1>My page</h1>
 	<h3>생년월일
 	성별
@@ -31,8 +35,10 @@
 	<c:if test="${member.grade==1}">
 		<a href="../apply/calendar">pt시간 등록</a>
 	</c:if>
-	
+	</div>
 	<script type="text/javascript" src="../resources/js/mypage.js"></script>
-	
+	<footer>
+	<c:import url="../template/bottom.jsp"></c:import>
+	</footer>
 </body>
 </html>

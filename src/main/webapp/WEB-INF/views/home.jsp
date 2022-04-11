@@ -10,6 +10,7 @@
     
 </head>
 <body>
+<div id="wrapper">
 <c:import url="./template/header.jsp"></c:import>
 <c:if test="${member ne null}">
 <h3 id="membername">
@@ -68,10 +69,10 @@
 	<img id="imagee2" alt="" src="/s1/resources/images/bodyBefore.jpg">
 	<img id="imagee3" alt="" src="/s1/resources/images/woBefore.jpg">
 </div>
-
-
+</div>
+<footer>
 <c:import url="./template/bottom.jsp"></c:import>
-
+</footer>
 	<script src="./resources/js/homePage.js"></script>
 
 </body>

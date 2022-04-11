@@ -8,6 +8,7 @@
 <title>Insert title here</title>
 <c:import url="../template/header_css.jsp"></c:import>
 <link href="../resources/css/detail.css" rel="stylesheet">
+    <link rel="stylesheet" href="/s1/resources/css/home.css">
 </head>
 </head>
 <body>
@@ -58,6 +59,8 @@
 	<a href="./list"> < LIST</a>
 	</div>
 	</div>
+	
+	<c:import url="../template/bottom.jsp"></c:import>
 	<script src="../resources/js/qnaReply.js"></script>
 
 </body>

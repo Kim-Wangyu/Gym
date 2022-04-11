@@ -8,9 +8,11 @@
 <title>Insert title here</title>
 <c:import url="../template/header_css.jsp"></c:import>
 <link href="../resources/css/detail.css" rel="stylesheet">
+    <link rel="stylesheet" href="/s1/resources/css/home.css">
 </head>
 </head>
 <body>
+<div id="wrapper">
 	<c:import url="../template/header.jsp"></c:import>
 	<div class ="d1">
 <h1>Detail Page</h1>
@@ -60,7 +62,11 @@
 	<div>
 	<a href="./list"> < LIST</a></div>
 </div>
+</div>
 <script src="../resources/js/delete.js"></script>
 <script type="text/javascript" src="../resources/js/noticeReply.js"></script>
+<footer>
+<c:import url="../template/bottom.jsp"></c:import>
+</footer>
 </body>
 </html>
