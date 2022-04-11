@@ -43,5 +43,26 @@ public class ApplyService {
 	public MembershipDTO findMembershipNum(MembershipDTO membershipDTO)throws Exception{
 		return applyDAO.findMembershipNum(membershipDTO);
 	}
+	public MembershipDTO findMemberNum(MembershipDTO membershipDTO)throws Exception{
+		return applyDAO.findMemberNum(membershipDTO);
+	}
+	public MemberDTO findMemberName(MemberDTO memberDTO)throws Exception{
+		return applyDAO.findMemberName(memberDTO);
+	}
+	public int countUpdate(MembershipDTO membershipDTO)throws Exception{
+		return applyDAO.countUpdate(membershipDTO);
+	}
+	public List<ApplyDTO> myApplyList(ApplyDTO applyDTO)throws Exception{
+		return applyDAO.myApplyList(applyDTO);
+	}
+	public List<ApplyDTO> myStudyList(ApplyDTO applyDTO)throws Exception{
+		return applyDAO.myStudyList(applyDTO);
+	}
+	public int applyDelete(ApplyDTO applyDTO)throws Exception{
+		return applyDAO.applyDelete(applyDTO);
+	}
+	public int studyDelete(ApplyDTO applyDTO)throws Exception{
+		return applyDAO.studyDelete(applyDTO);
+	}
 	
 }

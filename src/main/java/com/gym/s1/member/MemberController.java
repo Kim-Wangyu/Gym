@@ -170,7 +170,13 @@ public class MemberController {
 	}
 	
 	@PostMapping("buy")
-	public String buyAdd(MembershipDTO membershipDTO,String start, String finish)throws Exception{
+	public String buyAdd(MembershipDTO membershipDTO,String start, String finish,Long traNum,Long count)throws Exception{
+		if(traNum==null) {
+			membershipDTO.setTraNum(0L);
+		}
+		if(count==null) {
+			membershipDTO.setCount(0L);
+		}
 		start=start.replace("년","-");
 		start=start.replace("월","-");
 		start=start.replace("일","");
@@ -181,6 +187,7 @@ public class MemberController {
 		Date finishDate = Date.valueOf(finish);
 		membershipDTO.setStartDate(startDate);
 		membershipDTO.setFinishDate(finishDate);
+		
 		int result = memberService.buyAdd(membershipDTO);
 		
 		return "redirect:./mypage";

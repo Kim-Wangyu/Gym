@@ -20,5 +20,5 @@
 			</c:if>
 		</c:forEach>
 	</select>
-	<button type="submit">Apply</button>
+	<button type="button" id="applyButton">Apply</button>
 	

@@ -18,7 +18,6 @@
 	<h3>번호 : ${member.phone}</h3>
 	<h3>등급 : ${member.grade}</h3>
 	<c:if test="${ member.grade eq 1 }">
-	
 		<h3>가격 : ${trainer.price}</h3>
 		<h3>운동종류 : ${trainer.category}</h3>
 	</c:if>

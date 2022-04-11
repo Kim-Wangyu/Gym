@@ -65,7 +65,7 @@
 				   
 			</select>
 			<select id="select3" name="count">
-				<option value="">신청 횟수</option>
+				<option value="0">신청 횟수</option>
 				<option value="5">5</option>
 				<option value="10">10</option>
 				<option value="15">15</option>
@@ -75,7 +75,7 @@
 		<div>
 		 시작날짜<input name="start" id="startDate" type="text" value="달력에서 시작날짜 클릭" readonly="readonly">
 		 <select id=select6>
-				<option value="">기간</option>
+				<option value="0">기간</option>
 				<option value="1">1개월 12만원</option>
 				<option value="3">3개월 30만원</option>
 				<option value="6">6개월 50만원</option>
@@ -85,12 +85,12 @@
 		</div>
 		<div>
 			<select id="select4" name="locker">
-				<option value="">사물함 신청</option>
+				<option value="0">사물함 신청</option>
 				<option value="1">예</option>
 				<option value="0">아니요</option>
 			</select> 
 			<select id="select5" name="clothes">
-				<option value="">운동복 신청</option>
+				<option value="0">운동복 신청</option>
 				<option value="1">예</option>
 				<option value="0">아니요</option>
 			</select>

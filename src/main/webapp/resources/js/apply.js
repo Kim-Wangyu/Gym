@@ -8,6 +8,8 @@ const selectName = document.getElementById("selectName");
 //1,2,3,4,5
 //trainer 각 날마다 1~8 and 1~8에 각각 한명의 멤버만 연결되야 하고 and 1~8에 한명이 연결되면 calendar페이지에서 빗금처리라던가 이런처리 and 데이터베이스에 저장되어야하고 
 //1 = 9~10 2= 10~11 3= 11~12 4= 12~13 5=13~14 6= 14~15 7= 15~16  8= 16~17 
+
+//--시간부르는함수-------------------------------------------------------------------------------------------
 function getTime(){
     const xhttp1 =new XMLHttpRequest();
     const day = document.getElementById("day");
@@ -24,7 +26,7 @@ function getTime(){
         }
     }
 }
-
+//--------------------------------------------------------------------------------------------------------------------
 let day=document.createElement("input");
 let addDiv = document.createElement("div");
 
@@ -99,62 +101,70 @@ tb_body.addEventListener("click",function(event){
     //날짜를 클릭 했을때 그 날짜와 함께 선택할 운동 시간 띄우기
     if(event.target.classList.contains("day")){
        if(event.target.innerText!=""){ //날짜가 공백인곳을 클릭하지 않았을때
-            //선택한 날짜 넣기
-         day.value=year.value+"년"+month.value+"월"+event.target.innerText+"일";
-         day.setAttribute("name","applyDay")
-         day.setAttribute("readonly","readonly")
-        //관리자면 add버튼 add 메소드 전송 회원이면 apply버튼 apply메소드 전송
-         if(applyDiv.getAttribute("data-id")==1){
-            form.setAttribute("action","./addApply");
-            button.setAttribute("id","addBtn");
-            button.innerText="add";
-            button.setAttribute("type","button");
-            form.append(day);
-            form.append(time);
-            form.append(button); 
-            form.append(button1);
-            form.append(addDiv);
-            
-        }else{
-            const xhttps = new XMLHttpRequest();
-            xhttps.open("POST","../apply/clickDay");
-            xhttps.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-            xhttps.send("cday="+day.value);
-            xhttps.onreadystatechange=function(){
-                if(this.readyState==4 && this.status==200){
-                    let f = "0";
-                    form.setAttribute("action","./apply");
-                    if(this.responseText.trim()==f){
-                        alert("해당날짜에 수강신청을 할 수 없습니다.");
-                    }else{
-                         form.innerHTML=this.responseText.trim();
-                         document.getElementById("selectName").addEventListener("change",function(){
-                            getTime();
-                         })
-                    }
-
-                }
-             }
-        }
-
-        applyDiv.innerHTML="";
-        applyDiv.append(form);   
-   
+        let clickDate =  current_year+"-"+current_month+"-"+ event.target.innerText;
+        let clickDate1 = new Date(clickDate);
+        let today1 = new Date();
+        today1.setHours(0,0,0,0);
+       if(clickDate1<today1){
+        alert("지난날은 신청할 수 없습니다.")
+       }else{
+                    //선택한 날짜 넣기
+                    day.value=year.value+"년"+month.value+"월"+event.target.innerText+"일";
+                    day.setAttribute("name","applyDay")
+                    day.setAttribute("readonly","readonly")
+                   //관리자면 add버튼 add 메소드 전송 회원이면 apply버튼 apply메소드 전송
+                    if(applyDiv.getAttribute("data-id")==1){
+                       form.setAttribute("action","./addApply");
+                       button.setAttribute("id","addBtn");
+                       button.innerText="add";
+                       button.setAttribute("type","button");
+                       form.append(day);
+                       form.append(time);
+                       form.append(button); 
+                       form.append(button1);
+                       form.append(addDiv);
+                       
+                   }else{
+                       const xhttps = new XMLHttpRequest();
+                       xhttps.open("POST","../apply/clickDay");
+                       xhttps.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+                       xhttps.send("cday="+day.value);
+                       xhttps.onreadystatechange=function(){
+                           if(this.readyState==4 && this.status==200){
+                               let f = "0";
+                               form.setAttribute("action","./apply");
+                               form.setAttribute("id","applyForm");
+                               if(this.responseText.trim()==f){
+                                   alert("해당날짜에 수강신청을 할 수 없습니다.");
+                               }else{
+                                    form.innerHTML=this.responseText.trim();
+                                    document.getElementById("selectName").addEventListener("change",function(){
+                                       getTime();
+                                    })
+                               }
+           
+                           }
+                        }
+                   }
 
        }
      
-    }
 
+
+        applyDiv.innerHTML="";
+        applyDiv.append(form);   
+       }
+    }
 })  
 
     //Button눌럿을때=================================================================================
 
     applyDiv.addEventListener("click",function(event){
         //apply버튼 눌럿을때
-        if(event.target.getAttribute("id")=="applyBtn"){
+        if(event.target.getAttribute("id")=="applyButton"){
            let delConfirm = confirm("신청하시겠습니까?");
            if(delConfirm){
-               alert("신청이 완료되었습니다");
+               document.getElementById("applyForm").submit();
            }
         }
         //add버튼 눌럿을때

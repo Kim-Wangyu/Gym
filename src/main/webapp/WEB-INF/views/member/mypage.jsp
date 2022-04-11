@@ -26,9 +26,11 @@
 	<c:if test="${member.grade==0}">
 		<a href="./buy">회원권 구매</a>
 		<a href="../apply/calendar">수강 신청</a>
+		<a href="../apply/myApply?memberNum=${member.memberNum}">수강신청 내역</a>
 	</c:if>
 	<c:if test="${member.grade==1}">
 		<a href="../apply/calendar">pt시간 등록</a>
+		<a href="../apply/myStudy?traNum=${trainer.traNum}">pt시간 목록</a>
 	</c:if>
 	
 	<script type="text/javascript" src="../resources/js/mypage.js"></script>
