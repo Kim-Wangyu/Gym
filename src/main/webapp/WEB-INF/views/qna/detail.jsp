@@ -27,12 +27,15 @@
 		
 		</c:forEach>
 		</div>
+		<hr>
 	
 	<div>
 		<input type="hidden" name="num" value="${dto.num}" id="num"> 
-		<input type="text" readonly name="writer" value="${member.id}" id="writer">
-		<textarea rows="" cols="" name="contents" id="contents"></textarea>
-		<button type="button" id="reply">Reply</button>
+		Contents<textarea rows="" cols="" name="contents" id="contents" style="width:430px;height:70px" ></textarea>
+		<div id="writerbtn">
+			Writer<input type="text" name="writer" id="writer" value="${member.id}">
+			<button type="button" name="reply" id="reply" >reply</button>
+		</div>
 	</div>
 
 	<table id="replyResult">
@@ -46,12 +49,14 @@
 		</form>
 
 		<%-- 	<button id = "del" >DELETE</button> --%>
-		<a href="#" id="del">DELETE</a>
-		<a href="./update?num=${dto.num}">UPDATE</a>
+		
+		<a href="./update?num=${dto.num}" class="btnbtn">UPDATE</a>
+		<a href="#" class="btnbtn" id="del">DELETE</a>
 		<script src="../resources/js/delete.js"></script>
 	</c:if>
-	
-	<a href="./list">LIST</a>
+	<div>
+	<a href="./list"> < LIST</a>
+	</div>
 	</div>
 	<script src="../resources/js/qnaReply.js"></script>
 

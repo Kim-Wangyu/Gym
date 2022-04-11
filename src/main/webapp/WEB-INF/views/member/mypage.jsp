@@ -20,6 +20,7 @@
 	
 	<h3>이름 : ${member.name}</h3>
 	<h3>전화번호 : ${member.phone}</h3>
+	<h3><img alt="" src="../resources/upload/member/${member.memberFileDTO.fileName}"></h3>
 	
 	<a href="./pwupdate">비밀번호 수정</a>
 	<a href="./update">정보 수정</a>

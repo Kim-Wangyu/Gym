@@ -55,22 +55,24 @@ public class MemberController {
 		String path = "../";
 		String message = "";
 		if(memberDTO!=null) {
-			message="로그인성공";
+			message="로그인 성공";
 			if(remember!=null&&remember.equals("1")) {
 				Cookie cookie = new Cookie("rememberid", memberDTO.getId());
 				response.addCookie(cookie);
 				cookie.setMaxAge(-1);
 			}
-		}else {
-			message="로그인실패";
+			TrainerDTO trainerDTO = new TrainerDTO();
+			if(memberDTO.getGrade().equals(1L)) {
+				trainerDTO.setMemberNum(memberDTO.getMemberNum());
+				trainerDTO = memberService.trainerDetail(trainerDTO);
+				session.setAttribute("trainer", trainerDTO);
+			}
+		}
+		else {
+			message="로그인 실패";
 			path= "./login";
 		}
-		TrainerDTO trainerDTO = new TrainerDTO();
-		if(memberDTO.getGrade().equals(1L)) {
-			trainerDTO.setMemberNum(memberDTO.getMemberNum());
-			trainerDTO = memberService.trainerDetail(trainerDTO);
-			session.setAttribute("trainer", trainerDTO);
-		}
+		
 		session.setAttribute("member", memberDTO);
 		model.addAttribute("message", message);
 		model.addAttribute("path", path);

@@ -6,26 +6,31 @@
 	<title>Home</title>
 	<c:import url="./template/header_css.jsp"></c:import>
     <link rel="stylesheet" href="/s1/resources/css/home.css">
-   
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+sharp"  rel="stylesheet">
+    
 </head>
 <body>
 <c:import url="./template/header.jsp"></c:import>
 <c:if test="${member ne null}">
-<h3> ${member.name}님 환영합니다</h3>
+<h3 id="membername">
+	${member.name}님
+</h3>
+	<span class="material-icons-wg">
+		account_circle
+	</span>
+	
+ 	
 </c:if>
 <div id="galleryCont">
 
  	<img src="/s1/resources/images/Logo.jpg" id="photo">
-	<button id="cli" type="button">이전</button>
-	<button id="cli1" type="button">다음</button>
-	
+ 	<div id="gc">
+		<button id="cli" type="button">이전</button>
+	</div>
+	<div id="gc1">
+		<button id="cli1" type="button">다음</button>
+	</div>
 </div>
-
-<div id="btnBox">
-<!-- 	<button id="cli" type="button">이전</button>
-	<button id="cli1" type="button">다음</button> -->
-</div>
-
 
 <div class="wd1">
 <ul class="wul">
@@ -68,5 +73,6 @@
 <c:import url="./template/bottom.jsp"></c:import>
 
 	<script src="./resources/js/homePage.js"></script>
+
 </body>
 </html>

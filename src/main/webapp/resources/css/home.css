@@ -2,9 +2,8 @@
 .wd1{
     width: 80%;
     height: 300px;
- 
-    margin-left: 200px;
-    
+    margin: 0 auto;
+    margin-top: 200px;
 }
 
 .wd1 > .wul{
@@ -17,6 +16,8 @@
 }
 .lim{
     text-align: center;
+    margin-top: 20px;
+    margin-bottom: 30px;
 }
 
 .wd1 .wli{
@@ -29,7 +30,7 @@
     border-collapse: collapse;
     
 }
-.wd1 li a:hover, .wd1 ul li:hover a{
+.wd1 li a:hover{
     background: rgb(31,31,31);
     color:#FFFFFF;
     text-decoration:none;
@@ -55,7 +56,7 @@
 	width: 100%;
     height: 600px;
     display: flex;
-   
+   justify-content: center;
    position: relative; 
    margin-top : 70px;
 
@@ -63,27 +64,37 @@
     background-repeat: no-repeat;
     background-size: 1910px 600px; */
 }
+#gc{
+    width: 1500px;
+    height: 100%;
+    position: absolute;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}
+#gc1{
+    width:1500px;
+    height: 100%;
+    position: absolute;
+    display: flex;
+    justify-content: right;
+    align-items: center;
+}
 #cli{
     width: 100px;
     height: 50px;
-    position: absolute;
-   
     border: solid black 2px;
     border-radius : 50px;
     font-weight: bold;
-    margin-top: 250px;
     margin-left: 50px;
 }
 #cli1{
     width: 100px;
     height: 50px;
-    position: absolute;
-   
     border: solid black 2px;
     border-radius : 50px;
     font-weight: bold;
-    margin-top: 250px;
-    margin-left: 1720px;
+    margin-right: 50px;
 }
 #cli:hover{
     background-color: white;
@@ -127,6 +138,7 @@
     border: 1px black solid;
     display: flex;
     margin-left: 300px;
+    margin: 0 auto;
     
 
 
@@ -222,4 +234,28 @@ margin-left: 200px;
 #lastLogo{
     width: 120px;
     height: 120px;
+}
+#map{
+    height:800px;
+    margin-top: 100px;
+}
+#membername{
+    float:right;
+    font-size: 30px;
+}
+.material-icons-wg{
+    float:right;
+    font-family: 'Material Icons';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 40px;
+    line-height: 1;
+    letter-spacing: normal;
+    text-transform: none;
+    display: inline-block;
+    white-space: nowrap;
+    word-wrap: normal;
+    direction: ltr;
+    -webkit-font-feature-settings: 'liga';
+    -webkit-font-smoothing: antialiased;
 }

@@ -11,7 +11,7 @@
 </head>
 <body>
 <c:import url="../template/header.jsp"></c:import>
-<h1>Map Page</h1>
+
 
 <!--  <div id="galleryCont">
 
@@ -22,7 +22,7 @@
 </div> -->
 
 
-<div id="map" style="height:800px;"></div>
+<div id="map"></div>
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=9ecee591f78657c058c364a4b7ca2461"></script>
 <script>
 	var container = document.getElementById('map');

@@ -14,11 +14,15 @@
     margin:5px 0;
     transition: .5s ;
 }
-.d1 a{
+.d1 .btnbtn{
     border: solid 2px #ec3b3b;
     box-sizing: border-box;
     height: 50px;
-    width: 90%;
+    width: 100%;
     border-radius: 40px;
     cursor: pointer;
+}
+#writerbtn{
+   
+    float: right;
 }

@@ -21,7 +21,7 @@
 <h3>Writer : ${dto.writer}</h3>
 
 
-<hr>
+
 
 <div>
 	<c:forEach items="${dto.fileDTOs}" var="f">
@@ -33,19 +33,16 @@
 </div>
 
 
-
-
-
-
-//-----------------------------
 <hr>
 <c:if test="${not empty member.id}">
 	<div>
 	<form action="../common/noticeReply" method="post" enctype="application/x-www-form-urlencoded">
-		Contents<textarea rows="" cols="" name="contents" id="contents" ></textarea>
+		Contents<textarea rows="" cols="" name="contents" id="contents" style="width:430px;height:70px" ></textarea>
 		<input type="hidden" name="num" id="num" value="${dto.num}">
+		<div id="writerbtn">
 		Writer<input type="text" name="writer" readonly="readonly" id="writer" value="${member.id}">
 		<button type="button" name="replyBtn" id="replyBtn">REPLY</button>
+		</div>
 	</form>
 	</div>
 </c:if>
@@ -60,8 +57,8 @@
 			<input type="hidden" name="num" id="num1" value="${dto.num}">
 		</form>
 </c:if>
-
-	<a href="./list">LIST</a>
+	<div>
+	<a href="./list"> < LIST</a></div>
 </div>
 <script src="../resources/js/delete.js"></script>
 <script type="text/javascript" src="../resources/js/noticeReply.js"></script>

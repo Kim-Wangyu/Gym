@@ -16,8 +16,12 @@
 <div id="galleryCont">
 
  	<img src="/s1/resources/images/Logo.jpg" id="photo">
-	<button id="cli" type="button">이전</button>
-	<button id="cli1" type="button">다음</button>
+	<div id="gc">
+		<button id="cli" type="button">이전</button>
+	</div>
+	<div id="gc1">
+		<button id="cli1" type="button">다음</button>
+	</div>
 	
 </div>
 

@@ -1,12 +1,14 @@
 .header{
     width: 100%;
     height: 125px;
-    background-color: black;
+   background-image: url("/s1/resources/images/headerimg.jpg");
     display: flex;
     justify-content: space-between;
     overflow: hidden;
-   
+    z-index: 1;
 }
+
+
 .header:hover{
     overflow: visible;
 }
@@ -14,11 +16,23 @@
 .nav_main{
     width: 1200px;
     height: 216px;
-    background:linear-gradient(black 125px,rgba(49, 48, 48, 0.5) -115px);
+    background:linear-gradient(rgba(0,0,0,1.0),rgba(49, 48, 48, 0.5) -115px);
 
 }
-
-
+.dumbbelimg{
+    width:130px;
+    height: 120px;
+    display: inline;
+    position: absolute;
+    margin-top: -50px;
+    margin-left: -30px;
+    z-index: -5;
+}
+.listmenu{
+    position: relative;
+     z-index: 2;
+     font-weight: bolder;
+}
 
 .imgLogo{
     width: 130px;
@@ -38,7 +52,9 @@
 .nav_main a{
     color: white;   
     font-size: large;
-}
+    
+   
+} 
 
 .nav_sub{
     width:300px;

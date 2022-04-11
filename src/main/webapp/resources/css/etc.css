@@ -18,6 +18,8 @@
 }
 #gridT{
     display: flex;
+    margin-top: 100px;
+    justify-content: center;
    
 }
 .introPic{
@@ -38,10 +40,7 @@
 
 #useBox{
     width: 100%;
-    display: block;
-
-}
-#usePic{
-    margin-left: 450px;
-
+    display: flex;
+    justify-content: center;
+    margin-top: 200px;
 }

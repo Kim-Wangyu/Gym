@@ -6,24 +6,27 @@
 		<nav class="nav_main" id="headerId" >
 			<ul class="mainmenu">
 				<li><a href="/s1/"><img class="imgLogo" src="/s1/resources/images/Logo.jpg" alt=""></a></li>
-				<li><a href="/s1/">HOME</a>
+				
+				<li>
+				
+				<a href="/s1/" class="listmenu"><img alt="" src="/s1/resources/images/dumbbel.jpg" class="dumbbelimg"> HOME</a>
 					<ul class="submenu">
 						<li class="sub1"><a href="./etc/intro">intro</a></li>
 						<li><a href="./etc/greeting">guide</a></li>
 						<li><a href="./etc/map">map</a></li>
 					</ul>
 				</li>
-				<li><a href="/s1/notice/list"> Notice</a></li>
-				<li><a href="/s1/exercise/list"> Exercise</a>
+				<li><a href="/s1/notice/list"class="listmenu"> <img alt="" src="/s1/resources/images/dumbbel.jpg" class="dumbbelimg"> Notice</a></li>
+				<li><a href="/s1/exercise/list"class="listmenu"><img alt="" src="/s1/resources/images/dumbbel.jpg" class="dumbbelimg">  Exercise</a>
 					<ul class="submenu">
 						<li class="sub1"><a href="/s1/etc/trainers">PT trainer</a></li>
 						<li>Pilates trainer</li>
 					</ul>
 				</li>
-				<li><a href="/s1/qna/list"> Q&A</a>
+				<li><a href="/s1/qna/list"class="listmenu"><img alt="" src="/s1/resources/images/dumbbel.jpg" class="dumbbelimg"> Questions</a>
 					<ul class="submenu">
-						<li class="sub1"><a href="/s1/etc/faq">자주묻는질문</a></li>
-						<li>질문들</li>
+						<li class="sub1"><a href="/s1/etc/faq">FAQ</a></li>
+						<li><a href="/s1/qna/list">Q&A</a></li>
 					</ul>
 				</li>
 			</ul>
@@ -35,14 +38,14 @@
 				<c:when test="${not empty member}">
 					<c:if test="${member.grade eq 2}">
 	
-						<li><a href="/s1/member/list">Upgrade</a>
+						<li><a href="/s1/member/list"class="listmenu"><img alt="" src="/s1/resources/images/dumbbel.jpg" class="dumbbelimg">Upgrade</a>
 					</c:if>
-					<li><a href="/s1/member/mypage">Mypage</a></li>
-					<li><a href="/s1/member/logout">Logout</a></li>
+					<li><a href="/s1/member/mypage"class="listmenu"><img alt="" src="/s1/resources/images/dumbbel.jpg" class="dumbbelimg">Mypage</a></li>
+					<li><a href="/s1/member/logout"class="listmenu"><img alt="" src="/s1/resources/images/dumbbel.jpg" class="dumbbelimg">Logout</a></li>
 				</c:when>
 				<c:otherwise>
-				<li><a href="/s1/member/login">Login</a></li>
-				<li><a href="/s1/member/join">Join</a></li>
+				<li><a href="/s1/member/login"class="listmenu"><img alt="" src="/s1/resources/images/dumbbel.jpg" class="dumbbelimg">Login</a></li>
+				<li><a href="/s1/member/join"class="listmenu"><img alt="" src="/s1/resources/images/dumbbel.jpg" class="dumbbelimg">Join</a></li>
 					
 				</c:otherwise>
 			</c:choose>

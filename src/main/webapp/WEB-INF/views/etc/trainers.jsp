@@ -13,13 +13,7 @@
 <body>
 <c:import url="../template/header.jsp"></c:import>
 <h1>Trainers Page</h1>
-<div id="galleryCont">
 
- 	<img src="/s1/resources/images/Logo.jpg" id="photo">
-	<button id="cli" type="button">이전</button>
-	<button id="cli1" type="button">다음</button>
-	
-</div>
 
 <div id="imgBox">
 	<div class="imgBoxIn">

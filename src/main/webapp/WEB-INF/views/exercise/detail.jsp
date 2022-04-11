@@ -32,22 +32,25 @@
 	
 	<table id="replyResult">
 	</table>
+	<hr>
 	<c:if test="${not empty member}"></c:if>
 	<div>
 		<input type="hidden" name = "num" id="num" value="${dto.num}">
-		<input type="text" name="writer" id="writer" value="${member.id}">
-		<textarea rows="" cols="" name="contents" id="contents" ></textarea>
-		<button type="button" name="reply" id="reply" >reply</button>
+		Contents<textarea rows="" cols="" name="contents" id="contents" style="width:430px;height:70px" ></textarea>
+		<div id="writerbtn">
+			Writer<input type="text" name="writer" id="writer" value="${member.id}">
+			<button type="button" name="reply" id="reply" >reply</button>
+		</div>
 	</div>
-	
-		<a href="#" id="del">Delete</a>
-		<a href="./update?num=${dto.num}">Update</a>
+		<a href="./update?num=${dto.num}" class="btnbtn">Update</a>
+		<a href="#" class ="btnbtn" id="del">Delete</a>
+		
 		<form id="frm" method="post">
 			<input type="hidden" name="num" id="num1" value="${dto.num}">
 		</form>
 	<script src="../resources/js/delete.js"></script>
-
-	<a href="./list">List</a>
+	<div>
+	<a href="./list"> < List</a></div>
 </div>
 	<script src="../resources/js/exerciseReply.js"></script>
 </body>
