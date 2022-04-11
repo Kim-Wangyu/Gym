@@ -6,15 +6,15 @@
 		<nav class="nav_main" id="headerId" >
 			<ul class="mainmenu">
 				<li><a href="/s1/"><img class="imgLogo" src="/s1/resources/images/Logo.jpg" alt=""></a></li>
-				<li><a href="/s1/">HOME</a>
+				<li><a class="heaback" href="/s1/">HOME</a>
 					<ul class="submenu">
 						<li class="sub1"><a href="./etc/intro">intro</a></li>
 						<li><a href="./etc/greeting">guide</a></li>
 						<li><a href="./etc/map">map</a></li>
 					</ul>
 				</li>
-				<li><a href="/s1/notice/list"> Notice</a></li>
-				<li><a href="/s1/exercise/list"> Exercise</a>
+				<li><a class="heaback" href="/s1/notice/list"> Notice</a></li>
+				<li><a class="heaback" href="/s1/exercise/list"> Exercise</a>
 					<ul class="submenu">
 						<li class="sub1"><a href="/s1/etc/trainers">PT trainer</a></li>
 						<li>Pilates trainer</li>
