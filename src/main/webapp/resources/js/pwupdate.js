@@ -26,6 +26,16 @@ pw2.addEventListener("keyup",function(){
     pwResult2.innerHTML=message;
 
 })
+pw.addEventListener("keyup",function(){
+    let pw2value=pw2.value;
+    let message ="비밀번호가 일치하지 않습니다.";
+
+    if(pw2.value==pw.value){
+        message="비밀번호가 일치합니다."
+    }
+    pwResult.innerHTML=message;
+
+})
 btn.addEventListener("click", function(){
     console.log("click");
 
