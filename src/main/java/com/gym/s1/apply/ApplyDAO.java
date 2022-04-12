@@ -40,7 +40,28 @@ public class ApplyDAO {
 	public List<ApplyDTO> findApplyNum(ApplyDTO applyDTO) throws Exception{
 		return sqlSession.selectList(NAMESPACE+"findApplyNum",applyDTO);
 	}
+	public MembershipDTO findMemberNum(MembershipDTO membershipDTO)throws Exception{
+		return sqlSession.selectOne(NAMESPACE+"findMemberNum",membershipDTO);
+	}
 	public MembershipDTO findMembershipNum(MembershipDTO membershipDTO)throws Exception{
 		return sqlSession.selectOne(NAMESPACE+"findMembershipNum",membershipDTO);
+	}
+	public MemberDTO findMemberName(MemberDTO memberDTO)throws Exception{
+		return sqlSession.selectOne(NAMESPACE+"findMemberName",memberDTO);
+	}
+	public int countUpdate(MembershipDTO membershipDTO)throws Exception{
+		return sqlSession.update(NAMESPACE+"countUpdate",membershipDTO);
+	}
+	public List<ApplyDTO> myApplyList(ApplyDTO applyDTO)throws Exception{
+		return sqlSession.selectList(NAMESPACE+"myApplyList",applyDTO);
+	}
+	public List<ApplyDTO> myStudyList(ApplyDTO applyDTO)throws Exception{
+		return sqlSession.selectList(NAMESPACE+"myStudyList",applyDTO);
+	}
+	public int applyDelete(ApplyDTO applyDTO)throws Exception{
+		return sqlSession.update(NAMESPACE+"applyDelete",applyDTO);
+	}
+	public int studyDelete(ApplyDTO applyDTO)throws Exception{
+		return sqlSession.delete(NAMESPACE+"studyDelete",applyDTO);
 	}
 }

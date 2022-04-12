@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h1>Apply Add Page</h1>
+	<h1>신청내역이 없습니다.</h1>
 </body>
 </html>

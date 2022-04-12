@@ -64,5 +64,9 @@ public class MemberDAO {
 	public MembershipDTO mypage(MembershipDTO membershipDTO)throws Exception{
 		return sqlSession.selectOne(NAMESPACE+"mypage", membershipDTO);
 	}
+	public int deleteTrainer(TrainerDTO trainerDTO)throws Exception{
+		return sqlSession.delete(NAMESPACE+"deleteTrainer",trainerDTO);
+
+	}
 	
 }

@@ -37,5 +37,33 @@
 	<select id="findMembershipNum" parameterType="MembershipDTO" resultType="membershipDTO">
 		SELECT * FROM MEMBERSHIP WHERE MEMBERNUM = #{memberNum}
 	</select>
+	
+	<select id="findMemberNum" parameterType="MembershipDTO" resultType="membershipDTO">
+		SELECT * FROM MEMBERSHIP WHERE MEMBERSHIPNUM = #{membershipNum}
+	</select>
+	
+	<select id="findMemberName" parameterType="MemberDTO" resultType="memberDTO">
+		SELECT * FROM GYMMEMBER WHERE MEMBERNUM = #{memberNum}
+	</select>
 		
+	<update id="countUpdate" parameterType="MembershipDTO">
+		UPDATE MEMBERSHIP SET COUNT=#{count} WHERE MEMBERSHIPNUM =#{membershipNum}
+	</update>
+	
+	<select id="myApplyList" parameterType="ApplyDTO" resultType="ApplyDTO">
+		SELECT * FROM APPLY WHERE MEMBERSHIPNUM = #{membershipNum} ORDER BY DAY , TIME
+	</select>
+	
+	<select id="myStudyList" parameterType="ApplyDTO" resultType="ApplyDTO">
+		SELECT * FROM APPLY WHERE TRANUM = #{traNum} ORDER BY DAY , TIME
+	</select>
+	
+	<update id="applyDelete" parameterType="ApplyDTO">
+		UPDATE APPLY SET MEMBERSHIPNUM =null WHERE APPLYNUM=#{applyNum}
+	</update>
+	
+	<delete id="studyDelete" parameterType="ApplyDTO">
+		DELETE APPLY WHERE APPLYNUM=#{applyNum}
+	</delete>
+	
 </mapper>

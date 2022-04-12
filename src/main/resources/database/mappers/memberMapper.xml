@@ -72,11 +72,8 @@
     	</update>
     	<insert id="trainerAdd" parameterType="TrainerDTO">
     		INSERT INTO TRAINER 
-    		VALUES(trainer_seq.nextval,#{memberNum},#{price},#{category})
+    		VALUES(trainer_seq.nextval,#{memberNum},#{price},0)
     	</insert>
-    	<update id="trainerUpdate" parameterType="TrainerDTO">
-    		UPDATE TRAINER SET PRICE=#{price}, CATEGORY=#{category} WHERE MEMBERNUM=#{memberNum}
-    	</update>
     	<select id="trainerDetail" parameterType="TrainerDTO" resultType="TrainerDTO">
     		SELECT * FROM TRAINER WHERE MEMBERNUM=#{memberNum}
     	</select>
@@ -114,5 +111,10 @@
  		SELECT * FROM MEMBERSHIP WHERE MEMBERNUM=#{memberNum}
 	
  	</select>
+
+ 	<delete id="deleteTrainer" parameterType="trainerDTO">
+		DELETE TRAINER WHERE MEMBERNUM=#{memberNum}
+	</delete>
+
  	
     </mapper>
