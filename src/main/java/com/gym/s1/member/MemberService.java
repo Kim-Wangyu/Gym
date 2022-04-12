@@ -70,5 +70,8 @@ public class MemberService {
 	public int buyAdd(MembershipDTO membershipDTO)throws Exception{
 		return memberDAO.buyAdd(membershipDTO);
 	}
+	public int deleteTrainer(TrainerDTO trainerDTO)throws Exception{
+		return memberDAO.deleteTrainer(trainerDTO);
+	}
 
 }

@@ -12,6 +12,7 @@ import javax.servlet.http.HttpSession;
 import org.apache.ibatis.reflection.SystemMetaObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -36,6 +37,7 @@ public class ApplyController {
 	public ModelAndView addApply(ApplyDTO applyDTO , String[] addDay , String[] addTime , HttpSession session)throws Exception{
 		ModelAndView mv = new ModelAndView();
 		TrainerDTO trainerDTO = (TrainerDTO)session.getAttribute("trainer");
+		String message ="추가완료";
 		for(int i = 0; i<addDay.length; i++) {
 			applyDTO= new ApplyDTO();
 			// day 집어넣기
@@ -47,9 +49,14 @@ public class ApplyController {
 			applyDTO.setDay(day);
 			applyDTO.setTime(addTime[i]);
 			applyDTO.setTraNum(trainerDTO.getTraNum());
-			applyService.addApply(applyDTO);
+			int result = applyService.addApply(applyDTO);
+			if(result<1) {
+				message = "추가에 실패하였습니다";
+			}
 		}
-		mv.setViewName("./apply/calendar");
+		mv.addObject("message",message);
+		mv.addObject("path","../member/mypage");
+		mv.setViewName("/common/result");
 		return mv;
 	}
 	
@@ -240,4 +247,5 @@ public class ApplyController {
 		mv.setViewName("apply/empty2");
 		return mv;
 	}
+	
 }

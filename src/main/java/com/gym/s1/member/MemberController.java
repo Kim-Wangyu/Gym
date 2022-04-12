@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.gym.s1.apply.ApplyService;
 import com.gym.s1.board.BoardDTO;
 import com.gym.s1.board.qna.QnaDTO;
 import com.gym.s1.util.Pager;
@@ -30,6 +31,8 @@ public class MemberController {
 	
 	@Autowired
 	private MemberService memberService;
+	@Autowired
+	private ApplyService applyService;
 
 	@GetMapping("join")
 	public String Join()throws Exception{
@@ -128,8 +131,12 @@ public class MemberController {
 	@GetMapping("detail")
 	public ModelAndView detail(MemberDTO memberDTO,TrainerDTO trainerDTO) throws Exception{
 		ModelAndView mv = new ModelAndView();
+		MembershipDTO membershipDTO = new MembershipDTO();
 		memberDTO = memberService.detail(memberDTO);
-		mv.addObject("member",memberDTO);
+		membershipDTO.setMemberNum(memberDTO.getMemberNum());
+		membershipDTO = applyService.findMembershipNum(membershipDTO);
+		mv.addObject("membership",membershipDTO);
+		mv.addObject("members",memberDTO);
 		mv.setViewName("member/detail");
 		trainerDTO= memberService.trainerDetail(trainerDTO);
 		mv.addObject("trainer",trainerDTO);
@@ -147,18 +154,18 @@ public class MemberController {
 		return mv;
 	}
 	@PostMapping("upgrade")
-	public String upgrade(MemberDTO memberDTO, TrainerDTO trainerDTO) throws Exception{
-		int result =memberService.upgrade(memberDTO);
-		int result2=memberService.trainerAdd(trainerDTO);
+	public String upgrade(MemberDTO memberDTO, TrainerDTO trainerDTO,Long grade) throws Exception{
+		if(grade.equals(0L)) {
+			int result =memberService.upgrade(memberDTO);//멤버테이블 업그레이드
+			int result2 = memberService.deleteTrainer(trainerDTO);//트레이너테이블 삭제
+		}else if(grade.equals(1L)) {
+			int result =memberService.upgrade(memberDTO);//멤버테이블 업그레이드
+			int result2=memberService.trainerAdd(trainerDTO);//트레이너테이블에 추가
+		}
+	
 		return "redirect:./list";
 	}
 
-	@PostMapping("trainerUpdate")
-	public String trainerUpdate(TrainerDTO trainerDTO) throws Exception{
-		int result =memberService.trainerUpdate(trainerDTO);
-		
-		return "redirect:./list";
-	}
 	@GetMapping("buy")
 	public ModelAndView select(TrainerDTO trainerDTO) throws Exception{
 		ModelAndView mv = new ModelAndView();
@@ -170,7 +177,8 @@ public class MemberController {
 	}
 	
 	@PostMapping("buy")
-	public String buyAdd(MembershipDTO membershipDTO,String start, String finish,Long traNum,Long count)throws Exception{
+	public ModelAndView buyAdd(MembershipDTO membershipDTO,String start, String finish,Long traNum,Long count)throws Exception{
+		ModelAndView mv = new ModelAndView();
 		if(traNum==null) {
 			membershipDTO.setTraNum(0L);
 		}
@@ -189,8 +197,15 @@ public class MemberController {
 		membershipDTO.setFinishDate(finishDate);
 		
 		int result = memberService.buyAdd(membershipDTO);
+		String message = "구매 완료";
+		if(result !=1) {
+			message = "구매 실패";
+		}
+		mv.addObject("path","./mypage");
+		mv.addObject("message",message);
+		mv.setViewName("/common/result");
 		
-		return "redirect:./mypage";
+		return mv;
 	}
 
 	

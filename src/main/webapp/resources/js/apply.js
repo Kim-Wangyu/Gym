@@ -40,7 +40,7 @@ tb_body.addEventListener("click",function(event){
     //select 시간 만들기
     let time = document.createElement("select");
     time.setAttribute("id","time");
-    time.setAttribute("style","width:80px;display: initial;");
+    time.setAttribute("style","width:130px;display: initial;");
         let  time1= document.createElement("option");
         time1.setAttribute("value","09:00~10:00");
         time1.innerText="09:00~10:00";
@@ -95,7 +95,8 @@ tb_body.addEventListener("click",function(event){
     let button = document.createElement("button");
     //submit 버튼 만들기
     let button1 = document.createElement("button");
-    button1.setAttribute("type","submit");
+    button1.setAttribute("type","button");
+    button1.setAttribute("id","subBtn");
     button1.innerText="submit";
     
     //날짜를 클릭 했을때 그 날짜와 함께 선택할 운동 시간 띄우기
@@ -115,6 +116,7 @@ tb_body.addEventListener("click",function(event){
                    //관리자면 add버튼 add 메소드 전송 회원이면 apply버튼 apply메소드 전송
                     if(applyDiv.getAttribute("data-id")==1){
                        form.setAttribute("action","./addApply");
+                       form.setAttribute("id","subForm");
                        button.setAttribute("id","addBtn");
                        button.innerText="add";
                        button.setAttribute("type","button");
@@ -162,8 +164,8 @@ tb_body.addEventListener("click",function(event){
     applyDiv.addEventListener("click",function(event){
         //apply버튼 눌럿을때
         if(event.target.getAttribute("id")=="applyButton"){
-           let delConfirm = confirm("신청하시겠습니까?");
-           if(delConfirm){
+           let applyConfirm = confirm("신청하시겠습니까?");
+           if(applyConfirm){
                document.getElementById("applyForm").submit();
            }
         }
@@ -188,13 +190,24 @@ tb_body.addEventListener("click",function(event){
             addDiv.append(diva);
         
         }
+        //submit버튼 눌럿을때
+        if(event.target.getAttribute("id")=="subBtn"){
+            let subConfirm = confirm("저장하시겠습니까?");
+            if(subConfirm){
+            document.getElementById("subForm").submit();
+            }  
+           
+        }
 
        
     })
     //딜리트버튼 선택하면 지우기
     addDiv.addEventListener("click",function(event){
         if(event.target.classList.contains("del")){
-            //부모 선택해서 지우기
+            let delConfirm = Confirm("삭제하시겠습니까?");
+            if(delConfirm){
+                 //부모 선택해서 지우기
             event.target.parentNode.remove();
+            }  
         }
     })

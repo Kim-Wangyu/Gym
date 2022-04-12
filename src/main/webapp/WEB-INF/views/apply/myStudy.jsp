@@ -20,7 +20,13 @@
 				<c:forEach items="${list2}" var="dto2" varStatus="i">
 					<tr id="index1${i.index}">
 						<th>${i.index+1}번</th>
-						<th class="th">${dto2.name}</th>
+						<c:if test='${dto2.name eq"-"}'>
+							<th class="th">${dto2.name}</th>
+						</c:if>
+						<c:if test='${dto2.name ne "-"}'>
+							<th class="th"><a href="../member/detail?memberNum=${dto2.memberNum}">${dto2.name}</a></th>
+						</c:if>
+
 					</tr>
 				</c:forEach> 
 			</table>
