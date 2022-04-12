@@ -22,11 +22,11 @@
 			<div>Phone<input type="text" name="phone" id ="phone" ></div>
 			<div>Photo<input type="file" name="file" id="file"></div>
 			
-			<button type="submit" id="btn"> Join</button>
+			<button type="button" id="btn"> Join</button>
 		</form>
 	</div>
 	
-<!-- 	<script type="text/javascript" src="../resources/js/join.js"></script> -->
+ 	<script type="text/javascript" src="../resources/js/join.js"></script> 
 
 </body>
 </html>

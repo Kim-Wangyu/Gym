@@ -45,6 +45,9 @@
 						<c:if test="${member.grade eq 1 }">
 							<td>트레이너</td>
 						</c:if>
+						<c:if test="${member.grade eq 2}">
+							<td>마스터계정</td>
+						</c:if>
 					
 					
 				

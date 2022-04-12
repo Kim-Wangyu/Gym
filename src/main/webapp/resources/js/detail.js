@@ -10,11 +10,13 @@ detailForm.addEventListener("change",function(event){
             if(g.selected){
                 if(g.value==1){
                     priceDiv.innerHTML="";
-                    priceDiv.innerText="가격";
+                    priceDiv.innerText="가격 :";
                     let gradeInput = document.createElement("input");
                     gradeInput.setAttribute("name","price");
                     gradeInput.setAttribute("type","number");
                     gradeInput.setAttribute("value","0");
+                    gradeInput.setAttribute("class","memberdetail");
+                    gradeInput.setAttribute("style","font-size: larger;font-weight: bold;");
                     priceDiv.append(gradeInput);
                 }else if(g.value==0){
                     priceDiv.innerHTML="";

@@ -6,8 +6,8 @@
 <mapper namespace="com.gym.s1.apply.ApplyDAO">
 
 	<insert id="addApply" parameterType="ApplyDTO">
-		INSERT INTO APPLY (APPLYNUM,TRANUM,DAY,TIME,CATEGORY)
-		VALUES (APPLY_SEQ.NEXTVAL,#{traNum},#{day},#{time},0)
+		INSERT INTO APPLY (APPLYNUM,TRANUM,DAY,TIME)
+		VALUES (APPLY_SEQ.NEXTVAL,#{traNum},#{day},#{time})
 	</insert>
 	
 	<update id="apply" parameterType="ApplyDTO">

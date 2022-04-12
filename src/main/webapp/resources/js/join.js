@@ -5,24 +5,63 @@ const pwResult2 = document.getElementById('pwResult2');
 const id=document.getElementById('id');
 const idResult = document.getElementById('idResult');
 const file = document.getElementById('file');
+const name = document.getElementById("name");
+const phone = document.getElementById("phone");
+
 
 const form=document.getElementById('form');
 const btn = document.getElementById('btn');
 
-let idcheck=true;
-let pwcheck=true;
-let namecheck=true;
-let phonecheck=true;
-let filecheck=true;
+let idcheck=false;
+let pwcheck=false;
+let namecheck=false;
+let phonecheck=false;
+let filecheck=false;
+id.addEventListener("blur",function(){
+    if(id.value!=""){
+        idcheck=true;
+    }else {
+        idcheck=false;
+        alert('id를 입력하세요');
+        id.focus();
+    }
+});
+name.addEventListener("blur",function(){
+    if(name.value!=""){
+        namecheck=true;
+    }else {
+        namecheck=false;
+        alert('이름을 입력하세요');
+        name.focus();
+    }
+});
+phone.addEventListener("blur",function(){
+    if(phone.value!=""){
+        phonecheck=true;
+    }else {
+        phonecheck=false;
+        alert('핸드폰번호를 입력하세요');
+        phone.focus();
+    }
+});
+file.addEventListener("blur",function(){
+    if(file.value!=""){
+        filecheck=true;
+    }else {
+        alert('사진을 등록하세요');
+        filecheck=false;
+    }
+});
+
 
 //pw글자수 확인
 pw.addEventListener("keyup",function(){
     let length=pw.value.length;
-    let message ="적합한 비밀번호 입니다.";
+    let message ="잘못된 비밀번호 입니다.";
   
-    if(length<6||length>10){
-        message="잘못된 비밀번호 입니다.";
-        pwcheck=false;
+    if(length>=6&&length<=10){
+        message="적합한 비밀번호 입니다.";
+        pwcheck=true;
     }
     pwResult.innerHTML=message;
 })
@@ -49,46 +88,20 @@ pw.addEventListener("change", function(){
     pwResult2.innerHTML="";
     pw.focus();
 })
-file.addEventListener("change",function(){
-    filecheck=true;
-})
+
+
 //join 버튼 클릭시 필수요소 확인
 btn.addEventListener('click',function(){
     
-    if(id.value==""){
-        alert("id를 입력하세요");
-        id.focus();
-        idcheck=false;
-       return;
-    }
-
-    if(check){
-        alert("pw가 일치하지 않습니다.")
-        pw.focus();
-        pwcheck=false;
-        return;
-    }
-    if(name.value==""){
-        alert("이름을 입력하세요");
-        name.focus();
-        namecheck=false;
-        return;
-    }
-    if(phone.value==""){
-        alert("전화번호를 입력하세요");
-        phone.focus();
-        phonecheck=false;
-        return;
-    }
-    if(file.value==""){
-        alert("file 넣으세요");
-        file.focus();
-        filecheck=false;
-        return;
-    }
     if(idcheck&&pwcheck&&namecheck&&phonecheck&&filecheck){
         form.submit();
     }else{
+        console.log(idcheck);
+        console.log(pwcheck);
+        console.log(namecheck);
+        console.log(phonecheck);
+        console.log(filecheck);
         alert("조건을 확인하세요");
     }
+
 })

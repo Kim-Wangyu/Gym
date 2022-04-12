@@ -27,7 +27,7 @@
 		<c:if test="${member.grade eq 2}">
 			<c:if test="${members.grade eq 0}">
 			<div class="memberdetail" style="font-size: larger;font-weight: bold;">
-				등급&nbsp<select  name="grade" class="gradeSelect">
+				등급 :&nbsp<select  name="grade" class="gradeSelect">
 					<option value="0" class ="gradeOption" selected="selected">회원</option>
 					<option value="1" class ="gradeOption">트레이너</option>
 				</select>
@@ -44,15 +44,6 @@
 			</c:if>
 
 		</c:if>
-	<%-- 	<c:if test="${member.grade eq 1}">
-			<c:if test=" ${members.grade eq 0}">
-				<h3>등급 :회원 </h3>
-			</c:if>
-			<c:if test=" ${members.grade eq 1}">
-				<h3>등급 :트레이너</h3>
-			</c:if>
-			
-		</c:if> --%>
 		<div id="priceDiv">
 			<c:if test="${ members.grade eq 1 }">
 			<div class="memberdetail" style="font-size: larger;font-weight: bold;">

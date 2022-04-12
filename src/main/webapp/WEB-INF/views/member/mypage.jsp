@@ -34,9 +34,11 @@
 			<c:if test="${member.grade==0}">
 				<a class="mypagebtn" href="./buy">회원권 구매</a>
 				<a class="mypagebtn" href="../apply/calendar">수강 신청</a>
+				<a class="mypagebtn" href="../apply/myApply?memberNum=${member.memberNum}">수강 목록</a>
 			</c:if>
 			<c:if test="${member.grade==1}">
 				<a class="mypagebtn" href="../apply/calendar">pt시간 등록</a>
+				<a class="mypagebtn" href="../apply/myStudy?traNum=${trainer.traNum}">수업 목록</a>
 			</c:if>
 		</div>
 		<div>

@@ -97,7 +97,7 @@
 					&nbspPT 선택<select style="margin-left: 15px;" name="traNum"
 						id="select2">
 
-						<option value="">이름 가격 운동종류</option>
+						<option value="">이름 가격</option>
 						<c:forEach items="${list}" var="f">
 							<option class="dataprice" data-price="${f.price}"
 								value="${f.traNum}">${f.memberDTOs.name}${f.price}</option>
