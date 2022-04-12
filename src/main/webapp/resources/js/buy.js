@@ -80,9 +80,11 @@ select6.addEventListener("change",function(){
     sumPrice();
 })
 
-btn.addEventListener("click",function(){   
-    alert("총 신청한 가격은 "+sum.value+"원 입니다. 신청하시겠습니까?");
-    form.submit();
+btn.addEventListener("click",function(){ 
+    let buyConfirm = confirm("총 신청한 가격은 "+sum.value+"원 입니다. 신청하시겠습니까?");
+    if(buyConfirm){
+        form.submit();
+    } 
 })
 
 
