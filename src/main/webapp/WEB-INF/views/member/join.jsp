@@ -8,6 +8,7 @@
 <title>Insert title here</title>
 <c:import url="../template/header_css.jsp"></c:import>
 <link href="../resources/css/join.css" rel="stylesheet">
+<link rel="stylesheet" href="/s1/resources/css/home.css">
 </head>
 <body>
 	<c:import url="../template/header.jsp"></c:import>

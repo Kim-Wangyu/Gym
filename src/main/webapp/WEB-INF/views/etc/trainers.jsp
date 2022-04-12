@@ -12,7 +12,8 @@
 </head>
 <body>
 <c:import url="../template/header.jsp"></c:import>
-<h1>Trainers Page</h1>
+<h1><br> 
+</h1>
 
 
 <div id="imgBox">

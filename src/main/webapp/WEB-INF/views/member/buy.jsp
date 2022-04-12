@@ -11,14 +11,15 @@
 <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 	<c:import url="../template/header_css.jsp"></c:import>
-    <link rel="stylesheet" href="/s1/resources/css/home.css">
-</head>
+    <link rel="stylesheet" href="/s1/resources/css/home.css">  
+  <link rel="stylesheet" href="/s1/resources/css/calendar.css">
+  </head>
 <body>
 <c:import url="../template/header.jsp"></c:import>
 <div id="wrapper">
-
-	<h1>Buy Page</h1>
-    <div class="container">
+<div id="buydiv">
+	<h1 style="margin-left:5px">Buy Page</h1>
+    <div class="container" style="position:relative;">
         <div style="width:300px;">
         	<div>
         		<button type="button" id="preMonth"><i class="fa fa-chevron-left"></i></button>
@@ -54,13 +55,27 @@
                 <tbody id="tb_body"></tbody>
             </table>
         </div>
+    
+    <div>
+    	<img alt="" src="../resources/images/Logo.jpg" style="position: absolute; margin-left:350px;margin-top:-350px">
     </div>
-
+</div>
 	<form action="./buy" method="post" id="form">
 		<input type="hidden" name="memberNum" value="${member.memberNum}">
-			<div>
-			<select name="traNum" id="select2">	
-			
+		<div style="height:35px;">
+		 &nbsp시작날짜&nbsp<input name="start" id="startDate" type="text" value="달력에서 시작날짜 클릭" readonly="readonly">
+		 <select id=select6>
+				<option value="">기간</option>
+				<option value="1">1개월 12만원</option>
+				<option value="3">3개월 30만원</option>
+				<option value="6">6개월 50만원</option>
+				<option value="12">12개월 80만원</option>
+			</select> 
+			종료날짜<input name="finish" id="finishDate" type="text" value="" readonly="readonly">
+		</div>
+			<div style="height:35px;">
+			&nbspPT 선택<select style="margin-left:15px;" name="traNum" id="select2">	
+				
 				<option value="">이름 가격 운동종류</option>
 				<c:forEach items="${list}" var="f">
 					<option class="dataprice" data-price="${f.price}" value="${f.traNum}">${f.memberDTOs.name}   ${f.price} </option>
@@ -75,19 +90,8 @@
 				<option value="20">20</option>
 			</select>
 		</div>
-		<div>
-		 시작날짜<input name="start" id="startDate" type="text" value="달력에서 시작날짜 클릭" readonly="readonly">
-		 <select id=select6>
-				<option value="">기간</option>
-				<option value="1">1개월 12만원</option>
-				<option value="3">3개월 30만원</option>
-				<option value="6">6개월 50만원</option>
-				<option value="12">12개월 80만원</option>
-			</select> 
-			종료날짜<input name="finish" id="finishDate" type="text" value="" readonly="readonly">
-		</div>
-		<div>
-			<select id="select4" name="locker">
+		<div style="height:35px;">
+			&nbsp선택<select  style="margin-left:38px;" id="select4" name="locker">
 				<option value="">사물함 신청</option>
 				<option value="1">예</option>
 				<option value="0">아니요</option>
@@ -97,17 +101,24 @@
 				<option value="1">예</option>
 				<option value="0">아니요</option>
 			</select>
-			총 가격<input type="text" name="price" id="sum" value="" readonly>
+		</div>
+			<div style="height:35px;">
+			&nbsp총 가격<input  style="margin-left:17px;"  type="text" name="price" id="sum" value="" readonly>
 			
 			<button id="btn" type="button">신청</button>
-
+			</div>
+		
 		</div>
 	</form>
 	<script type="text/javascript" src="../resources/js/buy.js"></script>
 	<script src="../resources/js/calendar.js"></script>
+		<div>
+			<img id="faqPic" alt="" src="/s1/resources/images/faqPic.jpg"
+				style="width: 550px; height: 200px; margin-left: 600px;margin-top:30px;">
 		</div>
-	<footer>
+		</div>
+	
 	<c:import url="../template/bottom.jsp"></c:import>
-	</footer>
+	
 </body>
 </html>

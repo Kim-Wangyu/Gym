@@ -4,11 +4,12 @@
     margin: 70px auto 0;
     padding :10px;
     box-sizing: border-box;
+    background-color: white;
 }
 
 .d1 h3{
     display: flex;
-    background: lightgrey;
+    background: lightgray;
     padding: 10px 20px;
     color:black;
     margin:5px 0;

@@ -110,4 +110,9 @@
  		VALUES(MEMBERSHIP_SEQ.NEXTVAL, #{memberNum},#{traNum},#{count},#{price},#{locker},#{clothes},#{startDate},#{finishDate})
  	</insert>
  	
+ 	<select id="mypage" parameterType="MembershipDTO" resultType="MembershipDTO">
+ 		SELECT * FROM MEMBERSHIP WHERE MEMBERNUM=#{memberNum}
+	
+ 	</select>
+ 	
     </mapper>

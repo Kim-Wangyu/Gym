@@ -8,9 +8,11 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <c:import url="../template/header_css.jsp"></c:import>
+<link rel="stylesheet" href="/s1/resources/css/home.css">
 </head>
 <body>
 <c:import url="../template/header.jsp"></c:import>
+<div class="d1">
 	<h1>Member Upgrade Page</h1>
 	
 	<c:if test="${dto.grade eq 0}">
@@ -37,6 +39,6 @@
 			<button type="submit">수정</button>
 		</form>
 	</c:if>
-
+</div>
 </body>
 </html>

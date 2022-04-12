@@ -38,31 +38,31 @@ tb_body.addEventListener("click",function(event){
     //select 시간 만들기
     let time = document.createElement("select");
     time.setAttribute("id","time");
-    time.setAttribute("style","width:80px;display: initial;");
+    time.setAttribute("style","width:130px;display: initial;");
         let  time1= document.createElement("option");
         time1.setAttribute("value","09:00~10:00");
         time1.innerText="09:00~10:00";
         time1.setAttribute("name","time")
         time.append(time1);
-        time.setAttribute("style","width:80px;display: initial;");
+        time.setAttribute("style","width:130px;display: initial;");
         let  time2= document.createElement("option");
         time2.setAttribute("value","10:00~11:00");
         time2.innerText="10:00~11:00";
         time2.setAttribute("name","time")
         time.append(time2);
-        time.setAttribute("style","width:80px;display: initial;");
+        time.setAttribute("style","width:130px;display: initial;");
         let  time3= document.createElement("option");
         time3.setAttribute("value","11:00~12:00");
         time3.innerText="11:00~12:00";
         time3.setAttribute("name","time")
         time.append(time3);
-        time.setAttribute("style","width:80px;display: initial;");
+        time.setAttribute("style","width:130px;display: initial;");
         let  time4= document.createElement("option");
         time4.setAttribute("value","12:00~13:00");
         time4.innerText="12:00~13:00";
         time4.setAttribute("name","time")
         time.append(time4);
-        time.setAttribute("style","width:80px;display: initial;");
+        time.setAttribute("style","width:130px;display: initial;");
         let  time5= document.createElement("option");
         time5.setAttribute("value","13:00~14:00");
         time5.innerText="13:00~14:00";

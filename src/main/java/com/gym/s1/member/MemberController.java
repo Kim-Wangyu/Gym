@@ -75,7 +75,6 @@ public class MemberController {
 			path= "./login";
 		}
 		session.setAttribute("trainer", trainerDTO);
-		System.out.println("안녕"+trainerDTO.getTraNum());
 		session.setAttribute("member", memberDTO);
 		model.addAttribute("message", message);
 		model.addAttribute("path", path);
@@ -89,8 +88,15 @@ public class MemberController {
 	}
 	
 	@GetMapping("mypage")
-	public String mypage()throws Exception{
-		return "./member/mypage";
+	public ModelAndView mypage(MembershipDTO membershipDTO,HttpSession session)throws Exception{
+		MemberDTO memberDTO=(MemberDTO)session.getAttribute("member");
+		membershipDTO.setMemberNum(memberDTO.getMemberNum());
+		membershipDTO = memberService.mypage(membershipDTO);
+		ModelAndView mv = new ModelAndView();
+		
+		mv.addObject("membership",membershipDTO);
+		mv.setViewName("./member/mypage");
+		return mv;
 	}	
 	
 	@GetMapping("update")

@@ -13,10 +13,10 @@
 </head>
 <body>
 <c:import url="../template/header.jsp"></c:import>
-<h1>Greeting Page</h1>
+<h1></h1>
 <div id="galleryCont">
 
- 	<img src="/s1/resources/images/Logo.jpg" id="photo">
+ 	<img src="/s1/resources/images/Logo2.jpg" id="photo">
 	<div id="gc">
 		<button id="cli" type="button">이전</button>
 	</div>

@@ -1,6 +1,7 @@
 .table_total{
     width:70%;
     margin : 0 auto;
+    background-color: white;
 }
 
 .table_total >.search{

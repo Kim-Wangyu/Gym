@@ -61,5 +61,8 @@ public class MemberDAO {
 	public int addFile(MemberFileDTO memberFileDTO)throws Exception{
 		return sqlSession.insert(NAMESPACE+"addFile",memberFileDTO);
 	}
+	public MembershipDTO mypage(MembershipDTO membershipDTO)throws Exception{
+		return sqlSession.selectOne(NAMESPACE+"mypage", membershipDTO);
+	}
 	
 }

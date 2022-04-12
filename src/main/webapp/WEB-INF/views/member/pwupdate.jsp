@@ -39,10 +39,12 @@
 				</h3>
 				<div id="pwResult"></div>
 				
-				<a href="./mypage"> < my page</a>
+				<a class ="mypagea" href="./mypage"> < my page</a>
 				<button id="upgradebtn" type="submit" id="btn">비밀번호 수정</button></div>
 			</form>
-		
+		 <div>
+        <img id="faqPic" alt="" src="/s1/resources/images/faqPic.jpg" style="width:550px;height:200px;margin-left:600px">
+        </div>
 		<script type="text/javascript" src="../resources/js/pwupdate.js"></script>
 	</div>
 	<footer>

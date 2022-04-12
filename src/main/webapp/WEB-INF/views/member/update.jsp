@@ -26,12 +26,15 @@
 		<h3>ID <input class="updateh3" type="text" name="id" value="${member.id}" readonly="readonly"></h3>
 		<h3>Name <input class="updateh3" type="text" name="name" value="${member.name}" ></h3>
 		<h3>Phone <input class="updateh3" type="text" name="phone" value="${member.phone}"></h3>
-		<a href="./mypage"> < my page</a>
+		<a class ="mypagea" href="./mypage"> < my page</a>
 		<button type="submit" id="updatebtn">수정</button>
 		</div>
 	</form>
 
 	</div>
+	 <div>
+        <img id="faqPic" alt="" src="/s1/resources/images/faqPic.jpg" style="width:550px;height:200px;margin-left:600px">
+        </div>
 	<footer>
 	<c:import url="../template/bottom.jsp"></c:import>
 	</footer>

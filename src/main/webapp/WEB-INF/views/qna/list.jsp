@@ -9,6 +9,7 @@
 <c:import url="../template/header_css.jsp"></c:import>
 <link href="../resources/css/table.css" rel="stylesheet">
 <link href="../resources/css/list.css" rel="stylesheet">
+<link rel="stylesheet" href="/s1/resources/css/home.css">
  
 </head>
 </head>

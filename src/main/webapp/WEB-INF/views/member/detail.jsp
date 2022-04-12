@@ -7,10 +7,12 @@
 <meta charset="UTF-8">
 <c:import url="../template/header_css.jsp"></c:import>
 <link href="../resources/css/detail.css" rel="stylesheet">
+<link rel="stylesheet" href="/s1/resources/css/home.css">
 </head>
 </head>
 <body>
 	<c:import url="../template/header.jsp"></c:import>
+	<div class="d1">
 	<h1>Member Detail Page</h1>
 	
 	<h3>id : ${member.id}</h3>
@@ -26,9 +28,9 @@
 	</c:if>
 	
 	
-	<a href="./upgrade?memberNum=${member.memberNum}">Upgrade</a>
+	<a class="btnbtn" href="./upgrade?memberNum=${member.memberNum}">Upgrade</a>
 	
-	
+	</div>
 	
 
 </body>
