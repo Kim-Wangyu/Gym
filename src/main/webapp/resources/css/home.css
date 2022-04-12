@@ -58,7 +58,9 @@ body{
     background-size: 1910px 600px; */
 }
 #gc{
-    width: 1500px;
+    position: absolute;
+    z-index: 1;
+    width: 1628px;
     height: 100%;
     position: absolute;
     display: flex;
@@ -66,7 +68,10 @@ body{
     align-items: center;
 }
 #gc1{
-    width:1500px;
+    position: absolute;
+    z-index: 1;
+    margin-left: 400px;
+    width:1300px;
     height: 100%;
     position: absolute;
     display: flex;

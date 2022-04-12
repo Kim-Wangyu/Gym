@@ -73,7 +73,7 @@
 <footer>
 <c:import url="./template/bottom.jsp"></c:import>
 </footer>
-	<script src="./resources/js/homePage.js"></script>
+	<script src="./resources/js/etc.js"></script>
 
 </body>
 </html>

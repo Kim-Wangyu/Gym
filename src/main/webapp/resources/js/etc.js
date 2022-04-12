@@ -22,10 +22,12 @@ function changePic(idx){
 }
 
 cli.addEventListener("click",function(){
+    console.log('dd')
     changePic(0);
 })
 
 cli1.addEventListener("click",function(){
+    console.log('dd')
     changePic(1);
 })
 
