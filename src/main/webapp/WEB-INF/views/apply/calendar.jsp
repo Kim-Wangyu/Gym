@@ -74,6 +74,6 @@
     </div>
     <script src="../resources/js/calendar.js"></script>
     <script src="../resources/js/apply.js"></script>
-    <c:import url="../template/bottom.jsp"></c:import>
+   
 </body>
 </html>

@@ -7,10 +7,12 @@
 <meta charset="UTF-8">
 <c:import url="../template/header_css.jsp"></c:import>
 <link href="../resources/css/detail.css" rel="stylesheet">
+<link href="../resources/css/home.css" rel="stylesheet">
 </head>
 </head>
 <body>
 	<c:import url="../template/header.jsp"></c:import>
+	<div class="d1">
 	<h1>Member Detail Page</h1>
 	<form action="./upgrade" method="post" id="detailForm">
 		<input type="hidden" name="memberNum" value="${members.memberNum}">
@@ -24,20 +26,25 @@
 
 		<c:if test="${member.grade eq 2}">
 			<c:if test="${members.grade eq 0}">
-				<select name="grade" class="gradeSelect">
+			<div class="memberdetail" style="font-size: larger;font-weight: bold;">
+				등급&nbsp<select  name="grade" class="gradeSelect">
 					<option value="0" class ="gradeOption" selected="selected">회원</option>
 					<option value="1" class ="gradeOption">트레이너</option>
 				</select>
+				</div>
+				
 			</c:if>
 			<c:if test="${members.grade eq 1}">
-				<select name="grade" class="gradeSelect">
+			<div class="memberdetail"  style="font-size: larger;font-weight: bold;">
+				등급 :&nbsp<select  name="grade" class="gradeSelect">
 					<option value="0" class ="gradeOption">회원</option>
 					<option value="1" class ="gradeOption" selected="selected">트레이너</option>
 				</select>
+			</div>
 			</c:if>
 
 		</c:if>
-		<c:if test="${member.grade eq 1}">
+	<%-- 	<c:if test="${member.grade eq 1}">
 			<c:if test=" ${members.grade eq 0}">
 				<h3>등급 :회원 </h3>
 			</c:if>
@@ -45,19 +52,21 @@
 				<h3>등급 :트레이너</h3>
 			</c:if>
 			
-		</c:if>
+		</c:if> --%>
 		<div id="priceDiv">
 			<c:if test="${ members.grade eq 1 }">
-				가격<input type="number" name = "price" value="${trainer.price}">
+			<div class="memberdetail" style="font-size: larger;font-weight: bold;">
+				가격 :&nbsp<input style="width: 75px;" type="number" name = "price" value="${trainer.price}">
+			</div>
 			</c:if>
 		</div>
 		<c:if test="${member.grade eq 2}">
 			<button type="button" id="detailBtn">저장</button>
 		</c:if>
 	</form>
+</div>
 
-
-
+	<c:import url="../template/bottom.jsp"></c:import>
 	<script type="text/javascript" src="../resources/js/detail.js"></script>
 </body>
 </html>

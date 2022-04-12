@@ -113,7 +113,7 @@
 				</div>
 				<div>
 					시작날짜<input name="start" id="startDate" type="text"
-						value="달력에서 시작날짜 클릭" readonly="readonly"> <select
+						value="달력에서 시작날짜 클릭" readonly="readonly" style="margin-left: 10px;margin-bottom:7px"> <select
 						id=select6>
 						<option value="0">기간</option>
 						<option value="1">1개월 12만원</option>
@@ -151,7 +151,7 @@
 		</div>
 	</div>
 
-	<c:import url="../template/bottom.jsp"></c:import>
+	
 
 </body>
 </html>
