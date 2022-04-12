@@ -111,18 +111,6 @@
 						<option value="20">20</option>
 					</select>
 				</div>
-				<div>
-					시작날짜<input name="start" id="startDate" type="text"
-						value="달력에서 시작날짜 클릭" readonly="readonly" style="margin-left: 10px;margin-bottom:7px"> <select
-						id=select6>
-						<option value="0">기간</option>
-						<option value="1">1개월 12만원</option>
-						<option value="3">3개월 30만원</option>
-						<option value="6">6개월 50만원</option>
-						<option value="12">12개월 80만원</option>
-					</select> 종료날짜<input name="finish" id="finishDate" type="text" value=""
-						readonly="readonly">
-				</div>
 				<div style="height: 35px;">
 					&nbsp선택<select style="margin-left: 38px;" id="select4"
 						name="locker">
