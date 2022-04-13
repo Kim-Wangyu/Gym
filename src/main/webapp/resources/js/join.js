@@ -21,27 +21,27 @@ id.addEventListener("blur",function(){
     if(id.value!=""){
         idcheck=true;
     }else {
-        idcheck=false;
         alert('id를 입력하세요');
-        id.focus();
+        id.focus(); 
+        idcheck=false;
     }
 });
 name.addEventListener("blur",function(){
     if(name.value!=""){
         namecheck=true;
     }else {
-        namecheck=false;
         alert('이름을 입력하세요');
         name.focus();
+        namecheck=false;
     }
 });
 phone.addEventListener("blur",function(){
     if(phone.value!=""){
         phonecheck=true;
     }else {
-        phonecheck=false;
         alert('핸드폰번호를 입력하세요');
         phone.focus();
+        phonecheck=false;
     }
 });
 file.addEventListener("blur",function(){

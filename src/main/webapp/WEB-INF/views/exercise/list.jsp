@@ -31,11 +31,11 @@
 		</form>
 	</div>
 
-	<table class="table_head">
+	<table class="table_head" style="table-layout:fixed">
 		<tr>
 			<th>번호</th>
 			<th>제목</th>
-			<th>내용</th>
+		<!-- 	<th>내용</th> -->
 			<th>작성자</th>
 		</tr>
 
@@ -43,7 +43,9 @@
 			<tr>
 				<td>${dto.num}</td>
 				<td><a href="./detail?num=${dto.num}">${dto.title}</a></td>
-				<td>${dto.contents}</td>
+				<%-- <td style="text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;">${dto.contents}</td> --%>
 				<td>${dto.writer}</td>
 			</tr>
 		</c:forEach>

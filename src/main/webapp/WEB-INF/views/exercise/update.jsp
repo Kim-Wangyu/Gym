@@ -18,7 +18,7 @@
 	<form action="./update" method="post" enctype="multipart/form-data">
 		<input type="hidden" name="num" id="num" value="${dto.num}">
 		<h3 class="updateh3">Title</h3> <input  class="updateinput"type="text" name="title" id="title" value="${dto.title}">
-		<h3 class="updateh3">Contents</h3> <textarea  class="updatetextarea" name= "contents" rows="" cols="">${dto.contents}</textarea>
+		<h3 class="updateh3">Contents</h3> <textarea class="updatetextarea" name= "contents" rows="" cols="">${dto.contents}</textarea>
 		<h3 class="updateh3">Writer</h3> <input  class="updateinput" type="text" readonly="readonly" name="writer" value="${dto.writer}">
 		<div id=files>
 			<c:forEach items="${dto.exFileDTOs}" var = "f">

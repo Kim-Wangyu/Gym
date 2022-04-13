@@ -33,6 +33,10 @@
 			<exclude-mapping path="/member/login"/>
 			<exclude-mapping path="/member/join"/>
 			<beans:ref bean="loginInterceptor"/>
+		</interceptor>	
+		<interceptor>
+			<mapping path="/apply/*"/>
+			<beans:ref bean="loginInterceptor"/>
 		</interceptor>
 		
 	</interceptors>
