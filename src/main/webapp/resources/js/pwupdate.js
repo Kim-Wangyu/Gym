@@ -1,4 +1,4 @@
-const btn = document.getElementById("btn");
+const btn = document.getElementById("upgradebtn");
 const pw = document.getElementById("pw");
 const pw2 = document.getElementById("pw2");
 const pw3 = document.getElementById("pw3");
@@ -10,6 +10,8 @@ const pwResult2 = document.getElementById('pwResult2');
 
 
 //pw, pw2 check 후 pw를 수정했을때 pw2의 비밀번호 초기화
+let pwcheck = false;
+
 pw2.addEventListener("change", function(){
     pw.value="";
     pwResult.innerHTML="";
@@ -22,6 +24,7 @@ pw2.addEventListener("keyup",function(){
 
     if(length>=6&&length<=10){
         message="적합한 비밀번호 입니다."
+        pwcheck=true;
     }
     pwResult2.innerHTML=message;
 
@@ -37,10 +40,8 @@ pw.addEventListener("keyup",function(){
 
 })
 btn.addEventListener("click", function(){
-    console.log("click");
-
     if(pw1.value == bpw.value){
-       if(pw2.value==pw.value){
+       if(pw2.value==pw.value&&pwcheck){
             alert("수정 완료 성공")
             form.submit();
         }

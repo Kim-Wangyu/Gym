@@ -63,7 +63,7 @@
     	<img alt="" src="../resources/images/Logo.jpg" style="position: absolute; margin-left:350px;margin-top:-350px">
     </div>
     
-    <div id="applyDiv" data-id="${member.grade}"></div>
+    <div id="applyDiv" data-grade="${member.grade}"></div>
     <div id="addDiv"></div>
     </div>
     	<div>

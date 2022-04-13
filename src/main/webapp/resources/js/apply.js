@@ -114,7 +114,7 @@ tb_body.addEventListener("click",function(event){
                     day.setAttribute("name","applyDay")
                     day.setAttribute("readonly","readonly")
                    //관리자면 add버튼 add 메소드 전송 회원이면 apply버튼 apply메소드 전송
-                    if(applyDiv.getAttribute("data-id")==1){
+                    if(applyDiv.getAttribute("data-grade")==1){
                        form.setAttribute("action","./addApply");
                        form.setAttribute("id","subForm");
                        button.setAttribute("id","addBtn");
@@ -182,8 +182,10 @@ tb_body.addEventListener("click",function(event){
             let input1= document.createElement("input");
             input.setAttribute("value",day.value);
             input.setAttribute("name","addDay");
+            input.setAttribute("readonly","readonly")
             input1.setAttribute("name","addTime");
             input1.setAttribute("value",time.value);
+            input1.setAttribute("readonly","readonly")
             diva.append(input);
             diva.append(input1);
             diva.append(deleteBtn);
@@ -204,7 +206,7 @@ tb_body.addEventListener("click",function(event){
     //딜리트버튼 선택하면 지우기
     addDiv.addEventListener("click",function(event){
         if(event.target.classList.contains("del")){
-            let delConfirm = Confirm("삭제하시겠습니까?");
+            let delConfirm = confirm("삭제하시겠습니까?");
             if(delConfirm){
                  //부모 선택해서 지우기
             event.target.parentNode.remove();

@@ -24,7 +24,6 @@ detailForm.addEventListener("change",function(event){
             } 
         }
     }
-    
 });
 
 detailBtn.addEventListener("click",function(){

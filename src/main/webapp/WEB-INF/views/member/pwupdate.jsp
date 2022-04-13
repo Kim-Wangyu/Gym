@@ -40,7 +40,7 @@
 				<div id="pwResult"></div>
 				
 				<a class ="mypagea" href="./mypage"> < my page</a>
-				<button id="upgradebtn" type="submit" id="btn">비밀번호 수정</button></div>
+				<button id="upgradebtn" type="button" >비밀번호 수정</button></div>
 			</form>
 		 <div>
         <img id="faqPic" alt="" src="/s1/resources/images/faqPic.jpg" style="width:550px;height:200px;margin-left:600px">

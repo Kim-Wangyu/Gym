@@ -20,7 +20,7 @@
 				<li><a href="/s1/exercise/list"class="listmenu"><img alt="" src="/s1/resources/images/dumbbel.jpg" class="dumbbelimg">  Exercise</a>
 					<ul class="submenu">
 						<li class="sub1"><a href="/s1/etc/trainers">PT trainer</a></li>
-						
+						<li><a href="/s1/exercise/list">Exercise</a></li>
 					</ul>
 				</li>
 				<li><a href="/s1/qna/list"class="listmenu"><img alt="" src="/s1/resources/images/dumbbel.jpg" class="dumbbelimg"> Questions</a>
