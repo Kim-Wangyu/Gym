@@ -47,7 +47,7 @@ public class ApplyController {
 			a = a.replace("년", "-");
 			a = a.replace("월", "-");
 			a = a.replace("일", "");
-			Date day = Date.valueOf(a);
+			Date day = Date.valueOf(a); 
 			applyDTO.setDay(day);
 			applyDTO.setTime(addTime[i]);
 			applyDTO.setTraNum(trainerDTO.getTraNum());
@@ -218,7 +218,15 @@ public class ApplyController {
 	@PostMapping("delApply")
 	public ModelAndView delApply(ApplyDTO applyDTO, HttpSession session) throws Exception {
 		ModelAndView mv = new ModelAndView();
-		int result = applyService.applyDelete(applyDTO);
+
+			applyDTO = applyService.applyNum(applyDTO);
+			MembershipDTO membershipDTO = new MembershipDTO();
+			membershipDTO.setMembershipNum(applyDTO.getMembershipNum());
+			membershipDTO = applyService.findMemberNum(membershipDTO);
+			Long reCount = membershipDTO.getCount()+1L;
+			membershipDTO.setCount(reCount);
+			int result = applyService.applyDelete(applyDTO);
+			int result1= applyService.setCount(membershipDTO);
 		mv.setViewName("apply/empty2");
 		return mv;
 	}
