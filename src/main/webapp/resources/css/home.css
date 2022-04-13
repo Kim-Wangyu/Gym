@@ -26,6 +26,7 @@ body{
     border-radius : 25px;
     border-spacing:0px;
     border-collapse: collapse;  
+    background-color: white;
 }
 .wd1 li a:hover{
     background: rgb(31,31,31);
