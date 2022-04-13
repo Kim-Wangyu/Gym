@@ -64,5 +64,11 @@ public class ApplyService {
 	public int studyDelete(ApplyDTO applyDTO)throws Exception{
 		return applyDAO.studyDelete(applyDTO);
 	}
+	public ApplyDTO applyNum(ApplyDTO applyDTO)throws Exception{
+		return applyDAO.applyNum(applyDTO);
+	}
+	public int setCount(MembershipDTO membershipDTO)throws Exception{
+		return applyDAO.setCount(membershipDTO);
+	}
 	
 }

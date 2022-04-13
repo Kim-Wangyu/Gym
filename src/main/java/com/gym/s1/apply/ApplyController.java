@@ -259,7 +259,16 @@ public class ApplyController {
 	@PostMapping("delStudy")
 	public ModelAndView delStudy(ApplyDTO applyDTO, HttpSession session) throws Exception {
 		ModelAndView mv = new ModelAndView();
+		applyDTO = applyService.applyNum(applyDTO);
 		int result = applyService.studyDelete(applyDTO);
+		if(result==1&&applyDTO.getMembershipNum()!=null) {
+			MembershipDTO membershipDTO = new MembershipDTO();
+			membershipDTO.setMembershipNum(applyDTO.getMembershipNum());
+			membershipDTO = applyService.findMemberNum(membershipDTO);
+			Long reCount = membershipDTO.getCount()+1L;
+			membershipDTO.setCount(reCount);
+			int result1= applyService.setCount(membershipDTO);
+		}
 		mv.setViewName("apply/empty2");
 		return mv;
 	}

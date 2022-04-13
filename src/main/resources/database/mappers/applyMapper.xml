@@ -14,6 +14,10 @@
 		UPDATE APPLY SET MEMBERSHIPNUM=#{membershipNum} WHERE APPLYNUM =#{applyNum}
 	</update>
 	
+	<select id="applyNum" parameterType="ApplyDTO" resultType="ApplyDTO">
+		SELECT * FROM APPLY WHERE APPLYNUM=#{applyNum}
+	</select>
+	
 	<select id="applyList" parameterType="ApplyDTO" resultType="ApplyDTO">
 		SELECT * FROM APPLY WHERE DAY = #{day} AND MEMBERSHIPNUM IS NULL ORDER BY TRANUM, TIME ASC
 	</select>
@@ -65,5 +69,9 @@
 	<delete id="studyDelete" parameterType="ApplyDTO">
 		DELETE APPLY WHERE APPLYNUM=#{applyNum}
 	</delete>
+	
+	<update id="setCount" parameterType="MembershipDTO">
+		UPDATE MEMBERSHIP SET COUNT=#{count} WHERE MEMBERSHIPNUM=#{membershipNum}
+	</update>
 	
 </mapper>

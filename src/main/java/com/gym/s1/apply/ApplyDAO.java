@@ -64,4 +64,10 @@ public class ApplyDAO {
 	public int studyDelete(ApplyDTO applyDTO)throws Exception{
 		return sqlSession.delete(NAMESPACE+"studyDelete",applyDTO);
 	}
+	public ApplyDTO applyNum(ApplyDTO applyDTO)throws Exception{
+		return sqlSession.selectOne(NAMESPACE+"applyNum",applyDTO);
+	}
+	public int setCount(MembershipDTO membershipDTO)throws Exception{
+		return sqlSession.update(NAMESPACE+"setCount",membershipDTO);
+	}
 }
