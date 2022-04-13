@@ -2,4 +2,13 @@
 
 .th{
     height:24px;
+
+}
+.myapplypagediv{
+
+    background-color: lightgray;
+    width: 600px;
+    height: 600px;
+    margin: 100px auto;
+    text-align: center;
 }

@@ -7,12 +7,19 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link href="../resources/css/myApply.css" rel="stylesheet">
+<c:import url="../template/header_css.jsp"></c:import>
+<link href="../resources/css/mypage.css" rel="stylesheet">
+<link rel="stylesheet" href="/s1/resources/css/home.css">
 </head>
 <body>
+	<c:import url="../template/header.jsp"></c:import>
+</head>
+<body>
+<div class="myapplypagediv" style="border-radius: 50px;">
 	<h1>수업 목록</h1>
-	<div style="display: flex" id="myApplyDiv">
+	<div style="display: flex;justify-content: center;margin-top: 10px;" id="myApplyDiv">
 		<div>
-			<table>
+			<table style="line-height: 30px;">
 				<tr>
 					<th>번호</th>
 					<th>회원</th>
@@ -32,7 +39,7 @@
 			</table>
 		</div>
 		<div>
-			<table>
+			<table style="line-height: 30px;">
 				<tr>
 					<th>날짜</th>
 					<th>시간</th>
@@ -42,12 +49,18 @@
 					<tr>
 						<th>${dto.day}</th>
 						<th>${dto.time}</th>
-						<th><button type="button" class="StudyDelBtn" data-num="${dto.applyNum}" data-index1="index1${i.index}" >삭제</button></th>
+						<th><button style="margin-left: 10px; border: solid 2px #ec3b3b;box-sizing: border-box;height: 30px;width: 100%;" type="button" class="StudyDelBtn" data-num="${dto.applyNum}" data-index1="index1${i.index}" >삭제</button></th>
 					</tr>
 				</c:forEach>
 			</table>
 		</div>
 	</div>
+	</div>
+	<div>
+			<img id="faqPic" alt="" src="/s1/resources/images/faqPic.jpg"
+				style="width: 550px; height: 200px; margin-left: 600px">
+		</div>
 	<script type="text/javascript" src="../resources/js/myApply.js"></script>
+	<c:import url="../template/bottom.jsp"></c:import>
 </body>
 </html>
